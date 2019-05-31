@@ -2,7 +2,7 @@ library(rpart)
 library(rpart.plot)
 
 mytypes <- c('factor',rep('character',3),'factor',rep('character',2),rep('factor',7),'character',rep(c('numeric','character'),16),'character','factor')
-df <- read.csv("HHA2014-2018.csv",sep=',',colClasses=mytypes)
+df <- read.csv("HHA2014-2018(nosize).csv",sep=',',colClasses=mytypes)
 names(df) <- c('state','CCN','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','timely','note-timely','taughtdrugs','note-taughtdrugs','checkfall','note-checkfall','checkdepression','note-checkdepression','flushot','note-flushot','pnumococcal','note-pnumococcal','taughtfootcare','note-tautfootcare','betterwalking','note-betterwalking','betterbed','note-betterbed','betterbathing','note-betterbathing','lesspain','note-lesspain','betterbreathing','note-betterbreathing','betterheal','note-betterheal','betterdrug','note-betterdrug','urgent','note-urgent','admitted','note-admitted','note','year')
 
 names(df)
@@ -52,37 +52,38 @@ dataUrban <- fulldata[fulldata$RUCA=='Urban',]
 
 
 model0 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + RUCA, data =fulldata,cp=0.005)
-rpart.plot(model0,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model0,digits=8,fallen.leaves=TRUE,type=4,extra=5)
 
 model1 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.0098)
 summary(model1)
-rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 model2 <- rpart(formula= urgent ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.012)
 summary(model2)
-rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
+
 
 par(mfrow=c(2,2))
 
 model3 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.005)
 summary(model3)
-rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 model4 <- rpart(formula= urgent ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.008)
 summary(model4)
-rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
-model5 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.002)
+model5 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.003)
 summary(model5)
-rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 model6 <- rpart(formula= urgent ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.0053)
 summary(model6)
-rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 
@@ -92,30 +93,30 @@ rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=1,extra=1)
 
 model1 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.005)
 summary(model1)
-rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 model2 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.005)
 summary(model2)
-rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 par(mfrow=c(2,2))
 
 model3 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.005)
 summary(model3)
-rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 model4 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.008)
 summary(model4)
-rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 model5 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.002)
 summary(model5)
-rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 model6 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.006)
 summary(model6)
-rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=1,extra=1)
+rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
