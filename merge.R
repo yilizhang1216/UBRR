@@ -1,3 +1,64 @@
+numtype <-c('character','character','character','character','numeric')
+numnames <- c('RPT_REC_NUM','WKSHT_CD','LINE_NUM','CLMN_NUM','size')
+rptnames <- c('RPT_REC_NUM','CCN')
+
+visit2014 <- read.csv("hha_2014_NMRC.CSV",sep=',',colClasses=numtype)
+names(visit2014) <- numnames
+visit2014 <- visit2014[visit2014$WKSHT_CD=="S300000"&visit2014$LINE_NUM=="00100"&visit2014$CLMN_NUM=="0100",]
+dim(visit2014)
+report2014 <- read.csv("hha_2014_RPT.CSV",sep=',')[,c(1,3)]
+names(report2014) <- rptnames
+size2014 <- merge(visit2014,report2014,by='RPT_REC_NUM')
+size2014 <- size2014[,c(-1,-2,-3,-4)]
+dim(size2014)
+names(size2014)
+
+visit2015 <- read.csv("hha_2015_NMRC.CSV",sep=',',colClasses=numtype)
+names(visit2015) <- numnames
+visit2015 <- visit2015[visit2015$WKSHT_CD=="S300000"&visit2015$LINE_NUM=="00100"&visit2015$CLMN_NUM=="0100",]
+dim(visit2015)
+report2015 <- read.csv("hha_2015_RPT.CSV",sep=',')[,c(1,3)]
+names(report2015) <- rptnames
+size2015 <- merge(visit2015,report2015,by='RPT_REC_NUM')
+size2015 <- size2015[,c(-1,-2,-3,-4)]
+dim(size2015)
+names(size2015)
+
+visit2016 <- read.csv("hha_2016_NMRC.CSV",sep=',',colClasses=numtype)
+names(visit2016) <- numnames
+visit2016 <- visit2016[visit2016$WKSHT_CD=="S300000"&visit2016$LINE_NUM=="00100"&visit2016$CLMN_NUM=="0100",]
+dim(visit2016)
+report2016 <- read.csv("hha_2016_RPT.CSV",sep=',')[,c(1,3)]
+names(report2016) <- rptnames
+size2016 <- merge(visit2016,report2016,by='RPT_REC_NUM')
+size2016 <- size2016[,c(-1,-2,-3,-4)]
+dim(size2016)
+names(size2016)
+
+visit2017 <- read.csv("hha_2017_NMRC.CSV",sep=',',colClasses=numtype)
+names(visit2017) <- numnames
+visit2017 <- visit2017[visit2017$WKSHT_CD=="S300000"&visit2017$LINE_NUM=="00100"&visit2017$CLMN_NUM=="0100",]
+dim(visit2017)
+report2017 <- read.csv("hha_2017_RPT.CSV",sep=',')[,c(1,3)]
+names(report2017) <- rptnames
+size2017 <- merge(visit2017,report2017,by='RPT_REC_NUM')
+size2017 <- size2017[,c(-1,-2,-3,-4)]
+dim(size2017)
+names(size2017)
+
+visit2018 <- read.csv("hha_2018_NMRC.CSV",sep=',',colClasses=numtype)
+names(visit2018) <- numnames
+visit2018 <- visit2018[visit2018$WKSHT_CD=="S300000"&visit2018$LINE_NUM=="00100"&visit2018$CLMN_NUM=="0100",]
+dim(visit2018)
+report2018 <- read.csv("hha_2018_RPT.CSV",sep=',')[,c(1,3)]
+names(report2018) <- rptnames
+size2018 <- merge(visit2018,report2018,by='RPT_REC_NUM')
+size2018 <- size2018[,c(-1,-2,-3,-4)]
+dim(size2018)
+names(size2018)
+
+
+
 mytypes60 <- c('factor',rep('character',3),'factor',rep('character',2),rep('factor',7),'character',rep(c('numeric','character'),22),'character')
 names60 <- c('state','CCN','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','timely','note-timely','taughtdrugs','note-taughtdrugs','checkfall','note-checkfall','checkdepression','note-checkdepression','flushot','note-flushot','pnumococcal','note-pnumococcal','taughtfootcare','note-tautfootcare','checkpain','note-checkpain','treatpain','note-treatpain','treatheart','note-treatheart','actionsores','note-actionsores','treatsores','note-treatsores','checksores','note-checksores','betterwalking','note-betterwalking','betterbed','note-betterbed','betterbathing','note-betterbathing','lesspain','note-lesspain','betterbreathing','note-betterbreathing','betterheal','note-betterheal','betterdrug','note-betterdrug','urgent','note-urgent','admitted','note-admitted','note')
 
@@ -161,14 +222,34 @@ df20183$year <- year20183
 year20184 <- as.factor(rep('2018',nrow(df20184)))
 df20184$year <- year20184
 
+ddf20141 <- merge(df20141,size2014,by='CCN')
+ddf20142 <- merge(df20142,size2014,by='CCN')
+ddf20143 <- merge(df20143,size2014,by='CCN')
+ddf20144 <- merge(df20144,size2014,by='CCN')
+ddf20151 <- merge(df20151,size2015,by='CCN')
+ddf20152 <- merge(df20152,size2015,by='CCN')
+ddf20153 <- merge(df20153,size2015,by='CCN')
+ddf20154 <- merge(df20154,size2015,by='CCN')
+ddf20161 <- merge(df20161,size2016,by='CCN')
+ddf20162 <- merge(df20162,size2016,by='CCN')
+ddf20163 <- merge(df20163,size2016,by='CCN')
+ddf20164 <- merge(df20164,size2016,by='CCN')
+ddf20171 <- merge(df20171,size2017,by='CCN')
+ddf20172 <- merge(df20172,size2017,by='CCN')
+ddf20173 <- merge(df20173,size2017,by='CCN')
+ddf20174 <- merge(df20174,size2017,by='CCN')
+ddf20181 <- merge(df20181,size2018,by='CCN')
+ddf20182 <- merge(df20182,size2018,by='CCN')
+ddf20183 <- merge(df20183,size2018,by='CCN')
+ddf20184 <- merge(df20184,size2018,by='CCN')
 
 
-df <- rbind(df20141,df20142,df20143,df20144,df20151,df20152,df20153,df20154,df20161,df20162,df20163,df20164,df20171,df20172,df20173,df20174,df20181,df20182,df20183,df20184)
+df <- rbind(ddf20141,ddf20142,ddf20143,ddf20144,ddf20151,ddf20152,ddf20153,ddf20154,ddf20161,ddf20162,ddf20163,ddf20164,ddf20171,ddf20172,ddf20173,ddf20174,ddf20181,ddf20182,ddf20183,ddf20184)
 
 
 write.csv(df, file = "HHA2014-2018.csv",row.names=FALSE, na="")
 
 
-visit2014 <- read.csv("hha_2014_NMRC.CSV",sep=',',colClasses=mytypes54)
-length(names(visit2014))
-names(df20184) <- names54
+
+
+
