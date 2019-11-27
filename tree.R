@@ -62,12 +62,7 @@ fulldata$RUCA <- dummyRUCA
 dataRural <- fulldata[fulldata$RUCA=='Rural',]
 dataUrban <- fulldata[fulldata$RUCA=='Urban',]
 
-
-
-
-
-
-
+par(mfrow=c(1,2))
 model1 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.005)
 summary(model1)
 rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
