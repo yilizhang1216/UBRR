@@ -37,7 +37,6 @@ names(merg)
 head(merg)
 dim(merg)
 
-
 data <- merg[,c(-7:-4,-2,-1,-15,-17,-19,-21,-23,-25,-27,-29,-31,-33,-35,-37,-39,-41,-43,-45,-47,-48)]
 
 fulldata <- na.omit(data)
@@ -65,39 +64,41 @@ dataUrban <- fulldata[fulldata$RUCA=='Urban',]
 
 
 
-
-
-
 model1 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.005)
 summary(model1)
+pdf("plot/admitted_fulldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
+dev.off()
 
 model2 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.01)
 summary(model2)
+pdf("plot/urgent_fulldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
-par(mfrow=c(2,2))
+dev.off()
 
 model3 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.0075)
 summary(model3)
+pdf("plot/admitted_urbandata.pdf",width=6,height=4,paper='special')
 rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
+dev.off()
 
 model4 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.008)
 summary(model4)
+pdf("plot/urgent_urbandata.pdf",width=6,height=4,paper='special')
 rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
+dev.off()
 
 model5 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.003)
 summary(model5)
+pdf("plot/admitted_ruraldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
+dev.off()
 
 model6 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.005)
 summary(model6)
+pdf("plot/urgent_ruraldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
+dev.off()
 
 
 ## no characteristics

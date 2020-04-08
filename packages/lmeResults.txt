@@ -1,0 +1,2412 @@
+> model1 <- lme(admitted~type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + Median + Pop + RUCA,data=fulldata,random=~1|CCN)
+> summary(model1)
+Linear mixed-effects model fit by REML
+ Data: fulldata 
+       AIC      BIC    logLik
+  401874.6 402218.5 -200900.3
+
+Random effects:
+ Formula: ~1 | CCN
+        (Intercept) Residual
+StdDev:    1.928617 2.759973
+
+Fixed effects: admitted ~ type + off.physical + off.occupational + off.speech +      off.medical + off.hha + timely + taughtdrugs + checkfall +      checkdepression + flushot + pnumococcal + taughtfootcare +      betterwalking + betterbed + betterbathing + lesspain + betterbreathing +      betterheal + betterdrug + Median + Pop + RUCA 
+                                                        Value Std.Error    DF
+(Intercept)                                         27.118569 0.8021731 74569
+typeGovernment - Combination Government & Voluntary -0.047029 0.4001309 74569
+typeGovernment - Local                              -2.039156 0.4107386 74569
+typeGovernment - State/ County                      -1.793370 0.3992896 74569
+typeLocal                                           -0.043914 0.4136109 74569
+typeNon - Profit Other                              -1.658879 0.3909589 74569
+typeNon - Profit Private                            -1.839430 0.3923376 74569
+typeNon - Profit Religious                          -2.124093 0.3998690 74569
+typeOther                                            0.243014 0.3918853 74569
+typePrivate                                          0.478241 0.3920801 74569
+typeProprietary                                     -1.091299 0.3892162 74569
+typeReligious Affiliations                          -0.037155 0.4005623 74569
+typeState/County                                     0.128494 0.3982991 74569
+off.physicalYes                                      0.181946 0.3671591 74569
+off.occupationalYes                                  0.002046 0.0985331 74569
+off.speechYes                                       -0.244669 0.0746031 74569
+off.medicalYes                                      -0.096625 0.0673694 74569
+off.hhaYes                                           0.228645 0.0998671 74569
+timely                                               0.008345 0.0028176 74569
+taughtdrugs                                         -0.030392 0.0022849 74569
+checkfall                                           -0.095387 0.0045038 74569
+checkdepression                                      0.026089 0.0038444 74569
+flushot                                              0.020167 0.0019094 74569
+pnumococcal                                         -0.007437 0.0018220 74569
+taughtfootcare                                      -0.000284 0.0025252 74569
+betterwalking                                       -0.067966 0.0031228 74569
+betterbed                                           -0.019073 0.0022667 74569
+betterbathing                                        0.037673 0.0032997 74569
+lesspain                                            -0.008251 0.0020792 74569
+betterbreathing                                      0.003438 0.0020024 74569
+betterheal                                           0.018688 0.0020157 74569
+betterdrug                                          -0.013834 0.0022526 74569
+Median                                              -1.409782 0.2443732 74569
+Pop                                                 -1.383176 0.1913944 74569
+RUCAUrban                                           -0.973099 0.0660618 74569
+                                                      t-value p-value
+(Intercept)                                          33.80638  0.0000
+typeGovernment - Combination Government & Voluntary  -0.11753  0.9064
+typeGovernment - Local                               -4.96461  0.0000
+typeGovernment - State/ County                       -4.49140  0.0000
+typeLocal                                            -0.10617  0.9154
+typeNon - Profit Other                               -4.24310  0.0000
+typeNon - Profit Private                             -4.68839  0.0000
+typeNon - Profit Religious                           -5.31197  0.0000
+typeOther                                             0.62012  0.5352
+typePrivate                                           1.21975  0.2226
+typeProprietary                                      -2.80384  0.0051
+typeReligious Affiliations                           -0.09276  0.9261
+typeState/County                                      0.32261  0.7470
+off.physicalYes                                       0.49555  0.6202
+off.occupationalYes                                   0.02076  0.9834
+off.speechYes                                        -3.27961  0.0010
+off.medicalYes                                       -1.43426  0.1515
+off.hhaYes                                            2.28949  0.0221
+timely                                                2.96186  0.0031
+taughtdrugs                                         -13.30114  0.0000
+checkfall                                           -21.17913  0.0000
+checkdepression                                       6.78631  0.0000
+flushot                                              10.56171  0.0000
+pnumococcal                                          -4.08191  0.0000
+taughtfootcare                                       -0.11248  0.9104
+betterwalking                                       -21.76450  0.0000
+betterbed                                            -8.41454  0.0000
+betterbathing                                        11.41702  0.0000
+lesspain                                             -3.96854  0.0001
+betterbreathing                                       1.71708  0.0860
+betterheal                                            9.27117  0.0000
+betterdrug                                           -6.14155  0.0000
+Median                                               -5.76897  0.0000
+Pop                                                  -7.22684  0.0000
+RUCAUrban                                           -14.73014  0.0000
+ Correlation: 
+                                                    (Intr) t-CG&V typG-L tG-S/C
+typeGovernment - Combination Government & Voluntary -0.271                     
+typeGovernment - Local                              -0.449  0.531              
+typeGovernment - State/ County                      -0.461  0.550  0.897       
+typeLocal                                           -0.451  0.528  0.936  0.894
+typeNon - Profit Other                              -0.473  0.565  0.912  0.935
+typeNon - Profit Private                            -0.475  0.565  0.911  0.935
+typeNon - Profit Religious                          -0.465  0.554  0.896  0.919
+typeOther                                           -0.476  0.565  0.910  0.933
+typePrivate                                         -0.477  0.564  0.910  0.934
+typeProprietary                                     -0.481  0.569  0.920  0.944
+typeReligious Affiliations                          -0.468  0.552  0.893  0.916
+typeState/County                                    -0.466  0.555  0.899  0.960
+off.physicalYes                                     -0.430  0.000  0.006 -0.006
+off.occupationalYes                                 -0.005  0.002 -0.003  0.008
+off.speechYes                                        0.006 -0.004  0.005  0.002
+off.medicalYes                                      -0.016 -0.001  0.015  0.014
+off.hhaYes                                          -0.121  0.000 -0.004 -0.001
+timely                                              -0.155  0.009  0.000  0.000
+taughtdrugs                                          0.006  0.000  0.001  0.006
+checkfall                                           -0.479 -0.001  0.000  0.006
+checkdepression                                     -0.374 -0.002  0.003  0.005
+flushot                                              0.007  0.004  0.017  0.018
+pnumococcal                                          0.022 -0.003 -0.012 -0.009
+taughtfootcare                                      -0.088 -0.009 -0.002 -0.004
+betterwalking                                        0.012 -0.014 -0.014 -0.022
+betterbed                                            0.045 -0.006 -0.001  0.001
+betterbathing                                       -0.022  0.009  0.016  0.014
+lesspain                                             0.052 -0.006  0.000 -0.002
+betterbreathing                                     -0.050  0.008  0.003  0.005
+betterheal                                          -0.201 -0.003 -0.007 -0.004
+betterdrug                                           0.037 -0.004 -0.018 -0.014
+Median                                              -0.070 -0.009 -0.006 -0.007
+Pop                                                 -0.041  0.001  0.007  0.006
+RUCAUrban                                           -0.002 -0.004  0.009  0.008
+                                                    typLcl tyN-PO tyN-PP tyN-PR
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                               0.908                     
+typeNon - Profit Private                             0.907  0.975              
+typeNon - Profit Religious                           0.891  0.955  0.957       
+typeOther                                            0.906  0.983  0.972  0.952
+typePrivate                                          0.907  0.974  0.987  0.956
+typeProprietary                                      0.916  0.979  0.981  0.966
+typeReligious Affiliations                           0.890  0.952  0.954  0.979
+typeState/County                                     0.895  0.938  0.937  0.922
+off.physicalYes                                      0.004  0.001  0.002 -0.002
+off.occupationalYes                                  0.005  0.006  0.004  0.004
+off.speechYes                                        0.000 -0.004 -0.008 -0.006
+off.medicalYes                                       0.014  0.000 -0.002  0.000
+off.hhaYes                                          -0.001  0.002  0.002  0.000
+timely                                              -0.008  0.000  0.001  0.003
+taughtdrugs                                          0.008  0.001  0.002  0.002
+checkfall                                            0.003  0.003  0.003  0.003
+checkdepression                                      0.005  0.004  0.003  0.003
+flushot                                              0.002  0.019  0.019  0.015
+pnumococcal                                         -0.002 -0.012 -0.012 -0.014
+taughtfootcare                                       0.002 -0.005 -0.004 -0.004
+betterwalking                                        0.002 -0.015 -0.017 -0.015
+betterbed                                            0.002 -0.001  0.000 -0.004
+betterbathing                                        0.013  0.013  0.012  0.011
+lesspain                                            -0.014  0.001  0.002  0.000
+betterbreathing                                      0.000  0.003  0.003  0.006
+betterheal                                          -0.011 -0.006 -0.004 -0.005
+betterdrug                                          -0.013 -0.021 -0.019 -0.018
+Median                                              -0.004 -0.009 -0.010 -0.011
+Pop                                                  0.008  0.001  0.001 -0.002
+RUCAUrban                                            0.010 -0.016 -0.021 -0.026
+                                                    typOth typPrv typPrp typRlA
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                          0.971                     
+typeProprietary                                      0.976  0.981              
+typeReligious Affiliations                           0.950  0.954  0.964       
+typeState/County                                     0.936  0.938  0.947  0.920
+off.physicalYes                                      0.002  0.003  0.002 -0.001
+off.occupationalYes                                  0.004  0.005  0.002  0.004
+off.speechYes                                       -0.005 -0.009 -0.005 -0.008
+off.medicalYes                                      -0.002 -0.004  0.000 -0.002
+off.hhaYes                                           0.003  0.002  0.004  0.002
+timely                                              -0.002 -0.003 -0.003  0.000
+taughtdrugs                                          0.008  0.007  0.004  0.008
+checkfall                                            0.006  0.004  0.004  0.006
+checkdepression                                      0.002  0.004  0.007  0.001
+flushot                                              0.004  0.002  0.007  0.002
+pnumococcal                                          0.002  0.002  0.002 -0.002
+taughtfootcare                                      -0.004 -0.003 -0.004 -0.002
+betterwalking                                       -0.003 -0.005 -0.016 -0.001
+betterbed                                            0.004  0.006  0.012  0.002
+betterbathing                                        0.004  0.005  0.004  0.004
+lesspain                                            -0.006 -0.005 -0.009 -0.006
+betterbreathing                                      0.004  0.004  0.015  0.005
+betterheal                                          -0.007 -0.006 -0.008 -0.004
+betterdrug                                          -0.012 -0.012 -0.022 -0.013
+Median                                              -0.007 -0.009 -0.013 -0.009
+Pop                                                  0.002  0.002 -0.006 -0.003
+RUCAUrban                                           -0.015 -0.020 -0.038 -0.023
+                                                    typS/C off.pY off.cY off.sY
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                     -0.006                     
+off.occupationalYes                                  0.007 -0.155              
+off.speechYes                                        0.002 -0.088 -0.238       
+off.medicalYes                                       0.015 -0.034 -0.112 -0.120
+off.hhaYes                                          -0.002  0.029 -0.002 -0.065
+timely                                              -0.006 -0.002  0.005 -0.008
+taughtdrugs                                          0.014  0.012 -0.012  0.010
+checkfall                                            0.009  0.003 -0.009  0.008
+checkdepression                                      0.007 -0.007  0.001 -0.002
+flushot                                              0.000 -0.015 -0.009  0.005
+pnumococcal                                          0.003  0.011  0.000 -0.017
+taughtfootcare                                      -0.006 -0.015 -0.001 -0.017
+betterwalking                                       -0.004 -0.007  0.012  0.002
+betterbed                                            0.009 -0.002  0.007  0.004
+betterbathing                                        0.007  0.004 -0.020 -0.008
+lesspain                                            -0.010  0.002  0.002  0.000
+betterbreathing                                      0.004  0.003  0.000 -0.003
+betterheal                                          -0.006  0.002  0.005  0.003
+betterdrug                                          -0.014  0.000 -0.007  0.015
+Median                                              -0.005  0.003 -0.031 -0.014
+Pop                                                  0.008  0.000 -0.002 -0.001
+RUCAUrban                                            0.008  0.011 -0.039 -0.034
+                                                    off.mY off.hY timely tghtdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                          -0.070                     
+timely                                               0.009 -0.011              
+taughtdrugs                                         -0.014  0.007 -0.122       
+checkfall                                            0.002 -0.009 -0.051 -0.102
+checkdepression                                     -0.005 -0.007 -0.106 -0.079
+flushot                                             -0.001 -0.006 -0.027  0.015
+pnumococcal                                          0.007  0.018 -0.020 -0.107
+taughtfootcare                                       0.001  0.005 -0.080 -0.360
+betterwalking                                        0.008  0.007 -0.020 -0.051
+betterbed                                            0.000 -0.004 -0.024 -0.034
+betterbathing                                       -0.007  0.006 -0.047 -0.007
+lesspain                                             0.002 -0.004 -0.072 -0.058
+betterbreathing                                     -0.008  0.004  0.045  0.030
+betterheal                                           0.012 -0.008  0.008  0.004
+betterdrug                                          -0.015  0.011 -0.008  0.009
+Median                                              -0.030 -0.008 -0.001 -0.005
+Pop                                                 -0.043  0.002  0.013 -0.005
+RUCAUrban                                           -0.095  0.008  0.030 -0.009
+                                                    chckfl chckdp flusht pnmccc
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                     -0.012                     
+flushot                                             -0.032 -0.002              
+pnumococcal                                         -0.009 -0.024 -0.758       
+taughtfootcare                                      -0.032 -0.108 -0.014 -0.036
+betterwalking                                       -0.018  0.008  0.019 -0.029
+betterbed                                           -0.059  0.026  0.015 -0.038
+betterbathing                                       -0.026  0.005 -0.021 -0.007
+lesspain                                             0.006 -0.023 -0.043  0.026
+betterbreathing                                      0.028  0.013 -0.017 -0.003
+betterheal                                           0.003  0.001 -0.032  0.025
+betterdrug                                           0.021 -0.011  0.006 -0.016
+Median                                               0.007  0.014 -0.021 -0.002
+Pop                                                  0.000  0.002 -0.007  0.018
+RUCAUrban                                            0.005 -0.001 -0.027  0.042
+                                                    tghtft bttrwl bttrbd bttrbt
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                       -0.032                     
+betterbed                                           -0.006 -0.371              
+betterbathing                                        0.010 -0.401 -0.110       
+lesspain                                            -0.028 -0.052 -0.055 -0.213
+betterbreathing                                      0.026 -0.027 -0.165 -0.142
+betterheal                                           0.015 -0.006  0.020 -0.059
+betterdrug                                           0.005 -0.189 -0.144 -0.269
+Median                                               0.010  0.030 -0.004  0.016
+Pop                                                 -0.009  0.002  0.011 -0.003
+RUCAUrban                                           -0.005  0.018  0.010 -0.002
+                                                    lesspn bttrbr bttrhl bttrdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                                                  
+betterbed                                                                      
+betterbathing                                                                  
+lesspain                                                                       
+betterbreathing                                     -0.335                     
+betterheal                                          -0.063 -0.045              
+betterdrug                                          -0.061 -0.150 -0.014       
+Median                                              -0.046 -0.039  0.015  0.005
+Pop                                                 -0.033  0.007  0.017  0.021
+RUCAUrban                                           -0.026 -0.026  0.016 -0.009
+                                                    Median Pop   
+typeGovernment - Combination Government & Voluntary              
+typeGovernment - Local                                           
+typeGovernment - State/ County                                   
+typeLocal                                                        
+typeNon - Profit Other                                           
+typeNon - Profit Private                                         
+typeNon - Profit Religious                                       
+typeOther                                                        
+typePrivate                                                      
+typeProprietary                                                  
+typeReligious Affiliations                                       
+typeState/County                                                 
+off.physicalYes                                                  
+off.occupationalYes                                              
+off.speechYes                                                    
+off.medicalYes                                                   
+off.hhaYes                                                       
+timely                                                           
+taughtdrugs                                                      
+checkfall                                                        
+checkdepression                                                  
+flushot                                                          
+pnumococcal                                                      
+taughtfootcare                                                   
+betterwalking                                                    
+betterbed                                                        
+betterbathing                                                    
+lesspain                                                         
+betterbreathing                                                  
+betterheal                                                       
+betterdrug                                                       
+Median                                                           
+Pop                                                 -0.018       
+RUCAUrban                                           -0.241 -0.308
+
+Standardized Within-Group Residuals:
+        Min          Q1         Med          Q3         Max 
+-5.25911203 -0.60543765 -0.02589334  0.58814570  8.15243073 
+
+Number of Observations: 80261
+Number of Groups: 5658 
+
+
+> model2 <- lme(urgent~type + off.physical + off.occupational + off.speech + off.medical + off.hha +timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + Median + Pop + RUCA,data=fulldata,random=~1|CCN)
+> summary(model2)
+Linear mixed-effects model fit by REML
+ Data: fulldata 
+       AIC      BIC    logLik
+  406689.7 407033.5 -203307.9
+
+Random effects:
+ Formula: ~1 | CCN
+        (Intercept) Residual
+StdDev:    1.994274 2.843451
+
+Fixed effects: urgent ~ type + off.physical + off.occupational + off.speech +      off.medical + off.hha + timely + taughtdrugs + checkfall +      checkdepression + flushot + pnumococcal + taughtfootcare +      betterwalking + betterbed + betterbathing + lesspain + betterbreathing +      betterheal + betterdrug + Median + Pop + RUCA 
+                                                         Value Std.Error    DF
+(Intercept)                                          1.3148160 0.8269346 74569
+typeGovernment - Combination Government & Voluntary  0.5856860 0.4122656 74569
+typeGovernment - Local                               2.7451025 0.4233941 74569
+typeGovernment - State/ County                       2.1761629 0.4115786 74569
+typeLocal                                            0.1410134 0.4263565 74569
+typeNon - Profit Other                               2.0042349 0.4029920 74569
+typeNon - Profit Private                             2.1656398 0.4044210 74569
+typeNon - Profit Religious                           2.1018728 0.4122089 74569
+typeOther                                           -0.5749928 0.4039458 74569
+typePrivate                                         -0.6015641 0.4041543 74569
+typeProprietary                                      0.7706834 0.4012077 74569
+typeReligious Affiliations                          -0.4677382 0.4129213 74569
+typeState/County                                     0.0424719 0.4105551 74569
+off.physicalYes                                      1.0268299 0.3784786 74569
+off.occupationalYes                                 -0.0909561 0.1015933 74569
+off.speechYes                                       -0.0062155 0.0769098 74569
+off.medicalYes                                      -0.1704447 0.0694810 74569
+off.hhaYes                                           0.0935120 0.1029524 74569
+timely                                              -0.0105723 0.0029048 74569
+taughtdrugs                                          0.0333022 0.0023551 74569
+checkfall                                            0.0892412 0.0046420 74569
+checkdepression                                     -0.0342552 0.0039635 74569
+flushot                                             -0.0319769 0.0019680 74569
+pnumococcal                                          0.0299057 0.0018782 74569
+taughtfootcare                                       0.0208184 0.0026029 74569
+betterwalking                                        0.0902296 0.0032192 74569
+betterbed                                            0.0381616 0.0023369 74569
+betterbathing                                       -0.0529629 0.0034017 74569
+lesspain                                            -0.0125278 0.0021436 74569
+betterbreathing                                      0.0043634 0.0020645 74569
+betterheal                                          -0.0241561 0.0020778 74569
+betterdrug                                           0.0173807 0.0023221 74569
+Median                                              -0.4497723 0.2523023 74569
+Pop                                                 -0.4632037 0.1976101 74569
+RUCAUrban                                           -0.8101536 0.0682297 74569
+                                                       t-value p-value
+(Intercept)                                           1.589988  0.1118
+typeGovernment - Combination Government & Voluntary   1.420652  0.1554
+typeGovernment - Local                                6.483563  0.0000
+typeGovernment - State/ County                        5.287357  0.0000
+typeLocal                                             0.330741  0.7408
+typeNon - Profit Other                                4.973387  0.0000
+typeNon - Profit Private                              5.354914  0.0000
+typeNon - Profit Religious                            5.099048  0.0000
+typeOther                                            -1.423441  0.1546
+typePrivate                                          -1.488452  0.1366
+typeProprietary                                       1.920909  0.0547
+typeReligious Affiliations                           -1.132754  0.2573
+typeState/County                                      0.103450  0.9176
+off.physicalYes                                       2.713046  0.0067
+off.occupationalYes                                  -0.895297  0.3706
+off.speechYes                                        -0.080815  0.9356
+off.medicalYes                                       -2.453112  0.0142
+off.hhaYes                                            0.908303  0.3637
+timely                                               -3.639600  0.0003
+taughtdrugs                                          14.140296  0.0000
+checkfall                                            19.224558  0.0000
+checkdepression                                      -8.642704  0.0000
+flushot                                             -16.248279  0.0000
+pnumococcal                                          15.922620  0.0000
+taughtfootcare                                        7.998052  0.0000
+betterwalking                                        28.028635  0.0000
+betterbed                                            16.329797  0.0000
+betterbathing                                       -15.569619  0.0000
+lesspain                                             -5.844199  0.0000
+betterbreathing                                       2.113505  0.0346
+betterheal                                          -11.626020  0.0000
+betterdrug                                            7.485077  0.0000
+Median                                               -1.782672  0.0746
+Pop                                                  -2.344028  0.0191
+RUCAUrban                                           -11.873922  0.0000
+ Correlation: 
+                                                    (Intr) t-CG&V typG-L tG-S/C
+typeGovernment - Combination Government & Voluntary -0.271                     
+typeGovernment - Local                              -0.449  0.531              
+typeGovernment - State/ County                      -0.461  0.550  0.897       
+typeLocal                                           -0.451  0.528  0.936  0.894
+typeNon - Profit Other                              -0.473  0.565  0.912  0.935
+typeNon - Profit Private                            -0.474  0.564  0.911  0.935
+typeNon - Profit Religious                          -0.464  0.553  0.896  0.919
+typeOther                                           -0.476  0.564  0.910  0.933
+typePrivate                                         -0.477  0.564  0.910  0.934
+typeProprietary                                     -0.481  0.569  0.920  0.944
+typeReligious Affiliations                          -0.468  0.552  0.893  0.916
+typeState/County                                    -0.466  0.555  0.899  0.960
+off.physicalYes                                     -0.430  0.000  0.006 -0.006
+off.occupationalYes                                 -0.005  0.002 -0.003  0.008
+off.speechYes                                        0.006 -0.004  0.005  0.002
+off.medicalYes                                      -0.016 -0.001  0.015  0.014
+off.hhaYes                                          -0.121  0.000 -0.004 -0.001
+timely                                              -0.155  0.009  0.000  0.000
+taughtdrugs                                          0.006  0.000  0.001  0.006
+checkfall                                           -0.479 -0.001  0.000  0.006
+checkdepression                                     -0.374 -0.002  0.003  0.005
+flushot                                              0.007  0.004  0.017  0.018
+pnumococcal                                          0.022 -0.003 -0.012 -0.009
+taughtfootcare                                      -0.088 -0.009 -0.002 -0.004
+betterwalking                                        0.012 -0.014 -0.014 -0.022
+betterbed                                            0.045 -0.006 -0.001  0.001
+betterbathing                                       -0.022  0.009  0.016  0.014
+lesspain                                             0.052 -0.006  0.000 -0.002
+betterbreathing                                     -0.050  0.008  0.003  0.005
+betterheal                                          -0.201 -0.003 -0.007 -0.004
+betterdrug                                           0.037 -0.004 -0.018 -0.014
+Median                                              -0.070 -0.009 -0.006 -0.006
+Pop                                                 -0.041  0.001  0.007  0.006
+RUCAUrban                                           -0.002 -0.004  0.009  0.008
+                                                    typLcl tyN-PO tyN-PP tyN-PR
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                               0.908                     
+typeNon - Profit Private                             0.907  0.975              
+typeNon - Profit Religious                           0.891  0.954  0.957       
+typeOther                                            0.906  0.983  0.972  0.952
+typePrivate                                          0.907  0.974  0.987  0.956
+typeProprietary                                      0.916  0.979  0.981  0.966
+typeReligious Affiliations                           0.890  0.952  0.954  0.979
+typeState/County                                     0.895  0.938  0.937  0.922
+off.physicalYes                                      0.004  0.001  0.002 -0.002
+off.occupationalYes                                  0.005  0.006  0.004  0.004
+off.speechYes                                        0.000 -0.004 -0.008 -0.006
+off.medicalYes                                       0.014  0.000 -0.002  0.000
+off.hhaYes                                          -0.001  0.002  0.002  0.000
+timely                                              -0.008  0.000  0.001  0.003
+taughtdrugs                                          0.008  0.001  0.002  0.002
+checkfall                                            0.003  0.003  0.003  0.003
+checkdepression                                      0.005  0.004  0.003  0.003
+flushot                                              0.002  0.019  0.019  0.015
+pnumococcal                                         -0.002 -0.012 -0.012 -0.014
+taughtfootcare                                       0.002 -0.005 -0.004 -0.004
+betterwalking                                        0.002 -0.015 -0.017 -0.015
+betterbed                                            0.002 -0.001  0.000 -0.004
+betterbathing                                        0.013  0.013  0.012  0.011
+lesspain                                            -0.014  0.001  0.002  0.000
+betterbreathing                                      0.000  0.003  0.003  0.006
+betterheal                                          -0.011 -0.006 -0.004 -0.005
+betterdrug                                          -0.013 -0.021 -0.019 -0.018
+Median                                              -0.004 -0.009 -0.010 -0.011
+Pop                                                  0.008  0.001  0.001 -0.002
+RUCAUrban                                            0.010 -0.016 -0.021 -0.026
+                                                    typOth typPrv typPrp typRlA
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                          0.971                     
+typeProprietary                                      0.976  0.981              
+typeReligious Affiliations                           0.950  0.954  0.964       
+typeState/County                                     0.936  0.938  0.947  0.920
+off.physicalYes                                      0.002  0.003  0.002 -0.001
+off.occupationalYes                                  0.004  0.005  0.002  0.004
+off.speechYes                                       -0.005 -0.009 -0.005 -0.008
+off.medicalYes                                      -0.002 -0.004  0.000 -0.002
+off.hhaYes                                           0.003  0.002  0.004  0.002
+timely                                              -0.002 -0.003 -0.003  0.000
+taughtdrugs                                          0.008  0.007  0.004  0.008
+checkfall                                            0.006  0.004  0.004  0.006
+checkdepression                                      0.002  0.004  0.007  0.001
+flushot                                              0.004  0.002  0.007  0.002
+pnumococcal                                          0.002  0.002  0.002 -0.002
+taughtfootcare                                      -0.004 -0.003 -0.004 -0.002
+betterwalking                                       -0.003 -0.005 -0.016 -0.001
+betterbed                                            0.004  0.006  0.012  0.002
+betterbathing                                        0.004  0.005  0.004  0.004
+lesspain                                            -0.006 -0.005 -0.009 -0.006
+betterbreathing                                      0.004  0.004  0.015  0.005
+betterheal                                          -0.007 -0.006 -0.008 -0.004
+betterdrug                                          -0.012 -0.012 -0.022 -0.013
+Median                                              -0.007 -0.009 -0.013 -0.009
+Pop                                                  0.002  0.002 -0.006 -0.003
+RUCAUrban                                           -0.015 -0.020 -0.038 -0.023
+                                                    typS/C off.pY off.cY off.sY
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                     -0.006                     
+off.occupationalYes                                  0.007 -0.155              
+off.speechYes                                        0.002 -0.088 -0.237       
+off.medicalYes                                       0.015 -0.034 -0.112 -0.120
+off.hhaYes                                          -0.002  0.029 -0.002 -0.065
+timely                                              -0.006 -0.002  0.005 -0.008
+taughtdrugs                                          0.014  0.012 -0.012  0.010
+checkfall                                            0.009  0.003 -0.009  0.008
+checkdepression                                      0.007 -0.007  0.001 -0.002
+flushot                                              0.000 -0.015 -0.009  0.006
+pnumococcal                                          0.003  0.011  0.000 -0.017
+taughtfootcare                                      -0.006 -0.015 -0.001 -0.017
+betterwalking                                       -0.004 -0.007  0.012  0.002
+betterbed                                            0.009 -0.002  0.007  0.004
+betterbathing                                        0.007  0.004 -0.020 -0.008
+lesspain                                            -0.010  0.002  0.002  0.000
+betterbreathing                                      0.004  0.003  0.000 -0.003
+betterheal                                          -0.006  0.002  0.004  0.003
+betterdrug                                          -0.014  0.000 -0.007  0.015
+Median                                              -0.005  0.003 -0.031 -0.014
+Pop                                                  0.008  0.000 -0.002 -0.001
+RUCAUrban                                            0.008  0.011 -0.039 -0.034
+                                                    off.mY off.hY timely tghtdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                          -0.070                     
+timely                                               0.009 -0.011              
+taughtdrugs                                         -0.014  0.007 -0.123       
+checkfall                                            0.002 -0.009 -0.051 -0.102
+checkdepression                                     -0.005 -0.007 -0.106 -0.079
+flushot                                             -0.001 -0.006 -0.027  0.015
+pnumococcal                                          0.007  0.018 -0.020 -0.107
+taughtfootcare                                       0.000  0.005 -0.080 -0.360
+betterwalking                                        0.008  0.007 -0.020 -0.051
+betterbed                                            0.000 -0.004 -0.024 -0.034
+betterbathing                                       -0.007  0.006 -0.047 -0.007
+lesspain                                             0.002 -0.004 -0.072 -0.058
+betterbreathing                                     -0.008  0.004  0.045  0.029
+betterheal                                           0.012 -0.008  0.008  0.004
+betterdrug                                          -0.015  0.011 -0.008  0.009
+Median                                              -0.030 -0.008 -0.001 -0.005
+Pop                                                 -0.042  0.002  0.013 -0.005
+RUCAUrban                                           -0.095  0.008  0.030 -0.009
+                                                    chckfl chckdp flusht pnmccc
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                     -0.012                     
+flushot                                             -0.032 -0.002              
+pnumococcal                                         -0.009 -0.024 -0.758       
+taughtfootcare                                      -0.032 -0.107 -0.014 -0.036
+betterwalking                                       -0.018  0.008  0.019 -0.030
+betterbed                                           -0.059  0.027  0.015 -0.038
+betterbathing                                       -0.026  0.005 -0.021 -0.007
+lesspain                                             0.006 -0.023 -0.043  0.026
+betterbreathing                                      0.028  0.013 -0.017 -0.003
+betterheal                                           0.003  0.001 -0.032  0.025
+betterdrug                                           0.021 -0.011  0.006 -0.016
+Median                                               0.007  0.014 -0.021 -0.002
+Pop                                                  0.000  0.002 -0.007  0.018
+RUCAUrban                                            0.005 -0.001 -0.027  0.042
+                                                    tghtft bttrwl bttrbd bttrbt
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                       -0.032                     
+betterbed                                           -0.006 -0.371              
+betterbathing                                        0.010 -0.400 -0.110       
+lesspain                                            -0.028 -0.052 -0.055 -0.213
+betterbreathing                                      0.026 -0.027 -0.164 -0.142
+betterheal                                           0.015 -0.006  0.020 -0.059
+betterdrug                                           0.005 -0.189 -0.144 -0.269
+Median                                               0.010  0.029 -0.004  0.016
+Pop                                                 -0.009  0.002  0.011 -0.003
+RUCAUrban                                           -0.005  0.018  0.010 -0.002
+                                                    lesspn bttrbr bttrhl bttrdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                                                  
+betterbed                                                                      
+betterbathing                                                                  
+lesspain                                                                       
+betterbreathing                                     -0.335                     
+betterheal                                          -0.063 -0.045              
+betterdrug                                          -0.061 -0.150 -0.014       
+Median                                              -0.045 -0.039  0.015  0.005
+Pop                                                 -0.033  0.007  0.017  0.021
+RUCAUrban                                           -0.026 -0.026  0.016 -0.009
+                                                    Median Pop   
+typeGovernment - Combination Government & Voluntary              
+typeGovernment - Local                                           
+typeGovernment - State/ County                                   
+typeLocal                                                        
+typeNon - Profit Other                                           
+typeNon - Profit Private                                         
+typeNon - Profit Religious                                       
+typeOther                                                        
+typePrivate                                                      
+typeProprietary                                                  
+typeReligious Affiliations                                       
+typeState/County                                                 
+off.physicalYes                                                  
+off.occupationalYes                                              
+off.speechYes                                                    
+off.medicalYes                                                   
+off.hhaYes                                                       
+timely                                                           
+taughtdrugs                                                      
+checkfall                                                        
+checkdepression                                                  
+flushot                                                          
+pnumococcal                                                      
+taughtfootcare                                                   
+betterwalking                                                    
+betterbed                                                        
+betterbathing                                                    
+lesspain                                                         
+betterbreathing                                                  
+betterheal                                                       
+betterdrug                                                       
+Median                                                           
+Pop                                                 -0.018       
+RUCAUrban                                           -0.241 -0.308
+
+Standardized Within-Group Residuals:
+          Min            Q1           Med            Q3           Max 
+-5.7011954037 -0.6104034621  0.0000195249  0.5924293420  9.1880730556 
+
+Number of Observations: 80261
+Number of Groups: 5658 
+
+
+> model3 <- lme(admitted~type + off.physical + off.occupational + off.speech + off.medical + off.hha +timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + Median + Pop, data=dataUrban,random=~1|CCN)
+> summary(model3)
+Linear mixed-effects model fit by REML
+ Data: dataUrban 
+       AIC      BIC    logLik
+  264141.1 264461.2 -132034.6
+
+Random effects:
+ Formula: ~1 | CCN
+        (Intercept) Residual
+StdDev:    1.952286 2.631496
+
+Fixed effects: admitted ~ type + off.physical + off.occupational + off.speech +      off.medical + off.hha + timely + taughtdrugs + checkfall +      checkdepression + flushot + pnumococcal + taughtfootcare +      betterwalking + betterbed + betterbathing + lesspain + betterbreathing +      betterheal + betterdrug + Median + Pop 
+                                                        Value Std.Error    DF
+(Intercept)                                         30.936162 1.1510097 49723
+typeGovernment - Combination Government & Voluntary -2.998547 0.5994154 49723
+typeGovernment - Local                              -3.023105 0.8086286 49723
+typeGovernment - State/ County                      -3.091052 0.7785933 49723
+typeLocal                                           -0.209095 0.8284369 49723
+typeNon - Profit Other                              -3.248026 0.7378189 49723
+typeNon - Profit Private                            -2.952704 0.7354545 49723
+typeNon - Profit Religious                          -3.405915 0.7421974 49723
+typeOther                                           -0.574318 0.7376505 49723
+typePrivate                                         -0.375850 0.7347854 49723
+typeProprietary                                     -2.313650 0.7334386 49723
+typeReligious Affiliations                          -0.844624 0.7432070 49723
+typeState/County                                    -0.460173 0.7755010 49723
+off.physicalYes                                     -0.622707 0.5475179 49723
+off.occupationalYes                                 -0.271402 0.1721911 49723
+off.speechYes                                       -0.483002 0.1108981 49723
+off.medicalYes                                      -0.135360 0.1027199 49723
+off.hhaYes                                           0.379188 0.1231788 49723
+timely                                               0.002370 0.0032040 49723
+taughtdrugs                                         -0.036309 0.0028296 49723
+checkfall                                           -0.103600 0.0052514 49723
+checkdepression                                      0.022813 0.0045700 49723
+flushot                                              0.029297 0.0022118 49723
+pnumococcal                                         -0.011450 0.0021227 49723
+taughtfootcare                                      -0.004911 0.0030363 49723
+betterwalking                                       -0.087185 0.0038489 49723
+betterbed                                           -0.025783 0.0028072 49723
+betterbathing                                        0.064286 0.0039787 49723
+lesspain                                            -0.013524 0.0024988 49723
+betterbreathing                                      0.005315 0.0024192 49723
+betterheal                                           0.019211 0.0023610 49723
+betterdrug                                          -0.020357 0.0026630 49723
+Median                                              -0.815308 0.2613696 49723
+Pop                                                 -1.205864 0.2121587 49723
+                                                       t-value p-value
+(Intercept)                                          26.877412  0.0000
+typeGovernment - Combination Government & Voluntary  -5.002452  0.0000
+typeGovernment - Local                               -3.738557  0.0002
+typeGovernment - State/ County                       -3.970048  0.0001
+typeLocal                                            -0.252396  0.8007
+typeNon - Profit Other                               -4.402199  0.0000
+typeNon - Profit Private                             -4.014801  0.0001
+typeNon - Profit Religious                           -4.588961  0.0000
+typeOther                                            -0.778577  0.4362
+typePrivate                                          -0.511510  0.6090
+typeProprietary                                      -3.154525  0.0016
+typeReligious Affiliations                           -1.136458  0.2558
+typeState/County                                     -0.593388  0.5529
+off.physicalYes                                      -1.137327  0.2554
+off.occupationalYes                                  -1.576166  0.1150
+off.speechYes                                        -4.355373  0.0000
+off.medicalYes                                       -1.317761  0.1876
+off.hhaYes                                            3.078358  0.0021
+timely                                                0.739595  0.4595
+taughtdrugs                                         -12.832097  0.0000
+checkfall                                           -19.727974  0.0000
+checkdepression                                       4.991950  0.0000
+flushot                                              13.245762  0.0000
+pnumococcal                                          -5.394061  0.0000
+taughtfootcare                                       -1.617559  0.1058
+betterwalking                                       -22.651923  0.0000
+betterbed                                            -9.184601  0.0000
+betterbathing                                        16.157713  0.0000
+lesspain                                             -5.412419  0.0000
+betterbreathing                                       2.196872  0.0280
+betterheal                                            8.136538  0.0000
+betterdrug                                           -7.644302  0.0000
+Median                                               -3.119369  0.0018
+Pop                                                  -5.683783  0.0000
+ Correlation: 
+                                                    (Intr) t-CG&V typG-L tG-S/C
+typeGovernment - Combination Government & Voluntary -0.415                     
+typeGovernment - Local                              -0.583  0.584              
+typeGovernment - State/ County                      -0.606  0.606  0.871       
+typeLocal                                           -0.569  0.570  0.902  0.853
+typeNon - Profit Other                              -0.638  0.640  0.899  0.934
+typeNon - Profit Private                            -0.639  0.642  0.900  0.935
+typeNon - Profit Religious                          -0.635  0.636  0.895  0.929
+typeOther                                           -0.640  0.640  0.899  0.932
+typePrivate                                         -0.640  0.642  0.900  0.935
+typeProprietary                                     -0.644  0.644  0.905  0.940
+typeReligious Affiliations                          -0.637  0.635  0.893  0.927
+typeState/County                                    -0.611  0.609  0.873  0.949
+off.physicalYes                                     -0.427 -0.001  0.000 -0.003
+off.occupationalYes                                  0.019  0.000 -0.005  0.001
+off.speechYes                                        0.008  0.002  0.006  0.013
+off.medicalYes                                      -0.017  0.000  0.001  0.002
+off.hhaYes                                          -0.101 -0.001  0.000 -0.001
+timely                                              -0.118  0.017  0.007  0.009
+taughtdrugs                                          0.003  0.000 -0.004  0.003
+checkfall                                           -0.396  0.005  0.014  0.013
+checkdepression                                     -0.322  0.003  0.004  0.003
+flushot                                              0.006  0.008  0.010  0.015
+pnumococcal                                          0.023 -0.012 -0.004 -0.007
+taughtfootcare                                      -0.073  0.000  0.001 -0.002
+betterwalking                                        0.018 -0.017 -0.021 -0.019
+betterbed                                            0.036  0.000 -0.001 -0.005
+betterbathing                                       -0.019  0.007  0.016  0.019
+lesspain                                             0.039 -0.005 -0.012 -0.013
+betterbreathing                                     -0.039  0.007  0.007  0.006
+betterheal                                          -0.156 -0.006 -0.006 -0.008
+betterdrug                                           0.020  0.006 -0.001 -0.003
+Median                                              -0.069 -0.011 -0.007 -0.002
+Pop                                                 -0.066  0.004  0.015  0.013
+                                                    typLcl tyN-PO tyN-PP tyN-PR
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                               0.877                     
+typeNon - Profit Private                             0.878  0.988              
+typeNon - Profit Religious                           0.873  0.979  0.981       
+typeOther                                            0.877  0.991  0.986  0.978
+typePrivate                                          0.878  0.988  0.994  0.981
+typeProprietary                                      0.883  0.989  0.992  0.986
+typeReligious Affiliations                           0.872  0.978  0.979  0.991
+typeState/County                                     0.853  0.938  0.939  0.932
+off.physicalYes                                      0.000 -0.002 -0.001 -0.001
+off.occupationalYes                                 -0.003  0.002  0.003  0.000
+off.speechYes                                        0.004  0.003 -0.001  0.001
+off.medicalYes                                       0.000  0.003  0.001  0.002
+off.hhaYes                                           0.000  0.000  0.000  0.000
+timely                                               0.002  0.007  0.007  0.010
+taughtdrugs                                          0.005 -0.005 -0.004 -0.005
+checkfall                                            0.011  0.014  0.013  0.013
+checkdepression                                      0.006  0.003  0.003  0.003
+flushot                                              0.002  0.016  0.016  0.015
+pnumococcal                                          0.001 -0.010 -0.010 -0.013
+taughtfootcare                                       0.000  0.003  0.004  0.005
+betterwalking                                       -0.015 -0.021 -0.021 -0.023
+betterbed                                            0.002 -0.001  0.000 -0.001
+betterbathing                                        0.017  0.019  0.019  0.020
+lesspain                                            -0.018 -0.009 -0.008 -0.009
+betterbreathing                                      0.006  0.004  0.003  0.005
+betterheal                                          -0.010 -0.007 -0.005 -0.007
+betterdrug                                          -0.002 -0.005 -0.005 -0.004
+Median                                              -0.004 -0.008 -0.009 -0.007
+Pop                                                  0.017  0.015  0.016  0.016
+                                                    typOth typPrv typPrp typRlA
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                          0.986                     
+typeProprietary                                      0.988  0.991              
+typeReligious Affiliations                           0.976  0.979  0.984       
+typeState/County                                     0.936  0.938  0.943  0.931
+off.physicalYes                                     -0.002 -0.001  0.000  0.000
+off.occupationalYes                                  0.002  0.002 -0.001 -0.001
+off.speechYes                                        0.003 -0.002  0.000 -0.002
+off.medicalYes                                       0.002  0.002  0.003  0.001
+off.hhaYes                                           0.002  0.000  0.002  0.001
+timely                                               0.005  0.005  0.004  0.008
+taughtdrugs                                         -0.003 -0.001 -0.002 -0.002
+checkfall                                            0.017  0.014  0.013  0.016
+checkdepression                                      0.003  0.002  0.006  0.001
+flushot                                              0.007  0.006  0.010  0.007
+pnumococcal                                         -0.001 -0.001 -0.003 -0.005
+taughtfootcare                                       0.005  0.004  0.004  0.007
+betterwalking                                       -0.014 -0.015 -0.020 -0.015
+betterbed                                            0.004  0.005  0.007  0.001
+betterbathing                                        0.013  0.014  0.014  0.016
+lesspain                                            -0.012 -0.011 -0.016 -0.012
+betterbreathing                                      0.004  0.004  0.010  0.006
+betterheal                                          -0.007 -0.006 -0.008 -0.007
+betterdrug                                          -0.002 -0.001 -0.005  0.000
+Median                                              -0.007 -0.009 -0.011 -0.006
+Pop                                                  0.017  0.016  0.013  0.015
+                                                    typS/C off.pY off.cY off.sY
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                     -0.003                     
+off.occupationalYes                                 -0.001 -0.256              
+off.speechYes                                        0.016 -0.119 -0.198       
+off.medicalYes                                       0.002 -0.074 -0.065 -0.126
+off.hhaYes                                           0.001  0.033 -0.030 -0.063
+timely                                               0.004 -0.004  0.007 -0.006
+taughtdrugs                                          0.009  0.016 -0.030  0.004
+checkfall                                            0.013  0.004 -0.022  0.018
+checkdepression                                      0.003  0.003 -0.009 -0.013
+flushot                                              0.005 -0.009 -0.015  0.008
+pnumococcal                                          0.000  0.008  0.006 -0.019
+taughtfootcare                                       0.000 -0.010  0.013 -0.001
+betterwalking                                       -0.016 -0.003  0.000 -0.011
+betterbed                                            0.001  0.010  0.012 -0.005
+betterbathing                                        0.014 -0.014 -0.005  0.004
+lesspain                                            -0.012  0.024  0.006 -0.003
+betterbreathing                                      0.007 -0.009 -0.008  0.003
+betterheal                                          -0.008  0.008  0.002  0.004
+betterdrug                                          -0.002 -0.003  0.001  0.014
+Median                                              -0.003  0.001 -0.020 -0.006
+Pop                                                  0.015 -0.004  0.011  0.007
+                                                    off.mY off.hY timely tghtdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                          -0.090                     
+timely                                              -0.002 -0.010              
+taughtdrugs                                         -0.012 -0.003 -0.140       
+checkfall                                            0.010  0.001 -0.057 -0.132
+checkdepression                                     -0.008 -0.006 -0.092 -0.040
+flushot                                              0.004  0.002 -0.020  0.017
+pnumococcal                                          0.003  0.012 -0.021 -0.101
+taughtfootcare                                      -0.003  0.000 -0.073 -0.380
+betterwalking                                        0.007  0.019 -0.013 -0.038
+betterbed                                           -0.007  0.003 -0.031 -0.028
+betterbathing                                       -0.008 -0.007 -0.049 -0.016
+lesspain                                            -0.012  0.001 -0.066 -0.060
+betterbreathing                                      0.005 -0.007  0.049  0.038
+betterheal                                           0.005 -0.007 -0.002  0.015
+betterdrug                                           0.005  0.005 -0.003 -0.003
+Median                                              -0.011 -0.014 -0.002 -0.003
+Pop                                                 -0.018  0.004  0.010 -0.007
+                                                    chckfl chckdp flusht pnmccc
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                      0.002                     
+flushot                                             -0.042 -0.001              
+pnumococcal                                          0.004 -0.032 -0.774       
+taughtfootcare                                      -0.022 -0.134 -0.018 -0.030
+betterwalking                                       -0.017  0.001  0.021 -0.036
+betterbed                                           -0.065  0.020  0.026 -0.046
+betterbathing                                       -0.019  0.005 -0.029 -0.002
+lesspain                                             0.013 -0.023 -0.040  0.032
+betterbreathing                                      0.020  0.017 -0.027  0.005
+betterheal                                           0.001 -0.005 -0.041  0.024
+betterdrug                                           0.024 -0.002  0.012 -0.024
+Median                                               0.014  0.011 -0.018  0.002
+Pop                                                 -0.001  0.003 -0.008  0.019
+                                                    tghtft bttrwl bttrbd bttrbt
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                       -0.023                     
+betterbed                                           -0.011 -0.387              
+betterbathing                                        0.016 -0.416 -0.110       
+lesspain                                            -0.049 -0.058 -0.038 -0.230
+betterbreathing                                      0.028 -0.028 -0.173 -0.126
+betterheal                                           0.014 -0.005  0.038 -0.060
+betterdrug                                           0.013 -0.188 -0.153 -0.244
+Median                                               0.009  0.019 -0.004  0.026
+Pop                                                 -0.012  0.000  0.009  0.006
+                                                    lesspn bttrbr bttrhl bttrdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                                                  
+betterbed                                                                      
+betterbathing                                                                  
+lesspain                                                                       
+betterbreathing                                     -0.318                     
+betterheal                                          -0.075 -0.058              
+betterdrug                                          -0.050 -0.168 -0.018       
+Median                                              -0.056 -0.040  0.013  0.002
+Pop                                                 -0.039  0.015  0.013  0.019
+                                                    Median
+typeGovernment - Combination Government & Voluntary       
+typeGovernment - Local                                    
+typeGovernment - State/ County                            
+typeLocal                                                 
+typeNon - Profit Other                                    
+typeNon - Profit Private                                  
+typeNon - Profit Religious                                
+typeOther                                                 
+typePrivate                                               
+typeProprietary                                           
+typeReligious Affiliations                                
+typeState/County                                          
+off.physicalYes                                           
+off.occupationalYes                                       
+off.speechYes                                             
+off.medicalYes                                            
+off.hhaYes                                                
+timely                                                    
+taughtdrugs                                               
+checkfall                                                 
+checkdepression                                           
+flushot                                                   
+pnumococcal                                               
+taughtfootcare                                            
+betterwalking                                             
+betterbed                                                 
+betterbathing                                             
+lesspain                                                  
+betterbreathing                                           
+betterheal                                                
+betterdrug                                                
+Median                                                    
+Pop                                                  0.022
+
+Standardized Within-Group Residuals:
+        Min          Q1         Med          Q3         Max 
+-5.30042684 -0.60561119 -0.02290109  0.58769487  8.42985744 
+
+Number of Observations: 53668
+Number of Groups: 3912
+
+
+> model4 <- lme(urgent~type + off.physical + off.occupational + off.speech + off.medical + off.hha +timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + Median + Pop, data=dataUrban,random=~1|CCN)
+> summary(model4)
+Linear mixed-effects model fit by REML
+ Data: dataUrban 
+       AIC      BIC    logLik
+  268612.9 268932.9 -134270.4
+
+Random effects:
+ Formula: ~1 | CCN
+        (Intercept) Residual
+StdDev:    2.052841 2.742018
+
+Fixed effects: urgent ~ type + off.physical + off.occupational + off.speech +      off.medical + off.hha + timely + taughtdrugs + checkfall +      checkdepression + flushot + pnumococcal + taughtfootcare +      betterwalking + betterbed + betterbathing + lesspain + betterbreathing +      betterheal + betterdrug + Median + Pop 
+                                                        Value Std.Error    DF
+(Intercept)                                         -5.009843 1.2012491 49723
+typeGovernment - Combination Government & Voluntary  2.945001 0.6246491 49723
+typeGovernment - Local                               3.795966 0.8441850 49723
+typeGovernment - State/ County                       4.129919 0.8128628 49723
+typeLocal                                           -0.286833 0.8648590 49723
+typeNon - Profit Other                               3.462103 0.7702524 49723
+typeNon - Profit Private                             3.269703 0.7677805 49723
+typeNon - Profit Religious                           3.385412 0.7748741 49723
+typeOther                                            0.133729 0.7700676 49723
+typePrivate                                          0.224553 0.7670761 49723
+typeProprietary                                      2.070666 0.7656998 49723
+typeReligious Affiliations                           0.577073 0.7759216 49723
+typeState/County                                     0.678204 0.8096188 49723
+off.physicalYes                                      2.464762 0.5711744 49723
+off.occupationalYes                                 -0.212977 0.1797258 49723
+off.speechYes                                        0.352955 0.1157231 49723
+off.medicalYes                                      -0.089142 0.1072516 49723
+off.hhaYes                                           0.052538 0.1285573 49723
+timely                                              -0.002924 0.0033442 49723
+taughtdrugs                                          0.040480 0.0029516 49723
+checkfall                                            0.093522 0.0054763 49723
+checkdepression                                     -0.028678 0.0047701 49723
+flushot                                             -0.041879 0.0023071 49723
+pnumococcal                                          0.036307 0.0022150 49723
+taughtfootcare                                       0.022749 0.0031677 49723
+betterwalking                                        0.104454 0.0040166 49723
+betterbed                                            0.049398 0.0029299 49723
+betterbathing                                       -0.074861 0.0041523 49723
+lesspain                                            -0.013595 0.0026088 49723
+betterbreathing                                      0.003702 0.0025257 49723
+betterheal                                          -0.028961 0.0024635 49723
+betterdrug                                           0.026585 0.0027789 49723
+Median                                              -0.095250 0.2737602 49723
+Pop                                                 -0.190396 0.2222083 49723
+                                                       t-value p-value
+(Intercept)                                          -4.170528  0.0000
+typeGovernment - Combination Government & Voluntary   4.714649  0.0000
+typeGovernment - Local                                4.496605  0.0000
+typeGovernment - State/ County                        5.080708  0.0000
+typeLocal                                            -0.331653  0.7402
+typeNon - Profit Other                                4.494764  0.0000
+typeNon - Profit Private                              4.258643  0.0000
+typeNon - Profit Religious                            4.368984  0.0000
+typeOther                                             0.173658  0.8621
+typePrivate                                           0.292739  0.7697
+typeProprietary                                       2.704279  0.0068
+typeReligious Affiliations                            0.743726  0.4570
+typeState/County                                      0.837683  0.4022
+off.physicalYes                                       4.315253  0.0000
+off.occupationalYes                                  -1.185011  0.2360
+off.speechYes                                         3.049997  0.0023
+off.medicalYes                                       -0.831145  0.4059
+off.hhaYes                                            0.408675  0.6828
+timely                                               -0.874287  0.3820
+taughtdrugs                                          13.714769  0.0000
+checkfall                                            17.077603  0.0000
+checkdepression                                      -6.011985  0.0000
+flushot                                             -18.152485  0.0000
+pnumococcal                                          16.391832  0.0000
+taughtfootcare                                        7.181485  0.0000
+betterwalking                                        26.005572  0.0000
+betterbed                                            16.859562  0.0000
+betterbathing                                       -18.028602  0.0000
+lesspain                                             -5.211366  0.0000
+betterbreathing                                       1.465801  0.1427
+betterheal                                          -11.756066  0.0000
+betterdrug                                            9.566667  0.0000
+Median                                               -0.347933  0.7279
+Pop                                                  -0.856837  0.3915
+ Correlation: 
+                                                    (Intr) t-CG&V typG-L tG-S/C
+typeGovernment - Combination Government & Voluntary -0.414                     
+typeGovernment - Local                              -0.583  0.583              
+typeGovernment - State/ County                      -0.607  0.606  0.871       
+typeLocal                                           -0.570  0.569  0.903  0.853
+typeNon - Profit Other                              -0.638  0.640  0.899  0.934
+typeNon - Profit Private                            -0.639  0.641  0.900  0.935
+typeNon - Profit Religious                          -0.636  0.636  0.895  0.929
+typeOther                                           -0.640  0.640  0.899  0.932
+typePrivate                                         -0.640  0.642  0.900  0.935
+typeProprietary                                     -0.645  0.643  0.905  0.940
+typeReligious Affiliations                          -0.637  0.634  0.893  0.927
+typeState/County                                    -0.611  0.608  0.873  0.950
+off.physicalYes                                     -0.427 -0.001  0.000 -0.003
+off.occupationalYes                                  0.019  0.000 -0.006  0.001
+off.speechYes                                        0.008  0.002  0.006  0.013
+off.medicalYes                                      -0.017  0.000  0.001  0.002
+off.hhaYes                                          -0.101 -0.001  0.000 -0.001
+timely                                              -0.118  0.017  0.007  0.009
+taughtdrugs                                          0.003  0.000 -0.004  0.003
+checkfall                                           -0.396  0.005  0.014  0.013
+checkdepression                                     -0.322  0.003  0.004  0.003
+flushot                                              0.006  0.008  0.010  0.015
+pnumococcal                                          0.023 -0.012 -0.004 -0.007
+taughtfootcare                                      -0.073  0.000  0.001 -0.002
+betterwalking                                        0.018 -0.017 -0.021 -0.019
+betterbed                                            0.036  0.000 -0.001 -0.005
+betterbathing                                       -0.020  0.007  0.016  0.019
+lesspain                                             0.039 -0.005 -0.012 -0.013
+betterbreathing                                     -0.039  0.007  0.007  0.006
+betterheal                                          -0.156 -0.006 -0.006 -0.008
+betterdrug                                           0.020  0.006 -0.001 -0.003
+Median                                              -0.069 -0.011 -0.007 -0.002
+Pop                                                 -0.066  0.004  0.015  0.013
+                                                    typLcl tyN-PO tyN-PP tyN-PR
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                               0.877                     
+typeNon - Profit Private                             0.878  0.988              
+typeNon - Profit Religious                           0.873  0.979  0.981       
+typeOther                                            0.877  0.991  0.986  0.978
+typePrivate                                          0.878  0.988  0.994  0.981
+typeProprietary                                      0.883  0.989  0.992  0.986
+typeReligious Affiliations                           0.872  0.977  0.979  0.991
+typeState/County                                     0.853  0.938  0.938  0.932
+off.physicalYes                                      0.000 -0.002 -0.001 -0.001
+off.occupationalYes                                 -0.003  0.002  0.003  0.000
+off.speechYes                                        0.004  0.003 -0.001  0.001
+off.medicalYes                                       0.000  0.003  0.001  0.002
+off.hhaYes                                           0.000  0.000  0.000  0.000
+timely                                               0.002  0.007  0.008  0.010
+taughtdrugs                                          0.005 -0.005 -0.004 -0.005
+checkfall                                            0.011  0.014  0.013  0.013
+checkdepression                                      0.006  0.003  0.003  0.003
+flushot                                              0.002  0.016  0.016  0.015
+pnumococcal                                          0.001 -0.010 -0.010 -0.013
+taughtfootcare                                       0.000  0.003  0.004  0.005
+betterwalking                                       -0.015 -0.021 -0.021 -0.023
+betterbed                                            0.002 -0.001  0.000 -0.001
+betterbathing                                        0.017  0.019  0.019  0.020
+lesspain                                            -0.018 -0.009 -0.008 -0.010
+betterbreathing                                      0.006  0.004  0.003  0.005
+betterheal                                          -0.010 -0.007 -0.005 -0.007
+betterdrug                                          -0.002 -0.005 -0.005 -0.004
+Median                                              -0.004 -0.008 -0.009 -0.007
+Pop                                                  0.017  0.015  0.016  0.016
+                                                    typOth typPrv typPrp typRlA
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                          0.986                     
+typeProprietary                                      0.988  0.991              
+typeReligious Affiliations                           0.976  0.979  0.984       
+typeState/County                                     0.936  0.938  0.943  0.931
+off.physicalYes                                     -0.002 -0.001  0.000  0.000
+off.occupationalYes                                  0.002  0.002 -0.001 -0.001
+off.speechYes                                        0.003 -0.002  0.000 -0.002
+off.medicalYes                                       0.002  0.002  0.003  0.001
+off.hhaYes                                           0.002  0.000  0.002  0.001
+timely                                               0.006  0.005  0.005  0.008
+taughtdrugs                                         -0.003 -0.001 -0.002 -0.002
+checkfall                                            0.017  0.014  0.013  0.016
+checkdepression                                      0.003  0.002  0.006  0.001
+flushot                                              0.007  0.006  0.010  0.007
+pnumococcal                                         -0.001 -0.002 -0.003 -0.005
+taughtfootcare                                       0.005  0.004  0.004  0.007
+betterwalking                                       -0.014 -0.015 -0.020 -0.015
+betterbed                                            0.004  0.005  0.007  0.001
+betterbathing                                        0.013  0.014  0.015  0.016
+lesspain                                            -0.012 -0.011 -0.016 -0.012
+betterbreathing                                      0.004  0.004  0.010  0.006
+betterheal                                          -0.007 -0.006 -0.008 -0.007
+betterdrug                                          -0.002 -0.001 -0.005  0.000
+Median                                              -0.007 -0.009 -0.011 -0.005
+Pop                                                  0.017  0.016  0.013  0.016
+                                                    typS/C off.pY off.cY off.sY
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                     -0.003                     
+off.occupationalYes                                 -0.001 -0.256              
+off.speechYes                                        0.016 -0.119 -0.198       
+off.medicalYes                                       0.002 -0.074 -0.064 -0.125
+off.hhaYes                                           0.001  0.033 -0.030 -0.063
+timely                                               0.004 -0.004  0.007 -0.006
+taughtdrugs                                          0.009  0.016 -0.030  0.004
+checkfall                                            0.013  0.004 -0.022  0.018
+checkdepression                                      0.003  0.003 -0.009 -0.013
+flushot                                              0.006 -0.009 -0.015  0.008
+pnumococcal                                          0.000  0.008  0.006 -0.019
+taughtfootcare                                       0.000 -0.010  0.013 -0.001
+betterwalking                                       -0.016 -0.003  0.000 -0.011
+betterbed                                            0.001  0.010  0.012 -0.005
+betterbathing                                        0.014 -0.014 -0.005  0.004
+lesspain                                            -0.012  0.024  0.006 -0.003
+betterbreathing                                      0.007 -0.009 -0.008  0.003
+betterheal                                          -0.008  0.008  0.002  0.004
+betterdrug                                          -0.002 -0.003  0.001  0.014
+Median                                              -0.003  0.001 -0.020 -0.006
+Pop                                                  0.015 -0.004  0.011  0.007
+                                                    off.mY off.hY timely tghtdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                          -0.090                     
+timely                                              -0.002 -0.010              
+taughtdrugs                                         -0.011 -0.003 -0.140       
+checkfall                                            0.010  0.001 -0.057 -0.132
+checkdepression                                     -0.008 -0.006 -0.091 -0.040
+flushot                                              0.004  0.002 -0.020  0.017
+pnumococcal                                          0.003  0.012 -0.021 -0.101
+taughtfootcare                                      -0.003  0.000 -0.073 -0.380
+betterwalking                                        0.007  0.019 -0.013 -0.038
+betterbed                                           -0.007  0.003 -0.031 -0.028
+betterbathing                                       -0.008 -0.007 -0.049 -0.016
+lesspain                                            -0.012  0.001 -0.066 -0.060
+betterbreathing                                      0.005 -0.007  0.049  0.038
+betterheal                                           0.005 -0.007 -0.002  0.015
+betterdrug                                           0.005  0.005 -0.003 -0.003
+Median                                              -0.011 -0.014 -0.002 -0.003
+Pop                                                 -0.018  0.004  0.009 -0.007
+                                                    chckfl chckdp flusht pnmccc
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                      0.003                     
+flushot                                             -0.042 -0.001              
+pnumococcal                                          0.004 -0.032 -0.774       
+taughtfootcare                                      -0.022 -0.134 -0.018 -0.030
+betterwalking                                       -0.017  0.001  0.021 -0.036
+betterbed                                           -0.065  0.020  0.026 -0.046
+betterbathing                                       -0.019  0.005 -0.029 -0.002
+lesspain                                             0.014 -0.023 -0.040  0.032
+betterbreathing                                      0.019  0.017 -0.027  0.005
+betterheal                                           0.001 -0.005 -0.041  0.024
+betterdrug                                           0.024 -0.002  0.012 -0.024
+Median                                               0.014  0.011 -0.018  0.002
+Pop                                                 -0.001  0.003 -0.008  0.019
+                                                    tghtft bttrwl bttrbd bttrbt
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                       -0.023                     
+betterbed                                           -0.011 -0.388              
+betterbathing                                        0.016 -0.416 -0.110       
+lesspain                                            -0.049 -0.058 -0.038 -0.230
+betterbreathing                                      0.028 -0.028 -0.172 -0.127
+betterheal                                           0.014 -0.005  0.038 -0.060
+betterdrug                                           0.013 -0.188 -0.153 -0.244
+Median                                               0.009  0.019 -0.004  0.026
+Pop                                                 -0.012  0.000  0.009  0.006
+                                                    lesspn bttrbr bttrhl bttrdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                                                  
+betterbed                                                                      
+betterbathing                                                                  
+lesspain                                                                       
+betterbreathing                                     -0.318                     
+betterheal                                          -0.075 -0.058              
+betterdrug                                          -0.050 -0.168 -0.018       
+Median                                              -0.056 -0.039  0.013  0.002
+Pop                                                 -0.039  0.015  0.013  0.019
+                                                    Median
+typeGovernment - Combination Government & Voluntary       
+typeGovernment - Local                                    
+typeGovernment - State/ County                            
+typeLocal                                                 
+typeNon - Profit Other                                    
+typeNon - Profit Private                                  
+typeNon - Profit Religious                                
+typeOther                                                 
+typePrivate                                               
+typeProprietary                                           
+typeReligious Affiliations                                
+typeState/County                                          
+off.physicalYes                                           
+off.occupationalYes                                       
+off.speechYes                                             
+off.medicalYes                                            
+off.hhaYes                                                
+timely                                                    
+taughtdrugs                                               
+checkfall                                                 
+checkdepression                                           
+flushot                                                   
+pnumococcal                                               
+taughtfootcare                                            
+betterwalking                                             
+betterbed                                                 
+betterbathing                                             
+lesspain                                                  
+betterbreathing                                           
+betterheal                                                
+betterdrug                                                
+Median                                                    
+Pop                                                  0.023
+
+Standardized Within-Group Residuals:
+         Min           Q1          Med           Q3          Max 
+-5.908639084 -0.600979231 -0.002534246  0.584117066  9.429976044 
+
+Number of Observations: 53668
+Number of Groups: 3912 
+> 
+> model5 <- lme(admitted~type + off.physical + off.occupational + off.speech + off.medical + off.hha +timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + Median + Pop, data=dataRural,random=~1|CCN)
+> summary(model5)
+Linear mixed-effects model fit by REML
+ Data: dataRural 
+       AIC      BIC    logLik
+  136380.7 136675.5 -68154.37
+
+Random effects:
+ Formula: ~1 | CCN
+        (Intercept) Residual
+StdDev:    1.934353 2.937241
+
+Fixed effects: admitted ~ type + off.physical + off.occupational + off.speech +      off.medical + off.hha + timely + taughtdrugs + checkfall +      checkdepression + flushot + pnumococcal + taughtfootcare +      betterwalking + betterbed + betterbathing + lesspain + betterbreathing +      betterheal + betterdrug + Median + Pop 
+                                                        Value Std.Error    DF
+(Intercept)                                         20.674673 1.3202777 24720
+typeGovernment - Combination Government & Voluntary  1.933493 0.5699478 24720
+typeGovernment - Local                              -1.862144 0.5018365 24720
+typeGovernment - State/ County                      -1.494546 0.4893783 24720
+typeLocal                                            0.266879 0.5041677 24720
+typeNon - Profit Other                              -0.969197 0.4843628 24720
+typeNon - Profit Private                            -1.665063 0.4900637 24720
+typeNon - Profit Religious                          -1.419522 0.5096766 24720
+typeOther                                            0.249227 0.4863077 24720
+typePrivate                                          0.419867 0.4895563 24720
+typeProprietary                                     -0.703803 0.4834158 24720
+typeReligious Affiliations                          -0.157461 0.5086885 24720
+typeState/County                                     0.571700 0.4883492 24720
+off.physicalYes                                      0.720390 0.5132486 24720
+off.occupationalYes                                  0.060360 0.1253733 24720
+off.speechYes                                       -0.029881 0.1038683 24720
+off.medicalYes                                      -0.025479 0.0919351 24720
+off.hhaYes                                           0.100259 0.1704289 24720
+timely                                               0.025266 0.0056644 24720
+taughtdrugs                                         -0.024172 0.0038728 24720
+checkfall                                           -0.063587 0.0084487 24720
+checkdepression                                      0.022013 0.0070050 24720
+flushot                                              0.000499 0.0036532 24720
+pnumococcal                                          0.003578 0.0034562 24720
+taughtfootcare                                       0.010247 0.0044860 24720
+betterwalking                                       -0.041745 0.0053395 24720
+betterbed                                           -0.006075 0.0038227 24720
+betterbathing                                       -0.008695 0.0058433 24720
+lesspain                                             0.004395 0.0037324 24720
+betterbreathing                                      0.000388 0.0035269 24720
+betterheal                                           0.018324 0.0037590 24720
+betterdrug                                           0.000892 0.0041291 24720
+Median                                              -3.742195 0.7358791 24720
+Pop                                                 -1.526178 0.4695613 24720
+                                                      t-value p-value
+(Intercept)                                         15.659337  0.0000
+typeGovernment - Combination Government & Voluntary  3.392404  0.0007
+typeGovernment - Local                              -3.710659  0.0002
+typeGovernment - State/ County                      -3.053969  0.0023
+typeLocal                                            0.529346  0.5966
+typeNon - Profit Other                              -2.000974  0.0454
+typeNon - Profit Private                            -3.397645  0.0007
+typeNon - Profit Religious                          -2.785143  0.0054
+typeOther                                            0.512489  0.6083
+typePrivate                                          0.857648  0.3911
+typeProprietary                                     -1.455897  0.1454
+typeReligious Affiliations                          -0.309544  0.7569
+typeState/County                                     1.170680  0.2417
+off.physicalYes                                      1.403589  0.1605
+off.occupationalYes                                  0.481445  0.6302
+off.speechYes                                       -0.287685  0.7736
+off.medicalYes                                      -0.277141  0.7817
+off.hhaYes                                           0.588272  0.5564
+timely                                               4.460499  0.0000
+taughtdrugs                                         -6.241599  0.0000
+checkfall                                           -7.526251  0.0000
+checkdepression                                      3.142467  0.0017
+flushot                                              0.136550  0.8914
+pnumococcal                                          1.035386  0.3005
+taughtfootcare                                       2.284306  0.0224
+betterwalking                                       -7.818009  0.0000
+betterbed                                           -1.589046  0.1121
+betterbathing                                       -1.487945  0.1368
+lesspain                                             1.177640  0.2390
+betterbreathing                                      0.110046  0.9124
+betterheal                                           4.874601  0.0000
+betterdrug                                           0.216105  0.8289
+Median                                              -5.085340  0.0000
+Pop                                                 -3.250221  0.0012
+ Correlation: 
+                                                    (Intr) t-CG&V typG-L tG-S/C
+typeGovernment - Combination Government & Voluntary -0.177                     
+typeGovernment - Local                              -0.330  0.508              
+typeGovernment - State/ County                      -0.341  0.528  0.906       
+typeLocal                                           -0.335  0.506  0.941  0.903
+typeNon - Profit Other                              -0.341  0.534  0.913  0.933
+typeNon - Profit Private                            -0.344  0.529  0.909  0.930
+typeNon - Profit Religious                          -0.322  0.509  0.875  0.896
+typeOther                                           -0.344  0.532  0.909  0.930
+typePrivate                                         -0.348  0.527  0.908  0.928
+typeProprietary                                     -0.349  0.536  0.923  0.944
+typeReligious Affiliations                          -0.328  0.507  0.874  0.895
+typeState/County                                    -0.346  0.533  0.907  0.962
+off.physicalYes                                     -0.365  0.001  0.010 -0.006
+off.occupationalYes                                 -0.015  0.004 -0.002  0.012
+off.speechYes                                        0.010 -0.009  0.005 -0.002
+off.medicalYes                                      -0.013  0.000  0.020  0.019
+off.hhaYes                                          -0.129 -0.002 -0.006 -0.002
+timely                                              -0.210 -0.003 -0.006 -0.009
+taughtdrugs                                          0.018 -0.001  0.004  0.009
+checkfall                                           -0.538 -0.005 -0.010  0.001
+checkdepression                                     -0.377 -0.007  0.004  0.008
+flushot                                             -0.013  0.002  0.023  0.023
+pnumococcal                                          0.028  0.010 -0.018 -0.011
+taughtfootcare                                      -0.105 -0.020 -0.004 -0.007
+betterwalking                                        0.010 -0.016 -0.013 -0.029
+betterbed                                            0.049 -0.016 -0.004  0.000
+betterbathing                                       -0.026  0.018  0.020  0.015
+lesspain                                             0.062 -0.011  0.008  0.006
+betterbreathing                                     -0.059  0.010  0.001  0.006
+betterheal                                          -0.247 -0.002 -0.010 -0.003
+betterdrug                                           0.052 -0.016 -0.037 -0.028
+Median                                              -0.114 -0.015 -0.009 -0.016
+Pop                                                 -0.024  0.012  0.001  0.003
+                                                    typLcl tyN-PO tyN-PP tyN-PR
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                               0.910                     
+typeNon - Profit Private                             0.906  0.960              
+typeNon - Profit Religious                           0.872  0.919  0.920       
+typeOther                                            0.908  0.973  0.955  0.914
+typePrivate                                          0.907  0.957  0.978  0.918
+typeProprietary                                      0.921  0.967  0.967  0.932
+typeReligious Affiliations                           0.874  0.918  0.919  0.959
+typeState/County                                     0.906  0.934  0.931  0.897
+off.physicalYes                                      0.007  0.003  0.003 -0.006
+off.occupationalYes                                  0.008  0.010  0.005  0.011
+off.speechYes                                       -0.001 -0.008 -0.009 -0.009
+off.medicalYes                                       0.018  0.000 -0.003  0.005
+off.hhaYes                                          -0.002  0.003  0.005  0.001
+timely                                              -0.018 -0.007 -0.007 -0.008
+taughtdrugs                                          0.013  0.007  0.006  0.010
+checkfall                                           -0.003 -0.006 -0.003 -0.002
+checkdepression                                      0.007  0.005  0.006  0.003
+flushot                                             -0.001  0.026  0.026  0.015
+pnumococcal                                         -0.001 -0.016 -0.018 -0.015
+taughtfootcare                                       0.002 -0.012 -0.011 -0.012
+betterwalking                                        0.013 -0.016 -0.019 -0.007
+betterbed                                            0.001 -0.006 -0.006 -0.016
+betterbathing                                        0.014  0.013  0.013  0.002
+lesspain                                            -0.013  0.010  0.009  0.007
+betterbreathing                                     -0.002  0.003  0.004  0.010
+betterheal                                          -0.016 -0.007 -0.005 -0.005
+betterdrug                                          -0.026 -0.040 -0.035 -0.033
+Median                                              -0.007 -0.011 -0.010 -0.028
+Pop                                                 -0.001 -0.009 -0.008 -0.021
+                                                    typOth typPrv typPrp typRlA
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                          0.955                     
+typeProprietary                                      0.963  0.966              
+typeReligious Affiliations                           0.916  0.919  0.932       
+typeState/County                                     0.933  0.932  0.946  0.899
+off.physicalYes                                      0.004  0.006  0.002 -0.005
+off.occupationalYes                                  0.007  0.009  0.005  0.011
+off.speechYes                                       -0.008 -0.010 -0.004 -0.008
+off.medicalYes                                      -0.003 -0.009  0.001 -0.001
+off.hhaYes                                           0.003  0.005  0.005  0.004
+timely                                              -0.010 -0.012 -0.009 -0.010
+taughtdrugs                                          0.020  0.012  0.008  0.022
+checkfall                                           -0.002 -0.003 -0.001 -0.004
+checkdepression                                      0.001  0.007  0.006  0.002
+flushot                                              0.001 -0.001  0.005 -0.003
+pnumococcal                                          0.003  0.006  0.007  0.001
+taughtfootcare                                      -0.014 -0.009 -0.011 -0.015
+betterwalking                                        0.005  0.003 -0.020  0.016
+betterbed                                            0.000  0.002  0.016 -0.001
+betterbathing                                        0.003  0.002 -0.002 -0.006
+lesspain                                            -0.006 -0.006 -0.005 -0.006
+betterbreathing                                      0.005  0.006  0.025  0.006
+betterheal                                          -0.012 -0.009 -0.012 -0.001
+betterdrug                                          -0.022 -0.019 -0.042 -0.026
+Median                                              -0.007 -0.009 -0.007 -0.024
+Pop                                                 -0.009 -0.008 -0.031 -0.022
+                                                    typS/C off.pY off.cY off.sY
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                     -0.007                     
+off.occupationalYes                                  0.010 -0.104              
+off.speechYes                                       -0.003 -0.064 -0.259       
+off.medicalYes                                       0.018 -0.012 -0.125 -0.106
+off.hhaYes                                          -0.004  0.039  0.006 -0.073
+timely                                              -0.015  0.000  0.002 -0.014
+taughtdrugs                                          0.018  0.017  0.005  0.014
+checkfall                                            0.008  0.002  0.004 -0.001
+checkdepression                                      0.009 -0.016  0.007  0.007
+flushot                                             -0.005 -0.024 -0.004  0.002
+pnumococcal                                          0.008  0.011 -0.008 -0.015
+taughtfootcare                                      -0.013 -0.030 -0.010 -0.036
+betterwalking                                        0.003 -0.007  0.017  0.012
+betterbed                                            0.012 -0.016  0.000  0.015
+betterbathing                                        0.006  0.022 -0.029 -0.020
+lesspain                                            -0.010 -0.025 -0.004  0.000
+betterbreathing                                      0.004  0.021  0.011 -0.005
+betterheal                                          -0.008 -0.005  0.004 -0.001
+betterdrug                                          -0.027  0.001 -0.013  0.017
+Median                                              -0.010  0.006 -0.060 -0.021
+Pop                                                  0.003 -0.002 -0.004 -0.024
+                                                    off.mY off.hY timely tghtdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                          -0.060                     
+timely                                               0.023 -0.011              
+taughtdrugs                                         -0.019  0.020 -0.084       
+checkfall                                           -0.007 -0.028 -0.028 -0.048
+checkdepression                                     -0.004 -0.004 -0.141 -0.150
+flushot                                             -0.008 -0.016 -0.044  0.006
+pnumococcal                                          0.009  0.029 -0.021 -0.127
+taughtfootcare                                       0.008  0.012 -0.093 -0.330
+betterwalking                                        0.002 -0.007 -0.036 -0.074
+betterbed                                            0.005 -0.017 -0.011 -0.044
+betterbathing                                        0.002  0.023 -0.046  0.002
+lesspain                                             0.019 -0.009 -0.081 -0.051
+betterbreathing                                     -0.021  0.020  0.038  0.019
+betterheal                                           0.018 -0.005  0.027 -0.020
+betterdrug                                          -0.043  0.021 -0.018  0.026
+Median                                              -0.056  0.011  0.006 -0.012
+Pop                                                 -0.083  0.001  0.020  0.009
+                                                    chckfl chckdp flusht pnmccc
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                     -0.051                     
+flushot                                             -0.010 -0.004              
+pnumococcal                                         -0.035 -0.006 -0.704       
+taughtfootcare                                      -0.048 -0.059 -0.007 -0.049
+betterwalking                                       -0.026  0.023  0.020 -0.015
+betterbed                                           -0.047  0.037 -0.005 -0.021
+betterbathing                                       -0.036  0.010 -0.006 -0.011
+lesspain                                            -0.007 -0.019 -0.053  0.003
+betterbreathing                                      0.043  0.004  0.002 -0.017
+betterheal                                           0.005  0.010 -0.004  0.028
+betterdrug                                           0.021 -0.029 -0.007  0.002
+Median                                              -0.013  0.017 -0.021 -0.041
+Pop                                                  0.010 -0.006 -0.006  0.021
+                                                    tghtft bttrwl bttrbd bttrbt
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                       -0.050                     
+betterbed                                            0.001 -0.339              
+betterbathing                                        0.006 -0.368 -0.112       
+lesspain                                             0.016 -0.047 -0.085 -0.179
+betterbreathing                                      0.016 -0.033 -0.148 -0.170
+betterheal                                           0.015 -0.003 -0.013 -0.058
+betterdrug                                          -0.010 -0.187 -0.127 -0.314
+Median                                               0.016  0.068 -0.012 -0.022
+Pop                                                  0.001 -0.015  0.007 -0.002
+                                                    lesspn bttrbr bttrhl bttrdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                                                  
+betterbed                                                                      
+betterbathing                                                                  
+lesspain                                                                       
+betterbreathing                                     -0.367                     
+betterheal                                          -0.042 -0.022              
+betterdrug                                          -0.088 -0.107 -0.011       
+Median                                              -0.007 -0.034  0.032  0.021
+Pop                                                 -0.014 -0.013  0.011  0.013
+                                                    Median
+typeGovernment - Combination Government & Voluntary       
+typeGovernment - Local                                    
+typeGovernment - State/ County                            
+typeLocal                                                 
+typeNon - Profit Other                                    
+typeNon - Profit Private                                  
+typeNon - Profit Religious                                
+typeOther                                                 
+typePrivate                                               
+typeProprietary                                           
+typeReligious Affiliations                                
+typeState/County                                          
+off.physicalYes                                           
+off.occupationalYes                                       
+off.speechYes                                             
+off.medicalYes                                            
+off.hhaYes                                                
+timely                                                    
+taughtdrugs                                               
+checkfall                                                 
+checkdepression                                           
+flushot                                                   
+pnumococcal                                               
+taughtfootcare                                            
+betterwalking                                             
+betterbed                                                 
+betterbathing                                             
+lesspain                                                  
+betterbreathing                                           
+betterheal                                                
+betterdrug                                                
+Median                                                    
+Pop                                                 -0.255
+
+Standardized Within-Group Residuals:
+        Min          Q1         Med          Q3         Max 
+-4.89525876 -0.60178653 -0.02697004  0.58432907  6.96574784 
+
+Number of Observations: 26593
+Number of Groups: 1840 
+> 
+> model6 <- lme(urgent~type + off.physical + off.occupational + off.speech + off.medical + off.hha +timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + Median + Pop, data=dataRural,random=~1|CCN)
+> summary(model6)
+Linear mixed-effects model fit by REML
+ Data: dataRural 
+       AIC      BIC    logLik
+  136922.7 137217.5 -68425.37
+
+Random effects:
+ Formula: ~1 | CCN
+        (Intercept) Residual
+StdDev:    1.925885 2.969905
+
+Fixed effects: urgent ~ type + off.physical + off.occupational + off.speech +      off.medical + off.hha + timely + taughtdrugs + checkfall +      checkdepression + flushot + pnumococcal + taughtfootcare +      betterwalking + betterbed + betterbathing + lesspain + betterbreathing +      betterheal + betterdrug + Median + Pop 
+                                                        Value Std.Error    DF
+(Intercept)                                          8.573224 1.3308573 24720
+typeGovernment - Combination Government & Voluntary -0.744723 0.5759661 24720
+typeGovernment - Local                               2.596203 0.5063757 24720
+typeGovernment - State/ County                       1.844955 0.4938932 24720
+typeLocal                                           -0.093374 0.5087179 24720
+typeNon - Profit Other                               1.583921 0.4888131 24720
+typeNon - Profit Private                             2.121835 0.4944637 24720
+typeNon - Profit Religious                           1.739333 0.5140238 24720
+typeOther                                           -0.419318 0.4907772 24720
+typePrivate                                         -0.440204 0.4939576 24720
+typeProprietary                                      0.456727 0.4877441 24720
+typeReligious Affiliations                          -0.469117 0.5130559 24720
+typeState/County                                    -0.372328 0.4928598 24720
+off.physicalYes                                     -0.076414 0.5174830 24720
+off.occupationalYes                                  0.089620 0.1263055 24720
+off.speechYes                                       -0.274473 0.1046974 24720
+off.medicalYes                                      -0.174702 0.0924653 24720
+off.hhaYes                                          -0.082584 0.1718692 24720
+timely                                              -0.029738 0.0057118 24720
+taughtdrugs                                          0.027647 0.0039074 24720
+checkfall                                            0.070525 0.0085180 24720
+checkdepression                                     -0.035849 0.0070609 24720
+flushot                                             -0.010265 0.0036874 24720
+pnumococcal                                          0.009442 0.0034868 24720
+taughtfootcare                                       0.016195 0.0045260 24720
+betterwalking                                        0.066182 0.0053856 24720
+betterbed                                            0.015782 0.0038530 24720
+betterbathing                                       -0.013508 0.0058928 24720
+lesspain                                            -0.009582 0.0037642 24720
+betterbreathing                                      0.005653 0.0035548 24720
+betterheal                                          -0.016055 0.0037927 24720
+betterdrug                                          -0.002959 0.0041656 24720
+Median                                              -2.319605 0.7356932 24720
+Pop                                                 -1.109285 0.4694200 24720
+                                                      t-value p-value
+(Intercept)                                          6.441881  0.0000
+typeGovernment - Combination Government & Voluntary -1.292998  0.1960
+typeGovernment - Local                               5.127028  0.0000
+typeGovernment - State/ County                       3.735534  0.0002
+typeLocal                                           -0.183547  0.8544
+typeNon - Profit Other                               3.240340  0.0012
+typeNon - Profit Private                             4.291184  0.0000
+typeNon - Profit Religious                           3.383759  0.0007
+typeOther                                           -0.854396  0.3929
+typePrivate                                         -0.891178  0.3728
+typeProprietary                                      0.936408  0.3491
+typeReligious Affiliations                          -0.914359  0.3605
+typeState/County                                    -0.755444  0.4500
+off.physicalYes                                     -0.147665  0.8826
+off.occupationalYes                                  0.709550  0.4780
+off.speechYes                                       -2.621587  0.0088
+off.medicalYes                                      -1.889374  0.0589
+off.hhaYes                                          -0.480502  0.6309
+timely                                              -5.206388  0.0000
+taughtdrugs                                          7.075753  0.0000
+checkfall                                            8.279530  0.0000
+checkdepression                                     -5.077151  0.0000
+flushot                                             -2.783842  0.0054
+pnumococcal                                          2.707875  0.0068
+taughtfootcare                                       3.578104  0.0003
+betterwalking                                       12.288791  0.0000
+betterbed                                            4.096069  0.0000
+betterbathing                                       -2.292291  0.0219
+lesspain                                            -2.545587  0.0109
+betterbreathing                                      1.590282  0.1118
+betterheal                                          -4.233148  0.0000
+betterdrug                                          -0.710361  0.4775
+Median                                              -3.152951  0.0016
+Pop                                                 -2.363098  0.0181
+ Correlation: 
+                                                    (Intr) t-CG&V typG-L tG-S/C
+typeGovernment - Combination Government & Voluntary -0.178                     
+typeGovernment - Local                              -0.331  0.509              
+typeGovernment - State/ County                      -0.341  0.529  0.906       
+typeLocal                                           -0.336  0.507  0.941  0.903
+typeNon - Profit Other                              -0.341  0.535  0.914  0.933
+typeNon - Profit Private                            -0.345  0.530  0.910  0.931
+typeNon - Profit Religious                          -0.323  0.510  0.876  0.897
+typeOther                                           -0.345  0.534  0.910  0.930
+typePrivate                                         -0.349  0.528  0.908  0.929
+typeProprietary                                     -0.350  0.537  0.924  0.945
+typeReligious Affiliations                          -0.329  0.509  0.875  0.895
+typeState/County                                    -0.347  0.534  0.907  0.962
+off.physicalYes                                     -0.365  0.001  0.010 -0.006
+off.occupationalYes                                 -0.015  0.004 -0.002  0.012
+off.speechYes                                        0.010 -0.009  0.005 -0.002
+off.medicalYes                                      -0.013  0.000  0.020  0.019
+off.hhaYes                                          -0.129 -0.002 -0.006 -0.002
+timely                                              -0.210 -0.003 -0.006 -0.009
+taughtdrugs                                          0.018 -0.001  0.004  0.009
+checkfall                                           -0.538 -0.005 -0.010  0.001
+checkdepression                                     -0.376 -0.006  0.004  0.008
+flushot                                             -0.013  0.002  0.023  0.023
+pnumococcal                                          0.028  0.010 -0.018 -0.011
+taughtfootcare                                      -0.105 -0.020 -0.004 -0.007
+betterwalking                                        0.010 -0.016 -0.013 -0.029
+betterbed                                            0.049 -0.016 -0.004  0.000
+betterbathing                                       -0.026  0.018  0.020  0.015
+lesspain                                             0.062 -0.011  0.008  0.006
+betterbreathing                                     -0.059  0.010  0.001  0.006
+betterheal                                          -0.247 -0.002 -0.009 -0.003
+betterdrug                                           0.052 -0.016 -0.037 -0.028
+Median                                              -0.113 -0.015 -0.009 -0.016
+Pop                                                 -0.024  0.012  0.001  0.003
+                                                    typLcl tyN-PO tyN-PP tyN-PR
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                               0.911                     
+typeNon - Profit Private                             0.907  0.960              
+typeNon - Profit Religious                           0.873  0.919  0.921       
+typeOther                                            0.909  0.973  0.955  0.915
+typePrivate                                          0.908  0.958  0.978  0.918
+typeProprietary                                      0.921  0.967  0.967  0.933
+typeReligious Affiliations                           0.875  0.919  0.919  0.959
+typeState/County                                     0.906  0.934  0.931  0.898
+off.physicalYes                                      0.007  0.002  0.003 -0.006
+off.occupationalYes                                  0.008  0.010  0.005  0.011
+off.speechYes                                       -0.001 -0.008 -0.008 -0.009
+off.medicalYes                                       0.018  0.000 -0.003  0.005
+off.hhaYes                                          -0.002  0.003  0.005  0.001
+timely                                              -0.017 -0.007 -0.006 -0.008
+taughtdrugs                                          0.013  0.007  0.006  0.010
+checkfall                                           -0.003 -0.006 -0.003 -0.002
+checkdepression                                      0.007  0.004  0.006  0.003
+flushot                                             -0.001  0.026  0.026  0.015
+pnumococcal                                         -0.001 -0.016 -0.018 -0.015
+taughtfootcare                                       0.002 -0.012 -0.011 -0.012
+betterwalking                                        0.013 -0.016 -0.019 -0.007
+betterbed                                            0.001 -0.006 -0.006 -0.016
+betterbathing                                        0.014  0.013  0.013  0.002
+lesspain                                            -0.013  0.010  0.009  0.007
+betterbreathing                                     -0.002  0.003  0.004  0.010
+betterheal                                          -0.016 -0.007 -0.005 -0.005
+betterdrug                                          -0.026 -0.040 -0.035 -0.033
+Median                                              -0.007 -0.011 -0.010 -0.028
+Pop                                                 -0.001 -0.009 -0.008 -0.021
+                                                    typOth typPrv typPrp typRlA
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                          0.955                     
+typeProprietary                                      0.963  0.966              
+typeReligious Affiliations                           0.916  0.920  0.933       
+typeState/County                                     0.933  0.932  0.947  0.900
+off.physicalYes                                      0.004  0.006  0.002 -0.005
+off.occupationalYes                                  0.007  0.009  0.005  0.011
+off.speechYes                                       -0.008 -0.010 -0.004 -0.008
+off.medicalYes                                      -0.003 -0.009  0.001 -0.001
+off.hhaYes                                           0.003  0.005  0.005  0.004
+timely                                              -0.010 -0.012 -0.009 -0.010
+taughtdrugs                                          0.020  0.012  0.008  0.022
+checkfall                                           -0.002 -0.003 -0.001 -0.004
+checkdepression                                      0.001  0.007  0.006  0.002
+flushot                                              0.001 -0.001  0.005 -0.003
+pnumococcal                                          0.003  0.006  0.007  0.001
+taughtfootcare                                      -0.014 -0.009 -0.011 -0.015
+betterwalking                                        0.005  0.003 -0.020  0.016
+betterbed                                            0.000  0.001  0.015 -0.001
+betterbathing                                        0.003  0.002 -0.002 -0.006
+lesspain                                            -0.006 -0.006 -0.005 -0.006
+betterbreathing                                      0.005  0.006  0.025  0.006
+betterheal                                          -0.012 -0.009 -0.012 -0.001
+betterdrug                                          -0.022 -0.019 -0.042 -0.026
+Median                                              -0.007 -0.009 -0.007 -0.024
+Pop                                                 -0.010 -0.008 -0.031 -0.022
+                                                    typS/C off.pY off.cY off.sY
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                     -0.006                     
+off.occupationalYes                                  0.010 -0.104              
+off.speechYes                                       -0.004 -0.064 -0.260       
+off.medicalYes                                       0.018 -0.012 -0.125 -0.107
+off.hhaYes                                          -0.004  0.039  0.006 -0.073
+timely                                              -0.015  0.000  0.002 -0.014
+taughtdrugs                                          0.018  0.017  0.005  0.014
+checkfall                                            0.008  0.002  0.004 -0.001
+checkdepression                                      0.009 -0.016  0.007  0.007
+flushot                                             -0.005 -0.024 -0.004  0.002
+pnumococcal                                          0.008  0.011 -0.008 -0.015
+taughtfootcare                                      -0.013 -0.030 -0.010 -0.036
+betterwalking                                        0.003 -0.007  0.017  0.012
+betterbed                                            0.012 -0.016  0.000  0.015
+betterbathing                                        0.006  0.022 -0.029 -0.021
+lesspain                                            -0.009 -0.025 -0.004  0.000
+betterbreathing                                      0.004  0.021  0.011 -0.004
+betterheal                                          -0.008 -0.005  0.005 -0.001
+betterdrug                                          -0.027  0.001 -0.013  0.017
+Median                                              -0.010  0.006 -0.060 -0.021
+Pop                                                  0.003 -0.002 -0.004 -0.024
+                                                    off.mY off.hY timely tghtdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                          -0.060                     
+timely                                               0.024 -0.011              
+taughtdrugs                                         -0.019  0.020 -0.084       
+checkfall                                           -0.007 -0.029 -0.028 -0.048
+checkdepression                                     -0.004 -0.004 -0.141 -0.150
+flushot                                             -0.008 -0.016 -0.044  0.005
+pnumococcal                                          0.009  0.028 -0.021 -0.127
+taughtfootcare                                       0.009  0.012 -0.094 -0.330
+betterwalking                                        0.002 -0.007 -0.036 -0.074
+betterbed                                            0.005 -0.016 -0.011 -0.044
+betterbathing                                        0.002  0.023 -0.047  0.002
+lesspain                                             0.019 -0.009 -0.082 -0.051
+betterbreathing                                     -0.021  0.020  0.039  0.020
+betterheal                                           0.018 -0.005  0.028 -0.019
+betterdrug                                          -0.044  0.021 -0.018  0.026
+Median                                              -0.056  0.011  0.006 -0.012
+Pop                                                 -0.084  0.001  0.021  0.009
+                                                    chckfl chckdp flusht pnmccc
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                     -0.051                     
+flushot                                             -0.010 -0.004              
+pnumococcal                                         -0.035 -0.006 -0.705       
+taughtfootcare                                      -0.048 -0.059 -0.007 -0.049
+betterwalking                                       -0.026  0.022  0.020 -0.015
+betterbed                                           -0.046  0.037 -0.005 -0.021
+betterbathing                                       -0.036  0.010 -0.006 -0.011
+lesspain                                            -0.007 -0.019 -0.053  0.004
+betterbreathing                                      0.043  0.004  0.002 -0.017
+betterheal                                           0.005  0.010 -0.004  0.028
+betterdrug                                           0.020 -0.030 -0.007  0.002
+Median                                              -0.013  0.018 -0.021 -0.041
+Pop                                                  0.010 -0.006 -0.006  0.022
+                                                    tghtft bttrwl bttrbd bttrbt
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                       -0.050                     
+betterbed                                            0.001 -0.339              
+betterbathing                                        0.006 -0.368 -0.111       
+lesspain                                             0.016 -0.047 -0.085 -0.179
+betterbreathing                                      0.016 -0.033 -0.149 -0.169
+betterheal                                           0.015 -0.004 -0.014 -0.058
+betterdrug                                          -0.010 -0.187 -0.127 -0.314
+Median                                               0.016  0.069 -0.012 -0.022
+Pop                                                  0.000 -0.015  0.007 -0.002
+                                                    lesspn bttrbr bttrhl bttrdr
+typeGovernment - Combination Government & Voluntary                            
+typeGovernment - Local                                                         
+typeGovernment - State/ County                                                 
+typeLocal                                                                      
+typeNon - Profit Other                                                         
+typeNon - Profit Private                                                       
+typeNon - Profit Religious                                                     
+typeOther                                                                      
+typePrivate                                                                    
+typeProprietary                                                                
+typeReligious Affiliations                                                     
+typeState/County                                                               
+off.physicalYes                                                                
+off.occupationalYes                                                            
+off.speechYes                                                                  
+off.medicalYes                                                                 
+off.hhaYes                                                                     
+timely                                                                         
+taughtdrugs                                                                    
+checkfall                                                                      
+checkdepression                                                                
+flushot                                                                        
+pnumococcal                                                                    
+taughtfootcare                                                                 
+betterwalking                                                                  
+betterbed                                                                      
+betterbathing                                                                  
+lesspain                                                                       
+betterbreathing                                     -0.368                     
+betterheal                                          -0.042 -0.021              
+betterdrug                                          -0.088 -0.107 -0.012       
+Median                                              -0.007 -0.035  0.032  0.021
+Pop                                                 -0.015 -0.013  0.011  0.013
+                                                    Median
+typeGovernment - Combination Government & Voluntary       
+typeGovernment - Local                                    
+typeGovernment - State/ County                            
+typeLocal                                                 
+typeNon - Profit Other                                    
+typeNon - Profit Private                                  
+typeNon - Profit Religious                                
+typeOther                                                 
+typePrivate                                               
+typeProprietary                                           
+typeReligious Affiliations                                
+typeState/County                                          
+off.physicalYes                                           
+off.occupationalYes                                       
+off.speechYes                                             
+off.medicalYes                                            
+off.hhaYes                                                
+timely                                                    
+taughtdrugs                                               
+checkfall                                                 
+checkdepression                                           
+flushot                                                   
+pnumococcal                                               
+taughtfootcare                                            
+betterwalking                                             
+betterbed                                                 
+betterbathing                                             
+lesspain                                                  
+betterbreathing                                           
+betterheal                                                
+betterdrug                                                
+Median                                                    
+Pop                                                 -0.255
+
+Standardized Within-Group Residuals:
+          Min            Q1           Med            Q3           Max 
+-5.1822458561 -0.6209264743 -0.0005012301  0.5939451454  4.9945926274 
+
+Number of Observations: 26593
+Number of Groups: 1840 
