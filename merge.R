@@ -34,48 +34,72 @@ setdiff(names66_2,names79)
 df20141 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20141.csv",sep=',',colClasses=mytypes60,check.names = F)
 length(names(df20141))
 names(df20141) <- names60
+df20141 <- cbind(df20141[,c(1:55)],df20141[,c(58:59)],df20141[,c(56:57)],df20141[,60])
+names(df20141)[60] <- 'note'
+names(df20141)
 
 df20142 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20142.csv",sep=',',colClasses=mytypes60,check.names = F)
 length(names(df20142))
 names(df20142) <- names60
+df20142 <- cbind(df20142[,c(1:55)],df20142[,c(58:59)],df20142[,c(56:57)],df20142[,60])
+names(df20142)[60] <- 'note'
+names(df20142)
 
 df20143 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20143.csv",sep=',',colClasses=mytypes60,check.names = F)
 length(names(df20143))
 names(df20143) <- names60
+df20143 <- cbind(df20143[,c(1:55)],df20143[,c(58:59)],df20143[,c(56:57)],df20143[,60])
+names(df20143)[60] <- 'note'
+names(df20143)
 
 df20144 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20144.csv",sep=',',colClasses=mytypes60,check.names = F)
 length(names(df20144))
 names(df20144) <- names60
+df20144 <- cbind(df20144[,c(1:55)],df20144[,c(58:59)],df20144[,c(56:57)],df20144[,60])
+names(df20144)[60] <- 'note'
+names(df20144)
 
 df20151 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20151.csv",sep=',',colClasses=mytypes60,check.names = F)
 length(names(df20151))
 names(df20151) <- names60
+df20151 <- cbind(df20151[,c(1:55)],df20151[,c(58:59)],df20151[,c(56:57)],df20151[,60])
+names(df20151)[60] <- 'note'
+names(df20151)
 
 df20152 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20152.csv",sep=',',colClasses=mytypes60,check.names = F)
 length(names(df20152))
 names(df20152) <- names60
+df20152 <- cbind(df201512[,c(1:55)],df20152[,c(58:59)],df20152[,c(56:57)],df20152[,60])
+names(df20152)[60] <- 'note'
+names(df20152)
 
-df20153 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20153.csv",sep=',',colClasses=mytypes66,na.strings = "NotAvailable",check.names = F)
+df20153 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20153.csv",sep=',',colClasses=mytypes66_1,na.strings = "NotAvailable",check.names = F)
 length(names(df20153))
 names(df20153) <- names66_1
+df20153 <- cbind(df201513[,c(1:55)],df20153[,c(60:61)],df20153[,c(58:59)],df20153[,c(62:66)])
+names(df20153)[66] <- 'note'
+names(df20153)
 
-df20154 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20154.csv",sep=',',colClasses=mytypes66,na.strings = "NotAvailable",check.names = F)
+df20154 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20154.csv",sep=',',colClasses=mytypes66_1,na.strings = "NotAvailable",check.names = F)
 length(names(df20154))
 names(df20154) <- names66_1
+df20154 <- cbind(df201514[,c(1:55)],df20154[,c(60:61)],df20154[,c(58:59)],df20154[,c(62:66)])
+names(df20154)[66] <- 'note'
+names(df20154)
 
-df20161 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20161.csv",sep=',',colClasses=mytypes66,na.strings = "NotAvailable",check.names = F)
+df20161 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20161.csv",sep=',',colClasses=mytypes66_2,na.strings = "NotAvailable",check.names = F)
 length(names(df20161))
 names(df20161) <- names66_2
 
-df20162 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20162.csv",sep=',',colClasses=mytypes66,na.strings = "NotAvailable",check.names = F)
+df20162 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20162.csv",sep=',',colClasses=mytypes66_2,na.strings = "NotAvailable",check.names = F)
 length(names(df20162))
 names(df20162) <- names66_2
 
-df20163 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20163.csv",sep=',',colClasses=mytypes66,na.strings = "NotAvailable",check.names = F)
+df20163 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20163.csv",sep=',',colClasses=mytypes66_2,na.strings = "NotAvailable",check.names = F)
 length(names(df20163))
 names(df20163) <- names66_2
 
-df20164 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20164.csv",sep=',',colClasses=mytypes66,na.strings = "NotAvailable",check.names = F)
+df20164 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20164.csv",sep=',',colClasses=mytypes66_2,na.strings = "NotAvailable",check.names = F)
 length(names(df20164))
 names(df20164) <- names66_2
 
@@ -127,171 +151,139 @@ df20194 <- read.csv("input/data/HHAALL/HHC_SOCRATA_PRVDR20194.csv",sep=',',colCl
 length(names(df20194))
 names(df20194) <- names79
 
-df20141 <- df20141[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
-df20142 <- df20142[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
-df20143 <- df20143[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
-df20144 <- df20144[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
-df20151 <- df20151[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
-df20152 <- df20152[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
-df20153 <- df20153[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
-df20154 <- df20154[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
-df20161 <- df20161[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
-df20162 <- df20162[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
-df20163 <- df20163[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
-df20164 <- df20164[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
-df20171 <- df20171[,c(-16,-17,-50,-51,-52,-53)]
-df20172 <- df20172[,c(-16,-17,-50,-51,-52,-53)]
-df20173 <- df20173[,c(-16,-17,-50,-51,-52,-53)]
-df20174 <- df20174[,c(-16,-17,-50,-51,-52,-53)]
-df20181 <- df20181[,c(-16,-17,-50,-51,-52,-53)]
-df20182 <- df20182[,c(-16,-17,-50,-51,-52,-53)]
-df20183 <- df20183[,c(-16,-17,-50,-51,-52,-53)]
-df20184 <- df20184[,c(-16,-17,-50,-51,-52,-53)]
-df20191 <- df20191[,c(-16,-17,-50,-51,-52,-53,-55,-56,-57,-58,-59,-60,-61,-62,-63)]
-df20192 <- df20192[,c(-16,-17,-50,-51,-52,-53,-55,-56,-57,-58,-59,-60,-61,-62,-63)]
-df20193 <- df20193[,c(-16,-17,-50,-51,-52,-53,-55,-56,-57,-58,-59,-60,-61,-62,-63)]
-df20194 <- df20194[,c(-16,-17,-50,-51,-52,-53,-55,-56,-57,-58,-59,-60,-61,-62,-63,-64,-65,-66,-67,-68,-69,-70,-71,-72,-73,-74,-75,-76,-77,-78,-79)]
-
-df20141 <- cbind(df20141[,c(1:43)],df20141[,c(46:47)],df20141[,c(44:45)],df20141[,48])
-names(df20141)[48] <- 'note'
-names(df20141)
-
-df20142 <- cbind(df20142[,c(1:43)],df20142[,c(46:47)],df20142[,c(44:45)],df20142[,48])
-names(df20142)[48] <- 'note'
-names(df20142)
-
-df20143 <- cbind(df20143[,c(1:43)],df20143[,c(46:47)],df20143[,c(44:45)],df20143[,48])
-names(df20143)[48] <- 'note'
-names(df20143)
-
-df20144 <- cbind(df20144[,c(1:43)],df20144[,c(46:47)],df20144[,c(44:45)],df20144[,48])
-names(df20144)[48] <- 'note'
-names(df20144)
-
-df20151 <- cbind(df20151[,c(1:43)],df20151[,c(46:47)],df20151[,c(44:45)],df20151[,48])
-names(df20151)[48] <- 'note'
-names(df20151)
-
-df20152 <- cbind(df20152[,c(1:43)],df20152[,c(46:47)],df20152[,c(44:45)],df20152[,48])
-names(df20152)[48] <- 'note'
-names(df20152)
-
-df20153 <- cbind(df20153[,c(1:43)],df20153[,c(46:47)],df20153[,c(44:45)],df20153[,48])
-names(df20153)[48] <- 'note'
-names(df20153)
-
-df20154 <- cbind(df20154[,c(1:43)],df20154[,c(46:47)],df20154[,c(44:45)],df20154[,48])
-names(df20154)[48] <- 'note'
-names(df20154)
-
-df <- rbind(df20141,df20142,df20143,df20144,df20151,df20152,df20153,df20154,df20161,df20162,df20163,df20164,df20171,df20172,df20173,df20174,df20181,df20182,df20183,df20184,df20191,df20192,df20193,df20194)
-write.csv(df, file = "input/HHA2014-2019.csv",row.names=FALSE, na="")
-
-year20141 <- as.factor(rep('2014',nrow(df20141)))
-df20141$year <- year20141
-year20142 <- as.factor(rep('2014',nrow(df20142)))
-df20142$year <- year20142
-year20143 <- as.factor(rep('2014',nrow(df20143)))
-df20143$year <- year20143
-year20144 <- as.factor(rep('2014',nrow(df20144)))
-df20144$year <- year20144
-season20141 <- as.factor(rep('20141',nrow(df20141)))
-df20141$season <- season20141
-season20142 <- as.factor(rep('20142',nrow(df20142)))
-df20142$season <- season20142
-season20143 <- as.factor(rep('20143',nrow(df20143)))
-df20143$season <- season20143
-season20144 <- as.factor(rep('20144',nrow(df20144)))
-df20144$season <- season20144
-
-year20151 <- as.factor(rep('2015',nrow(df20151)))
-df20151$year <- year20151
-year20152 <- as.factor(rep('2015',nrow(df20152)))
-df20152$year <- year20152
-year20153 <- as.factor(rep('2015',nrow(df20153)))
-df20153$year <- year20153
-year20154 <- as.factor(rep('2015',nrow(df20154)))
-df20154$year <- year20154
-season20151 <- as.factor(rep('20151',nrow(df20151)))
-df20151$season <- season20151
-season20152 <- as.factor(rep('20152',nrow(df20152)))
-df20152$season <- season20152
-season20153 <- as.factor(rep('20153',nrow(df20153)))
-df20153$season <- season20153
-season20154 <- as.factor(rep('20154',nrow(df20154)))
-df20154$season <- season20154
-
-year20161 <- as.factor(rep('2016',nrow(df20161)))
-df20161$year <- year20161
-year20162 <- as.factor(rep('2016',nrow(df20162)))
-df20162$year <- year20162
-year20163 <- as.factor(rep('2016',nrow(df20163)))
-df20163$year <- year20163
-year20164 <- as.factor(rep('2016',nrow(df20164)))
-df20164$year <- year20164
-season20161 <- as.factor(rep('20161',nrow(df20161)))
-df20161$season <- season20161
-season20162 <- as.factor(rep('20162',nrow(df20162)))
-df20162$season <- season20162
-season20163 <- as.factor(rep('20163',nrow(df20163)))
-df20163$season <- season20163
-season20164 <- as.factor(rep('20164',nrow(df20164)))
-df20164$season <- season20164
-
-year20171 <- as.factor(rep('2017',nrow(df20171)))
-df20171$year <- year20171
-year20172 <- as.factor(rep('2017',nrow(df20172)))
-df20172$year <- year20172
-year20173 <- as.factor(rep('2017',nrow(df20173)))
-df20173$year <- year20173
-year20174 <- as.factor(rep('2017',nrow(df20174)))
-df20174$year <- year20174
-season20171 <- as.factor(rep('20171',nrow(df20171)))
-df20171$season <- season20171
-season20172 <- as.factor(rep('20172',nrow(df20172)))
-df20172$season <- season20172
-season20173 <- as.factor(rep('20173',nrow(df20173)))
-df20173$season <- season20173
-season20174 <- as.factor(rep('20174',nrow(df20174)))
-df20174$season <- season20174
-
-year20181 <- as.factor(rep('2018',nrow(df20181)))
-df20181$year <- year20181
-year20182 <- as.factor(rep('2018',nrow(df20182)))
-df20182$year <- year20182
-year20183 <- as.factor(rep('2018',nrow(df20183)))
-df20183$year <- year20183
-year20184 <- as.factor(rep('2018',nrow(df20184)))
-df20184$year <- year20184
-season20181 <- as.factor(rep('20181',nrow(df20181)))
-df20181$season <- season20181
-season20182 <- as.factor(rep('20182',nrow(df20182)))
-df20182$season <- season20182
-season20183 <- as.factor(rep('20183',nrow(df20183)))
-df20183$season <- season20183
-season20184 <- as.factor(rep('20184',nrow(df20184)))
-df20184$season <- season20184
-
-year20191 <- as.factor(rep('2019',nrow(df20191)))
-df20191$year <- year20191
-year20192 <- as.factor(rep('2019',nrow(df20192)))
-df20192$year <- year20192
-year20193 <- as.factor(rep('2019',nrow(df20193)))
-df20193$year <- year20193
-year20194 <- as.factor(rep('2019',nrow(df20194)))
-df20194$year <- year20194
-season20191 <- as.factor(rep('20191',nrow(df20191)))
-df20191$season <- season20191
-season20192 <- as.factor(rep('20192',nrow(df20192)))
-df20192$season <- season20192
-season20193 <- as.factor(rep('20193',nrow(df20193)))
-df20193$season <- season20193
-season20194 <- as.factor(rep('20194',nrow(df20194)))
-df20194$season <- season20194
+hha20141 <- df20141[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
+hha20142 <- df20142[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
+hha20143 <- df20143[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
+hha20144 <- df20144[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
+hha20151 <- df20151[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
+hha20152 <- df20152[,c(-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41)]
+hha20153 <- df20153[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
+hha20154 <- df20154[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
+hha20161 <- df20161[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
+hha20162 <- df20162[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
+hha20163 <- df20163[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
+hha20164 <- df20164[,c(-16,-17,-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55,-62,-63,-64,-65)]
+hha20171 <- df20171[,c(-16,-17,-50,-51,-52,-53)]
+hha20172 <- df20172[,c(-16,-17,-50,-51,-52,-53)]
+hha20173 <- df20173[,c(-16,-17,-50,-51,-52,-53)]
+hha20174 <- df20174[,c(-16,-17,-50,-51,-52,-53)]
+hha20181 <- df20181[,c(-16,-17,-50,-51,-52,-53)]
+hha20182 <- df20182[,c(-16,-17,-50,-51,-52,-53)]
+hha20183 <- df20183[,c(-16,-17,-50,-51,-52,-53)]
+hha20184 <- df20184[,c(-16,-17,-50,-51,-52,-53)]
+hha20191 <- df20191[,c(-16,-17,-50,-51,-52,-53,-55,-56,-57,-58,-59,-60,-61,-62,-63)]
+hha20192 <- df20192[,c(-16,-17,-50,-51,-52,-53,-55,-56,-57,-58,-59,-60,-61,-62,-63)]
+hha20193 <- df20193[,c(-16,-17,-50,-51,-52,-53,-55,-56,-57,-58,-59,-60,-61,-62,-63)]
+hha20194 <- df20194[,c(-16,-17,-50,-51,-52,-53,-55,-56,-57,-58,-59,-60,-61,-62,-63,-64,-65,-66,-67,-68,-69,-70,-71,-72,-73,-74,-75,-76,-77,-78,-79)]
 
 
-df <- rbind(df20141,df20142,df20143,df20144,df20151,df20152,df20153,df20154,df20161,df20162,df20163,df20164,df20171,df20172,df20173,df20174,df20181,df20182,df20183,df20184,df20191,df20192,df20193,df20194)
-write.csv(df, file = "input/HHA2014-2019(time).csv",row.names=FALSE, na="")
+df2014_2019 <- rbind(hha20141,hha20142,hha20143,hha20144,hha20151,hha20152,hha20153,hha20154,hha20161,hha20162,hha20163,hha20164,hha20171,hha20172,hha20173,hha20174,hha20181,hha20182,hha20183,hha20184,hha20191,hha20192,hha20193,hha20194)
+write.csv(df2014_2019, file = "input/HHA2014-2019.csv",row.names=FALSE, na="")
+
+
+Hha20153 <- df20153[,c(-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55)]
+Hha20154 <- df20154[,c(-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55)]
+Hha20161 <- df20161[,c(-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55)]
+Hha20162 <- df20162[,c(-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55)]
+Hha20163 <- df20163[,c(-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55)]
+Hha20164 <- df20164[,c(-32,-33,-34,-35,-36,-37,-50,-51,-52,-53,-54,-55)]
+Hha20171 <- df20171
+Hha20172 <- df20172
+Hha20173 <- df20173
+Hha20174 <- df20174
+Hha20181 <- df20181
+Hha20182 <- df20182
+Hha20183 <- df20183
+Hha20184 <- df20184
+Hha20191 <- df20191[,c(-55,-56,-57,-58,-59,-60,-61,-62,-63)]
+Hha20192 <- df20192[,c(-55,-56,-57,-58,-59,-60,-61,-62,-63)]
+Hha20193 <- df20193[,c(-55,-56,-57,-58,-59,-60,-61,-62,-63)]
+Hha20194 <- df20194[,c(-55,-56,-57,-58,-59,-60,-61,-62,-63,-64,-65,-66,-67,-68,-69,-70,-71,-72,-73,-74,-75,-76,-77,-78,-79)]
+
+df2015_2019 <- rbind(Hha20153,Hha20154,Hha20161,Hha20162,Hha20163,Hha20164,Hha20171,Hha20172,Hha20173,Hha20174,Hha20181,Hha20182,Hha20183,Hha20184,Hha20191,Hha20192,Hha20193,Hha20194)
+write.csv(df2015_2019, file = "input/HHA2015-2019.csv",row.names=FALSE, na="")
+
+df2016_2019 <- rbind(Hha20161,Hha20162,Hha20163,Hha20164,Hha20171,Hha20172,Hha20173,Hha20174,Hha20181,Hha20182,Hha20183,Hha20184,Hha20191,Hha20192,Hha20193,Hha20194)
+write.csv(df2016_2019, file = "input/HHA2016-2019.csv",row.names=FALSE, na="")
+
+
+
+year20141 <- rep(2014,nrow(df20141))
+year20142 <- rep(2014,nrow(df20142))
+year20143 <- rep(2014,nrow(df20143))
+year20144 <- rep(2014,nrow(df20144))
+season20141 <- rep(20141,nrow(df20141))
+season20142 <- rep(20142,nrow(df20142))
+season20143 <- rep(20143,nrow(df20143))
+season20144 <- rep(20144,nrow(df20144))
+
+
+year20151 <- rep(2015,nrow(df20151))
+year20152 <- rep(2015,nrow(df20152))
+year20153 <- rep(2015,nrow(df20153))
+year20154 <- rep(2015,nrow(df20154))
+season20151 <- rep(20151,nrow(df20151))
+season20152 <- rep(20152,nrow(df20152))
+season20153 <- rep(20153,nrow(df20153))
+season20154 <- rep(20154,nrow(df20154))
+
+year20161 <- rep(2016,nrow(df20161))
+year20162 <- rep(2016,nrow(df20162))
+year20163 <- rep(2016,nrow(df20163))
+year20164 <- rep(2016,nrow(df20164))
+season20161 <- rep(20161,nrow(df20161))
+season20162 <- rep(20162,nrow(df20162))
+season20163 <- rep(20163,nrow(df20163))
+season20164 <- rep(20164,nrow(df20164))
+
+year20171 <- rep(2017,nrow(df20171))
+year20172 <- rep(2017,nrow(df20172))
+year20173 <- rep(2017,nrow(df20173))
+year20174 <- rep(2017,nrow(df20174))
+season20171 <- rep(20171,nrow(df20171))
+season20172 <- rep(20172,nrow(df20172))
+season20173 <- rep(20173,nrow(df20173))
+season20174 <- rep(20174,nrow(df20174))
+
+
+year20181 <- rep(2018,nrow(df20181))
+year20182 <- rep(2018,nrow(df20182))
+year20183 <- rep(2018,nrow(df20183))
+year20184 <- rep(2018,nrow(df20184))
+season20181 <- rep(20181,nrow(df20181))
+season20182 <- rep(20182,nrow(df20182))
+season20183 <- rep(20183,nrow(df20183))
+season20184 <- rep(20184,nrow(df20184))
+
+
+year20191 <- rep(2019,nrow(df20191))
+year20192 <- rep(2019,nrow(df20192))
+year20193 <- rep(2019,nrow(df20193))
+year20194 <- rep(2019,nrow(df20194))
+season20191 <- rep(20191,nrow(df20191))
+season20192 <- rep(20192,nrow(df20192))
+season20193 <- rep(20193,nrow(df20193))
+season20194 <- rep(20194,nrow(df20194))
+
+year2014_2019 <- c(year20141,year20142,year20143,year20144,year20151,year20152,year20153,year20154,year20161,year20162,year20163,year20164,year20171,year20172,year20173,year20174,year20181,year20182,year20183,year20184,year20191,year20192,year20193,year20194)
+season2014_2019 <- c(season20141,season20142,season20143,season20144,season20151,season20152,season20153,season20154,season20161,season20162,season20163,season20164,season20171,season20172,season20173,season20174,season20181,season20182,season20183,season20184,season20191,season20192,season20193,season20194)
+
+year2015_2019 <- c(year20153,year20154,year20161,year20162,year20163,year20164,year20171,year20172,year20173,year20174,year20181,year20182,year20183,year20184,year20191,year20192,year20193,year20194)
+season2015_2019 <- c(season20153,season20154,season20161,season20162,season20163,season20164,season20171,season20172,season20173,season20174,season20181,season20182,season20183,season20184,season20191,season20192,season20193,season20194)
+
+year2016_2019 <- c(year20161,year20162,year20163,year20164,year20171,year20172,year20173,year20174,year20181,year20182,year20183,year20184,year20191,year20192,year20193,year20194)
+season2016_2019 <- c(season20161,season20162,season20163,season20164,season20171,season20172,season20173,season20174,season20181,season20182,season20183,season20184,season20191,season20192,season20193,season20194)
+
+df2014_2019$year <- year2014_2019
+df2014_2019$season <- season2014_2019
+df2015_2019$year <- year2015_2019
+df2015_2019$season <- season2015_2019
+df2016_2019$year <- year2016_2019
+df2016_2019$season <- season2016_2019
+
+write.csv(df2014_2019, file = "input/HHA2014-2019(time).csv",row.names=FALSE, na="")
+write.csv(df2015_2019, file = "input/HHA2015-2019(time).csv",row.names=FALSE, na="")
+write.csv(df2016_2019, file = "input/HHA2016-2019(time).csv",row.names=FALSE, na="")
 
 
 
