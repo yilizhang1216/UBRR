@@ -1,9 +1,8 @@
-library(rpart)
-library(rpart.plot)
+
 
 mytypes <- c('factor',rep('character',3),'factor',rep('character',2),rep('factor',7),'character',rep(c('numeric','character'),16),'character')
 df <- read.csv("HHA2014-2019.csv",sep=',',colClasses=mytypes)
-names(df) <- c('state','CCN','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','timely','note-timely','taughtdrugs','note-taughtdrugs','checkfall','note-checkfall','checkdepression','note-checkdepression','flushot','note-flushot','pnumococcal','note-pnumococcal','taughtfootcare','note-tautfootcare','betterwalking','note-betterwalking','betterbed','note-betterbed','betterbathing','note-betterbathing','lesspain','note-lesspain','betterbreathing','note-betterbreathing','betterheal','note-betterheal','betterdrug','note-betterdrug','urgent','note-urgent','admitted','note-admitted','note')
+names(df) <- c('state','CCN','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','timely','note-timely','taughtdrugs','note-taughtdrugs','checkfall','note-checkfall','checkdepression','note-checkdepression','flushot','note-flushot','pnumococcal','note-pnumococcal','taughtfootcare','note-tautfootcare','betterwalking','note-betterwalking','betterbed','note-betterbed','betterbathing','note-betterbathing','lesspain','note-lesspain','betterbreathing','note-betterbreathing','betterheal','note-betterheal','betterdrug','note-betterdrug','ER','note-ER','admitted','note-admitted','note')
 
 names(df)
 dim(df)
@@ -64,41 +63,6 @@ dataUrban <- fulldata[fulldata$RUCA=='Urban',]
 
 
 
-model1 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.005)
-summary(model1)
-pdf("plot/admitted_fulldata.pdf",width=6,height=4,paper='special')
-rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-dev.off()
-
-model2 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.01)
-summary(model2)
-pdf("plot/urgent_fulldata.pdf",width=6,height=4,paper='special')
-rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-dev.off()
-
-model3 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.0075)
-summary(model3)
-pdf("plot/admitted_urbandata.pdf",width=6,height=4,paper='special')
-rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-dev.off()
-
-model4 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.008)
-summary(model4)
-pdf("plot/urgent_urbandata.pdf",width=6,height=4,paper='special')
-rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-dev.off()
-
-model5 <- rpart(formula= admitted ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.003)
-summary(model5)
-pdf("plot/admitted_ruraldata.pdf",width=6,height=4,paper='special')
-rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-dev.off()
-
-model6 <- rpart(formula= urgent ~ type + off.nursing + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.005)
-summary(model6)
-pdf("plot/urgent_ruraldata.pdf",width=6,height=4,paper='special')
-rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-dev.off()
 
 
 ## no characteristics
@@ -110,7 +74,7 @@ dev.off()
 ## rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
-## model2 <- rpart(formula= urgent ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.012)
+## model2 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.012)
 ## summary(model2)
 ## rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
@@ -122,7 +86,7 @@ dev.off()
 ## rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
-## model4 <- rpart(formula= urgent ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.008)
+## model4 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.008)
 ## summary(model4)
 ## rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
@@ -132,6 +96,6 @@ dev.off()
 ## rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
-## model6 <- rpart(formula= urgent ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.0053)
+## model6 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.0053)
 ## summary(model6)
 ## rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
