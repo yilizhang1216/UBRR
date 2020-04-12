@@ -135,9 +135,6 @@ rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 dev.off()
 
 
-median(fulldata$betterbed)
-mean(fulldata$betterbed)
-
 
 # linear model - commented because of low R square
 # ####offer nursing has only one level 
