@@ -114,16 +114,16 @@ pdf("output/plot result/2015ER_fulldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 dev.off()
 
-model3 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha  + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.001)
+model3 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha  + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.0013)
 summary(model3)
 
-model4 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha  + timely + taughtdrugs + checkfall + checkdepression   + taughtfootcare, data =dataUrban,cp=0.0013)
+model4 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha  + timely + taughtdrugs + checkfall + checkdepression   + taughtfootcare, data =dataUrban,cp=0.0012)
 summary(model4)
 
 model5 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha  + timely + taughtdrugs + checkfall + checkdepression   + taughtfootcare, data =dataRural,cp=0.0012)
 summary(model5)
 
-model6 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha  + timely + taughtdrugs + checkfall + checkdepression   + taughtfootcare, data =dataRural,cp=0.0015)
+model6 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha  + timely + taughtdrugs + checkfall + checkdepression   + taughtfootcare, data =dataRural,cp=0.0013)
 summary(model6)
 
 
