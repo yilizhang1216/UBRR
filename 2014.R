@@ -102,28 +102,28 @@ valueTable <- data.frame(cbind(valueMean_Urban,valueMedian_Urban,valueStd_Urban,
 
 
 ### Tree model
-model1 <- rpart(formula= admitted ~ type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + RUCA, data =fulldata,cp=0.005)
+model1 <- rpart(formula= admitted ~  off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare + RUCA, data =fulldata,cp=0.005)
 summary(model1)
 pdf("output/plot result/2014admitted_fulldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 dev.off()
 
-model2 <- rpart(formula= ER ~ type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + RUCA, data =fulldata,cp=0.006)
+model2 <- rpart(formula= ER ~  off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare + RUCA, data =fulldata,cp=0.006)
 summary(model2)
 pdf("output/plot result/2014ER_fulldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 dev.off()
 
-model3 <- rpart(formula= admitted ~ type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug, data =dataUrban,cp=0.004)
+model3 <- rpart(formula= admitted ~  off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare, data =dataUrban,cp=0.0007)
 summary(model3)
 
-model4 <- rpart(formula= ER ~ type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug, data =dataUrban,cp=0.003)
+model4 <- rpart(formula= ER ~  off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare, data =dataUrban,cp=0.0007)
 summary(model4)
 
-model5 <- rpart(formula= admitted ~ type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug, data =dataRural,cp=0.002)
+model5 <- rpart(formula= admitted ~  off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare, data =dataRural,cp=0.0012)
 summary(model5)
 
-model6 <- rpart(formula= ER ~ type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug, data =dataRural,cp=0.0015)
+model6 <- rpart(formula= ER ~  off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare, data =dataRural,cp=0.0013)
 summary(model6)
 
 
@@ -138,25 +138,25 @@ dev.off()
 
 # linear model - commented because of low R square
 # ####offer nursing has only one level 
-# lmadmitted <- lm(admitted~type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + RUCA,data=fulldata)
+# lmadmitted <- lm(admitted~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare + RUCA,data=fulldata)
 # summary(lmadmitted)
 # 
-# lmER <- lm(ER~type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + RUCA,data=fulldata)
+# lmER <- lm(ER~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare + RUCA,data=fulldata)
 # summary(lmER)
 # 
 # 
 # ## Urban data
-# lmadmittedUrban <- lm(admitted~type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug,data=dataUrban)
+# lmadmittedUrban <- lm(admitted~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare,data=dataUrban)
 # summary(lmadmittedUrban)
 # 
-# lmERUrban <- lm(ER~type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug,data=dataUrban)
+# lmERUrban <- lm(ER~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare,data=dataUrban)
 # summary(lmERUrban)
 # 
 # ## Rural data
-# lmadmittedRural <- lm(admitted~type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug,data=dataRural)
+# lmadmittedRural <- lm(admitted~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare,data=dataRural)
 # summary(lmadmittedRural)
 # 
-# lmERRural <- lm(ER~type + off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + flushot + pnumococcal + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug,data=dataRural)
+# lmERRural <- lm(ER~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression  + taughtfootcare,data=dataRural)
 # summary(lmERRural)
 
 
