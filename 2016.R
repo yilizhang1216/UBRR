@@ -1,6 +1,8 @@
 library(rpart)
 library(rpart.plot)
 library('scales')
+library(tree)
+
 
 mytypes <- c('factor',rep('character',3),'factor',rep('character',2),rep('factor',7),'character',rep(c('numeric','character'),17),rep(c('factor','character'),2),'character')
 df <- read.csv("input/HHA2016-2019.csv",sep=',',colClasses=mytypes)
@@ -19,7 +21,7 @@ dim(merg)
 
 data <- merg[,c(-7:-4,-2,-1,-15,-17,-19,-21,-23,-25,-27,-29,-31,-33,-35,-37,-39,-41,-43,-45,-47,-49,-51,-53,-54)]
 
-#fulldata <- na.omit(data)
+fulldata <- na.omit(data)
 fulldata <- data
 dim(fulldata)
 
@@ -44,8 +46,6 @@ typeCount_Rural <- table(dataRural$type)
 typePerc_Urban <- typeCount_Urban/dim(dataUrban)[1]
 typePerc_Rural <- typeCount_Rural/dim(dataRural)[1]
 typeTable <- data.frame(cbind(typeCount_Urban,typePerc_Urban,typeCount_Rural,typePerc_Rural))
-typeTable[,2] <- percent(typeTable$typePerc_Urban)
-typeTable[,4] <- percent(typeTable$typePerc_Rural)
 typeTable
 #write.csv(typeTable,file = "output/dummy.csv",row.names=FALSE, na="")
 
@@ -57,7 +57,7 @@ offCount_Urban <-  c(offCount_Urban,sum(dataUrban$off.occupational=='Yes'))
 offCount_Urban <-  c(offCount_Urban,sum(dataUrban$off.speech=='Yes'))
 offCount_Urban <-  c(offCount_Urban,sum(dataUrban$off.medical=='Yes'))
 offCount_Urban <-  c(offCount_Urban,sum(dataUrban$off.hha=='Yes'))
-offPerc_Urban <- percent(offCount_Urban/dim(dataUrban)[1])
+offPerc_Urban <- (offCount_Urban/dim(dataUrban)[1])
 
 offCount_Rural <- c()
 offPerc_Rural <- c()
@@ -67,7 +67,7 @@ offCount_Rural <-  c(offCount_Rural,sum(dataRural$off.occupational=='Yes'))
 offCount_Rural <-  c(offCount_Rural,sum(dataRural$off.speech=='Yes'))
 offCount_Rural <-  c(offCount_Rural,sum(dataRural$off.medical=='Yes'))
 offCount_Rural <-  c(offCount_Rural,sum(dataRural$off.hha=='Yes'))
-offPerc_Rural <- percent(offCount_Rural/dim(dataRural)[1])
+offPerc_Rural <- (offCount_Rural/dim(dataRural)[1])
 offTable <- data.frame(cbind(offCount_Urban,offPerc_Urban,offCount_Rural,offPerc_Rural))
 #write.csv(offTable,file = "output/dummy.csv",row.names=FALSE, na="")
 
@@ -114,16 +114,29 @@ pdf("output/plot result/2016ER_fulldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 dev.off()
 
-model3 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , data =dataUrban,cp=0.0013)
+
+model3 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , 
+                data =dataUrban,
+                na.action=na.omit,
+                cp=0.0013)
 summary(model3)
 
-model4 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , data =dataUrban,cp=0.001)
+model4 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , 
+                data =dataUrban,
+                na.action=na.omit,
+                cp=0.002)
 summary(model4)
 
-model5 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , data =dataRural,cp=0.0013)
+model5 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , 
+                data =dataRural,
+                na.action=na.omit,
+                cp=0.0017)
 summary(model5)
 
-model6 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , data =dataRural,cp=0.001)
+model6 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , 
+                data =dataRural,
+                na.action=na.omit,
+                cp=0.0012)
 summary(model6)
 
 
