@@ -102,42 +102,67 @@ valueTable <- data.frame(cbind(valueMean_Urban,valueMedian_Urban,valueStd_Urban,
 
 
 ### Tree model
-model1 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare  + RUCA, data =fulldata,cp=0.005)
+model1 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare  + RUCA
+                , 
+                data =fulldata,
+                cp=0.01)
 summary(model1)
 pdf("output/plot result/2016admitted_fulldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 dev.off()
 
-model2 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare  + RUCA, data =fulldata,cp=0.006)
+model2 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare  + RUCA
+                , 
+                data =fulldata,
+                cp=0.01)
 summary(model2)
 pdf("output/plot result/2016ER_fulldata.pdf",width=6,height=4,paper='special')
 rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 dev.off()
 
 
-model3 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , 
+model3 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare 
+                , 
                 data =dataUrban,
                 na.action=na.omit,
-                cp=0.0013)
+                cp=0.00024277)
 summary(model3)
+plotcp(model3)
+rsq.rpart(model3)
+rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
-model4 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , 
+
+model4 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare 
+                , 
                 data =dataUrban,
                 na.action=na.omit,
-                cp=0.002)
+                cp=0.00027828)
 summary(model4)
+plotcp(model4)
+rsq.rpart(model4)
+rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
-model5 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , 
+
+model5 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare 
+                , 
                 data =dataRural,
                 na.action=na.omit,
-                cp=0.0017)
+                cp=0.00085555)
 summary(model5)
+plotcp(model5)
+rsq.rpart(model5)
+rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
-model6 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare , 
+
+model6 <- rpart(formula= ER ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare 
+                , 
                 data =dataRural,
                 na.action=na.omit,
-                cp=0.0012)
+                cp=0.00089067)
 summary(model6)
+plotcp(model6)
+rsq.rpart(model6)
+rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 
 pdf("output/plot result/2016compare.pdf",width=6,height=4,paper='special')
