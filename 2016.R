@@ -100,6 +100,7 @@ valueWil
 valueTable <- data.frame(cbind(valueMean_Urban,valueMedian_Urban,valueStd_Urban,valueMean_Rural,valueMedian_Rural,valueStd_Rural,valueWil))
 #write.csv(valueTable,file = "output/dummy.csv",row.names=FALSE, na="")
 
+hist(dataUrban$rating)
 
 ### Tree model
 model1 <- rpart(formula= admitted ~ off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare  + RUCA
@@ -173,29 +174,3 @@ rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 dev.off()
 
 
-
-# linear model - commented because of low R square
-# ####offer nursing has only one level 
-# lmadmitted <- lm(admitted~off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare  + RUCA,data=fulldata)
-# summary(lmadmitted)
-# 
-# lmER <- lm(ER~off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare  + RUCA,data=fulldata)
-# summary(lmER)
-# 
-# 
-# ## Urban data
-# lmadmittedUrban <- lm(admitted~off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare ,data=dataUrban)
-# summary(lmadmittedUrban)
-# 
-# lmERUrban <- lm(ER~off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare ,data=dataUrban)
-# summary(lmERUrban)
-# 
-# ## Rural data
-# lmadmittedRural <- lm(admitted~off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare ,data=dataRural)
-# summary(lmadmittedRural)
-# 
-# lmERRural <- lm(ER~off.physical + off.occupational + off.speech + off.medical + off.hha + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare ,data=dataRural)
-# summary(lmERRural)
-
-
-### Tree model
