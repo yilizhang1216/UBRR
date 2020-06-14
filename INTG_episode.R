@@ -17,9 +17,13 @@ dim(nmrc2010_ext)
 table(nmrc2010_ext$WKSHT_CD)
 table(nmrc2010_ext$LINE_NUM)
 table(nmrc2010_ext$CLMN_NUM)
-episode2010_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2010_ext, sum)
+episode2010_ext <- aggregate(nmrc2010_ext$ITM_VAL_NUM,list(nmrc2010_ext$RPT_REC_NUM),sum)
+names(episode2010_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2010_ext)
 episode2010 <- merge(rpt2010,episode2010_ext,by='RPT_REC_NUM')[,c(3,19)]
+names(episode2010) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2010 <- aggregate(episode2010$episode,list(episode2010$CCN),mean)
 names(episode2010) <- c('CCN','episode')
 dim(episode2010)
 write.csv(episode2010, file = "input/data/HHAALL/EpisodeData/Episode2010.csv",row.names=FALSE, na="")
@@ -39,9 +43,13 @@ dim(nmrc2011_ext)
 table(nmrc2011_ext$WKSHT_CD)
 table(nmrc2011_ext$LINE_NUM)
 table(nmrc2011_ext$CLMN_NUM)
-episode2011_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2011_ext, sum)
+episode2011_ext <- aggregate(nmrc2011_ext$ITM_VAL_NUM,list(nmrc2011_ext$RPT_REC_NUM),sum)
+names(episode2011_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2011_ext)
 episode2011 <- merge(rpt2011,episode2011_ext,by='RPT_REC_NUM')[,c(3,19)]
+names(episode2011) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2011 <- aggregate(episode2011$episode,list(episode2011$CCN),mean)
 names(episode2011) <- c('CCN','episode')
 dim(episode2011)
 write.csv(episode2011, file = "input/data/HHAALL/EpisodeData/Episode2011.csv",row.names=FALSE, na="")
@@ -61,9 +69,13 @@ dim(nmrc2012_ext)
 table(nmrc2012_ext$WKSHT_CD)
 table(nmrc2012_ext$LINE_NUM)
 table(nmrc2012_ext$CLMN_NUM)
-episode2012_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2012_ext, sum)
+episode2012_ext <- aggregate(nmrc2012_ext$ITM_VAL_NUM,list(nmrc2012_ext$RPT_REC_NUM),sum)
+names(episode2012_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2012_ext)
 episode2012 <- merge(rpt2012,episode2012_ext,by='RPT_REC_NUM')[,c(3,19)]
+names(episode2012) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2012 <- aggregate(episode2012$episode,list(episode2012$CCN),mean)
 names(episode2012) <- c('CCN','episode')
 dim(episode2012)
 write.csv(episode2012, file = "input/data/HHAALL/EpisodeData/Episode2012.csv",row.names=FALSE, na="")
@@ -84,13 +96,16 @@ dim(nmrc2013_ext)
 table(nmrc2013_ext$WKSHT_CD)
 table(nmrc2013_ext$LINE_NUM)
 table(nmrc2013_ext$CLMN_NUM)
-episode2013_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2013_ext, sum)
+episode2013_ext <- aggregate(nmrc2013_ext$ITM_VAL_NUM,list(nmrc2013_ext$RPT_REC_NUM),sum)
+names(episode2013_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2013_ext)
 episode2013 <- merge(rpt2013,episode2013_ext,by='RPT_REC_NUM')[,c(3,19)]
 names(episode2013) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2013 <- aggregate(episode2013$episode,list(episode2013$CCN),mean)
+names(episode2013) <- c('CCN','episode')
 dim(episode2013)
 write.csv(episode2013, file = "input/data/HHAALL/EpisodeData/Episode2013.csv",row.names=FALSE, na="")
-
 
 
 rpt2014 <- read.csv("input/data/HHAALL/EpisodeData/hha_2014_RPT.csv",sep=',',colClasses=type_RPT,check.names = F)
@@ -107,9 +122,13 @@ dim(nmrc2014_ext)
 table(nmrc2014_ext$WKSHT_CD)
 table(nmrc2014_ext$LINE_NUM)
 table(nmrc2014_ext$CLMN_NUM)
-episode2014_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2014_ext, sum)
+episode2014_ext <- aggregate(nmrc2014_ext$ITM_VAL_NUM,list(nmrc2014_ext$RPT_REC_NUM),sum)
+names(episode2014_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2014_ext)
 episode2014 <- merge(rpt2014,episode2014_ext,by='RPT_REC_NUM')[,c(3,19)]
+names(episode2014) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2014 <- aggregate(episode2014$episode,list(episode2014$CCN),mean)
 names(episode2014) <- c('CCN','episode')
 dim(episode2014)
 write.csv(episode2014, file = "input/data/HHAALL/EpisodeData/Episode2014.csv",row.names=FALSE, na="")
@@ -129,15 +148,18 @@ dim(nmrc2015_ext)
 table(nmrc2015_ext$WKSHT_CD)
 table(nmrc2015_ext$LINE_NUM)
 table(nmrc2015_ext$CLMN_NUM)
-episode2015_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2015_ext, sum)
+episode2015_ext <- aggregate(nmrc2015_ext$ITM_VAL_NUM,list(nmrc2015_ext$RPT_REC_NUM),sum)
+names(episode2015_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2015_ext)
 episode2015 <- merge(rpt2015,episode2015_ext,by='RPT_REC_NUM')[,c(3,19)]
+names(episode2015) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2015 <- aggregate(episode2015$episode,list(episode2015$CCN),mean)
 names(episode2015) <- c('CCN','episode')
 dim(episode2015)
 write.csv(episode2015, file = "input/data/HHAALL/EpisodeData/Episode2015.csv",row.names=FALSE, na="")
 
 
-
 rpt2016 <- read.csv("input/data/HHAALL/EpisodeData/hha_2016_RPT.csv",sep=',',colClasses=type_RPT,check.names = F)
 names(rpt2016) <- name_RPT
 dim(rpt2016)
@@ -152,31 +174,13 @@ dim(nmrc2016_ext)
 table(nmrc2016_ext$WKSHT_CD)
 table(nmrc2016_ext$LINE_NUM)
 table(nmrc2016_ext$CLMN_NUM)
-episode2016_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2016_ext, sum)
+episode2016_ext <- aggregate(nmrc2016_ext$ITM_VAL_NUM,list(nmrc2016_ext$RPT_REC_NUM),sum)
+names(episode2016_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2016_ext)
 episode2016 <- merge(rpt2016,episode2016_ext,by='RPT_REC_NUM')[,c(3,19)]
 names(episode2016) <- c('CCN','episode')
-dim(episode2016)
-write.csv(episode2016, file = "input/data/HHAALL/EpisodeData/Episode2016.csv",row.names=FALSE, na="")
-
-
-rpt2016 <- read.csv("input/data/HHAALL/EpisodeData/hha_2016_RPT.csv",sep=',',colClasses=type_RPT,check.names = F)
-names(rpt2016) <- name_RPT
-dim(rpt2016)
-nmrc2016 <- read.csv("input/data/HHAALL/EpisodeData/hha_2016_NMRC.csv",sep=',',colClasses=type_NMRC,check.names = F)
-names(nmrc2016) <- name_NMRC
-dim(nmrc2016)
-nmrc2016_ext <- nmrc2016[which( nmrc2016$WKSHT_CD=='S300000' 
-                                & nmrc2016$LINE_NUM=='04500'
-                                & (nmrc2016$CLMN_NUM == '0100' | nmrc2016$CLMN_NUM == '0200' | nmrc2016$CLMN_NUM == '0300' | nmrc2016$CLMN_NUM == '0400' | nmrc2016$CLMN_NUM == '0500' | nmrc2016$CLMN_NUM == '0600')
-),]
-dim(nmrc2016_ext)
-table(nmrc2016_ext$WKSHT_CD)
-table(nmrc2016_ext$LINE_NUM)
-table(nmrc2016_ext$CLMN_NUM)
-episode2016_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2016_ext, sum)
-dim(episode2016_ext)
-episode2016 <- merge(rpt2016,episode2016_ext,by='RPT_REC_NUM')[,c(3,19)]
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2016 <- aggregate(episode2016$episode,list(episode2016$CCN),mean)
 names(episode2016) <- c('CCN','episode')
 dim(episode2016)
 write.csv(episode2016, file = "input/data/HHAALL/EpisodeData/Episode2016.csv",row.names=FALSE, na="")
@@ -196,9 +200,13 @@ dim(nmrc2017_ext)
 table(nmrc2017_ext$WKSHT_CD)
 table(nmrc2017_ext$LINE_NUM)
 table(nmrc2017_ext$CLMN_NUM)
-episode2017_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2017_ext, sum)
+episode2017_ext <- aggregate(nmrc2017_ext$ITM_VAL_NUM,list(nmrc2017_ext$RPT_REC_NUM),sum)
+names(episode2017_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2017_ext)
 episode2017 <- merge(rpt2017,episode2017_ext,by='RPT_REC_NUM')[,c(3,19)]
+names(episode2017) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2017 <- aggregate(episode2017$episode,list(episode2017$CCN),mean)
 names(episode2017) <- c('CCN','episode')
 dim(episode2017)
 write.csv(episode2017, file = "input/data/HHAALL/EpisodeData/Episode2017.csv",row.names=FALSE, na="")
@@ -218,9 +226,13 @@ dim(nmrc2018_ext)
 table(nmrc2018_ext$WKSHT_CD)
 table(nmrc2018_ext$LINE_NUM)
 table(nmrc2018_ext$CLMN_NUM)
-episode2018_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2018_ext, sum)
+episode2018_ext <- aggregate(nmrc2018_ext$ITM_VAL_NUM,list(nmrc2018_ext$RPT_REC_NUM),sum)
+names(episode2018_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2018_ext)
 episode2018 <- merge(rpt2018,episode2018_ext,by='RPT_REC_NUM')[,c(3,19)]
+names(episode2018) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2018 <- aggregate(episode2018$episode,list(episode2018$CCN),mean)
 names(episode2018) <- c('CCN','episode')
 dim(episode2018)
 write.csv(episode2018, file = "input/data/HHAALL/EpisodeData/Episode2018.csv",row.names=FALSE, na="")
@@ -240,14 +252,13 @@ dim(nmrc2019_ext)
 table(nmrc2019_ext$WKSHT_CD)
 table(nmrc2019_ext$LINE_NUM)
 table(nmrc2019_ext$CLMN_NUM)
-episode2019_ext <- aggregate( ITM_VAL_NUM ~ RPT_REC_NUM, nmrc2019_ext, sum)
+episode2019_ext <- aggregate(nmrc2019_ext$ITM_VAL_NUM,list(nmrc2019_ext$RPT_REC_NUM),sum)
+names(episode2019_ext) <- c('RPT_REC_NUM','ITM_VAL_NUM')
 dim(episode2019_ext)
 episode2019 <- merge(rpt2019,episode2019_ext,by='RPT_REC_NUM')[,c(3,19)]
 names(episode2019) <- c('CCN','episode')
+### some CCN has more than one RPT_REC_NUM, so I have to average the results, otherwise there would be multiple records for one CCN
+episode2019 <- aggregate(episode2019$episode,list(episode2019$CCN),mean)
+names(episode2019) <- c('CCN','episode')
 dim(episode2019)
 write.csv(episode2019, file = "input/data/HHAALL/EpisodeData/Episode2019.csv",row.names=FALSE, na="")
-
-
-
-
-
