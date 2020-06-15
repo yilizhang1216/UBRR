@@ -15,10 +15,11 @@ names(df)
 #sum(is.na(df$episode[which(df$year==2018)])) ##44612
 #dim(df[which(df$year==2018),])  ###46297
 
-data <- data.frame(df[,c(7:14)],df[,c(16:32)],df[,c(34:37)],df[,c(39:40)]) ## no episode, no mean
-
+data <- data.frame(df[,c(7:14)],df[,c(16:20)],df[,c(23:32)],df[,40]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
+names(data)[24] <- 'ruca'
 fulldata <- na.omit(data)
 dim(fulldata)
+#table(fulldata$year)
 
 
 tree.model <- rpart(formula= rating ~ type + off.physical + off.occupational + off.speech + off.medical + off.hha 
@@ -29,7 +30,7 @@ tree.model <- rpart(formula= rating ~ type + off.physical + off.occupational + o
                 #+ year + season + timeindex
                 #+ median + pop
                 + ruca
-                + flushot + pnumococcal
+                #+ flushot + pnumococcal
                 ,
                 data =fulldata,
                 cp=0.01)
@@ -47,7 +48,7 @@ lm.model <- lm(rating ~ type + off.physical + off.occupational + off.speech + of
                #+ year + season + timeindex
                #+ median + pop
                + ruca
-               + flushot + pnumococcal
+               #+ flushot + pnumococcal
                ,
                data =fulldata)
 summary(lm.model)
