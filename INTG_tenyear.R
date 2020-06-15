@@ -756,7 +756,7 @@ df20194_bf2$season <- season20194
 df20194_bf2$timeindex <- timeindex20194
 data20194 <- df20194_bf2
 
-all10data <- rbind(data20101,data20102,data20104,
+alldata <- rbind(data20101,data20102,data20104,
                  data20111,data20112,data20113,data20114,
                  data20121,data20122,data20123,data20124,
                  data20131,data20132,data20133,data20134,
@@ -766,3 +766,29 @@ all10data <- rbind(data20101,data20102,data20104,
                  data20171,data20172,data20173,data20174,
                  data20181,data20182,data20183,data20184,
                  data20191,data20192,data20193,data20194)
+
+
+
+income <- read.csv("input/data/MedianZIP-3.csv",sep=',',colClasses=c('character','numeric','numeric','numeric'),check.names = F)
+names(income) <- c('Zip','median','mean','pop')
+ruca <- read.csv("input/data/RUCA2006.csv",head=TRUE,sep=",",colClasses=c('factor','factor','double','double','factor'))[,c(1,3)]
+names(ruca) <- c('Zip','ruca')
+
+dim(income)
+length(unique(income$Zip))
+dim(ruca)
+length(unique(ruca$Zip))
+
+alldata_bf <- merge(x = alldata, y = income, by = "Zip", all.x = TRUE)
+alldata_bf1 <- merge(x = alldata_bf, y = ruca, by = "Zip", all.x = TRUE)
+names(alldata_bf1)
+
+finaldata <- alldata_bf1
+
+write.csv(finaldata, file = "input/HHA2010-2019.csv",row.names=FALSE, na="")
+
+
+
+
+
+
