@@ -696,32 +696,32 @@ df20191 <- read.csv("input/data/HHAALL/ProviderData/HHC_SOCRATA_PRVDR20191.csv",
 names(df20191) <- names63
 setdiff(INTG_names,names63)
 df20191_bf <- data.frame(df20191[,-c(seq(17,by=2,len=19),54,seq(56,by=2,len=4))])
-df20191_bf1 <- data.frame(df20191_bf[,c(2:1)],df20191_bf[,c(3:32)])
-names(df20191_bf1) <- INTG_names
-df20191_bf2 <- merge(x = df20191_bf1, y = ep2019, by = "CCN", all.x = TRUE)
+df20191_bf1 <- data.frame(df20191_bf[,c(2:1)],df20191_bf[,c(3:32)],df20191_bf[,c(39)])
+names(df20191_bf1) <- c(INTG_names,'episode')
 year20191 <- rep(2019,nrow(df20191))
 season20191 <- rep(1,nrow(df20191))
 timeindex20191 <- rep(37,nrow(df20191))
-df20191_bf2$year <- year20191
-df20191_bf2$season <- season20191
-df20191_bf2$timeindex <- timeindex20191
-data20191 <- df20191_bf2
+df20191_bf1$year <- year20191
+df20191_bf1$season <- season20191
+df20191_bf1$timeindex <- timeindex20191
+data20191 <- df20191_bf1
+sum(is.na(data20191$episode))
 
 
 df20192 <- read.csv("input/data/HHAALL/ProviderData/HHC_SOCRATA_PRVDR20192.csv",sep=',',colClasses=mytypes63,check.names = F)
 names(df20192) <- names63
 setdiff(INTG_names,names63)
 df20192_bf <- data.frame(df20192[,-c(seq(17,by=2,len=19),54,seq(56,by=2,len=4))])
-df20192_bf1 <- data.frame(df20192_bf[,c(2:1)],df20192_bf[,c(3:32)])
-names(df20192_bf1) <- INTG_names
-df20192_bf2 <- merge(x = df20192_bf1, y = ep2019, by = "CCN", all.x = TRUE)
+df20192_bf1 <- data.frame(df20192_bf[,c(2:1)],df20192_bf[,c(3:32)],df20192_bf[,c(39)])
+names(df20192_bf1) <- c(INTG_names,'episode')
 year20192 <- rep(2019,nrow(df20192))
 season20192 <- rep(2,nrow(df20192))
 timeindex20192 <- rep(38,nrow(df20192))
-df20192_bf2$year <- year20192
-df20192_bf2$season <- season20192
-df20192_bf2$timeindex <- timeindex20192
-data20192 <- df20192_bf2
+df20192_bf1$year <- year20192
+df20192_bf1$season <- season20192
+df20192_bf1$timeindex <- timeindex20192
+data20192 <- df20192_bf1
+sum(is.na(data20192$episode))
 
 
 
@@ -729,32 +729,32 @@ df20193 <- read.csv("input/data/HHAALL/ProviderData/HHC_SOCRATA_PRVDR20193.csv",
 names(df20193) <- names63
 setdiff(INTG_names,names63)
 df20193_bf <- data.frame(df20193[,-c(seq(17,by=2,len=19),54,seq(56,by=2,len=4))])
-df20193_bf1 <- data.frame(df20193_bf[,c(2:1)],df20193_bf[,c(3:32)])
-names(df20193_bf1) <- INTG_names
-df20193_bf2 <- merge(x = df20193_bf1, y = ep2019, by = "CCN", all.x = TRUE)
+df20193_bf1 <- data.frame(df20193_bf[,c(2:1)],df20193_bf[,c(3:32)],df20193_bf[,c(39)])
+names(df20193_bf1) <- c(INTG_names,'episode')
 year20193 <- rep(2019,nrow(df20193))
 season20193 <- rep(3,nrow(df20193))
 timeindex20193 <- rep(39,nrow(df20193))
-df20193_bf2$year <- year20193
-df20193_bf2$season <- season20193
-df20193_bf2$timeindex <- timeindex20193
-data20193 <- df20193_bf2
+df20193_bf1$year <- year20193
+df20193_bf1$season <- season20193
+df20193_bf1$timeindex <- timeindex20193
+data20193 <- df20193_bf1
+sum(is.na(data20193$episode))
 
 
 df20194 <- read.csv("input/data/HHAALL/ProviderData/HHC_SOCRATA_PRVDR20194.csv",sep=',',colClasses=mytypes79,check.names = F,na.strings = "NotAvailable")
 names(df20194) <- names79
 setdiff(INTG_names,names79)
 df20194_bf <- data.frame(df20194[,-c(seq(17,by=2,len=19),54,seq(56,by=2,len=3))])
-df20194_bf1 <- data.frame(df20194_bf[,c(2:1)],df20194_bf[,c(3:32)])
-names(df20194_bf1) <- INTG_names
-df20194_bf2 <- merge(x = df20194_bf1, y = ep2019, by = "CCN", all.x = TRUE)
+df20194_bf1 <- data.frame(df20194_bf[,c(2:1)],df20194_bf[,c(3:32)],df20194_bf[,56])
+names(df20194_bf1) <- c(INTG_names,'episode')
 year20194 <- rep(2019,nrow(df20194))
 season20194 <- rep(4,nrow(df20194))
 timeindex20194 <- rep(40,nrow(df20194))
-df20194_bf2$year <- year20194
-df20194_bf2$season <- season20194
-df20194_bf2$timeindex <- timeindex20194
-data20194 <- df20194_bf2
+df20194_bf1$year <- year20194
+df20194_bf1$season <- season20194
+df20194_bf1$timeindex <- timeindex20194
+data20194 <- df20194_bf1
+sum(is.na(data20194$episode))
 
 alldata <- rbind(data20101,data20102,data20104,
                  data20111,data20112,data20113,data20114,
