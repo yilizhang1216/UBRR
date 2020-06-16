@@ -1,99 +1,65 @@
-mytypes <- c('factor',rep('character',3),'factor',rep('character',2),rep('factor',7),'character',rep(c('numeric','character'),16),'character')
-df <- read.csv("HHA2014-2019.csv",sep=',',colClasses=mytypes)
-names(df) <- c('state','CCN','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','timely','note-timely','taughtdrugs','note-taughtdrugs','checkfall','note-checkfall','checkdepression','note-checkdepression','flushot','note-flushot','pnumococcal','note-pnumococcal','taughtfootcare','note-tautfootcare','betterwalking','note-betterwalking','betterbed','note-betterbed','betterbathing','note-betterbathing','lesspain','note-lesspain','betterbreathing','note-betterbreathing','betterheal','note-betterheal','betterdrug','note-betterdrug','ER','note-ER','admitted','note-admitted','note')
+library(rpart)
+library(rpart.plot)
+library('scales')
+library(tree)
+library(dplyr)
 
-names(df)
+
+mytypes <- c('character','factor',rep('character',2),'factor',rep('character',2),rep('factor',7),'character',rep('numeric',18),rep('factor',3),rep('numeric',4))
+mynames <- c('CCN','state','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','rating','timely','taughtdrugs','checkfall','checkdepression','flushot','pnumococcal','taughtfootcare','betterwalking','betterbed','betterbathing','lesspain','betterbreathing','betterheal','betterdrug','admitted','ER','episode','year','season','timeindex','median','mean','pop','ruca')
+df <- read.csv("input/HHA2010-2019.csv",sep=',',colClasses=mytypes)
 dim(df)
-feq <- table(df$CCN)
+names(df)
 
-table(df$type)
+#data <- filter(df, df$timeindex %in% c(4:12))
+data <- filter(df, df$timeindex %in% c(13:40))
+names(data) 
 
-levels(df$type)
-
-levels(df$type) <- c('1','2','3','4','5','6','7','8','9','10','11','12','13')
-
-levels(df$type)
-
-table(df$type)
-
-income <- read.table("MedianIncome.csv",head=TRUE,sep=",",colClasses=c('factor','integer','character','integer'))
-
-income$Mean[income$Mean=="."] <- NA
-
-income$Mean <- as.integer(income$Mean)
+#data_bf <- data.frame(data[,c(8:14)],data[,c(17:32)],data[,c(34:37)],data[,39:40]) ## no episode, no mean, no rating
+data_bf <- data.frame(data[,c(8:14)],data[,c(17:31)],data[,c(34:40)])
+#names(data_bf)[26] <- 'ruca'
+names(data_bf)
+dim(data_bf)
+sum(is.na(data_bf))
 
 
-merg <- merge(df,income,by="Zip")
-ruca <- read.csv("RUCAfile.csv",head=TRUE,sep=",",colClasses=c('factor','factor','double','double','factor'))
-names(ruca)[1] <- 'Zip'
-names(ruca)[3] <- 'RUCA'
-ruca <- ruca[,c(1,3)]
-merg <- merge(merg,ruca,by='Zip')
-merg$RUCA <- floor(merg$RUCA)
-names(merg)
-head(merg)
-dim(merg)
+data_bf[data_bf==199|data_bf==201]<-NA
+sum(is.na(data_bf))
 
-data <- merg[,c(-7:-4,-2,-1,-15,-17,-19,-21,-23,-25,-27,-29,-31,-33,-35,-37,-39,-41,-43,-45,-47,-48)]
+table(data_bf$timeindex)
+table(data_bf$year)
 
-fulldata <- na.omit(data)
+fulldata <- na.omit(data_bf)
 dim(fulldata)
 
-feq <- table(fulldata$CCN)
+table(fulldata$timeindex)
+table(fulldata$year)
 
-bigMedian <- max(fulldata$Median)
-vectorMedian <- fulldata$Median
-fulldata$Median <- vectorMedian/bigMedian
+fulldata$ruca[fulldata$ruca==1] <- "Urban"
+fulldata$ruca[fulldata$ruca!='Urban'] <- "Rural"
+table(fulldata$ruca)
+dummyruca <- as.factor(fulldata$ruca)
+fulldata$ruca <- dummyruca
 
-bigPop <- max(fulldata$Pop)
-vectorPop <- fulldata$Pop
-fulldata$Pop <- vectorPop/bigPop
-
-fulldata$RUCA[fulldata$RUCA==1] <- "Urban"
-fulldata$RUCA[fulldata$RUCA!='Urban'] <- "Rural"
-table(fulldata$RUCA)
-dummyRUCA <- as.factor(fulldata$RUCA)
-fulldata$RUCA <- dummyRUCA
-
-dataRural <- fulldata[fulldata$RUCA=='Rural',]
-dataUrban <- fulldata[fulldata$RUCA=='Urban',]
+dataRural <- fulldata[fulldata$ruca=='Rural',]
+dataUrban <- fulldata[fulldata$ruca=='Urban',]
 
 
 
+model1 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare 
+                + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
+                + median + pop
+                + ruca
+                + flushot + pnumococcal
+                , 
+                data =fulldata,cp=0.003
+                )
+summary(model1)
+rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
+
+table(fulldata$timeindex)
+table(fulldata$year)
+table(fulldata$ruca)
 
 
 
-## no characteristics
-## model0 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug + RUCA, data =fulldata,cp=0.005)
-## rpart.plot(model0,digits=8,fallen.leaves=TRUE,type=4)
-
-## model1 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.0098)
-## summary(model1)
-## rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
-
-## model2 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare + RUCA, data =fulldata,cp=0.012)
-## summary(model2)
-## rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
-
-## par(mfrow=c(2,2))
-
-## model3 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.005)
-## summary(model3)
-## rpart.plot(model3,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
-
-## model4 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataUrban,cp=0.008)
-## summary(model4)
-## rpart.plot(model4,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
-
-## model5 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.003)
-## summary(model5)
-## rpart.plot(model5,digits=4,fallen.leaves=TRUE,type=4,extra=1)
-
-
-## model6 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare, data =dataRural,cp=0.0053)
-## summary(model6)
-## rpart.plot(model6,digits=4,fallen.leaves=TRUE,type=4,extra=1)
