@@ -10,15 +10,16 @@ names(df)
 #dim(df[which(df$year==2018),])  ###46297
 # 96.3%
 
-data <- data.frame(df[,c(7:14)],df[,c(16:20)],df[,c(23:32)],df[,40]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
+data <- data.frame(df[,c(7:14)],df[,c(16:20)],df[,c(23:36)],df[,40]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
 names(data)[24] <- 'ruca'
+data[data==199|data==201]<-NA
 fulldata <- na.omit(data)
 dim(fulldata)
 table(fulldata$year)
 
 
-lm.model <- lm(rating ~ type + off.physical + off.occupational + off.speech + off.medical + off.hha 
-               + timely + taughtdrugs + checkfall + checkdepression + taughtfootcare 
+lm.model <- lm(rating ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare
+               + type + off.physical + off.occupational + off.speech + off.medical + off.hha 
                + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
                + admitted + ER 
                #+ episode

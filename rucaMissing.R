@@ -13,6 +13,8 @@ names(df)
 
 data <- data.frame(df[,c(1:32)],df[,c(34:36)],df[,40])
 
+data[data==199|data==201]<-NA
+
 fulldata <- df[!is.na(df$ruca),]
 dim(fulldata)
 
@@ -117,5 +119,21 @@ ruralNA <- c(ruralNA,(sum(is.na(dataRural[which(dataRural$year=='2018'),]))/dim(
 ruralNA <- c(ruralNA,(sum(is.na(dataRural[which(dataRural$year=='2019'),]))/dim(dataRural[which(dataRural$year=='2019'),])[1]))
 
 plot(ruralNA)
+
+
+
+deltaNA <- c()
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2010'),]))/dim(dataUrban[which(dataUrban$year=='2010'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2010'),]))/dim(dataRural[which(dataRural$year=='2010'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2011'),]))/dim(dataUrban[which(dataUrban$year=='2011'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2011'),]))/dim(dataRural[which(dataRural$year=='2011'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2012'),]))/dim(dataUrban[which(dataUrban$year=='2012'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2012'),]))/dim(dataRural[which(dataRural$year=='2012'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2013'),]))/dim(dataUrban[which(dataUrban$year=='2013'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2013'),]))/dim(dataRural[which(dataRural$year=='2013'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2014'),]))/dim(dataUrban[which(dataUrban$year=='2014'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2014'),]))/dim(dataRural[which(dataRural$year=='2014'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2015'),]))/dim(dataUrban[which(dataUrban$year=='2015'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2015'),]))/dim(dataRural[which(dataRural$year=='2015'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2016'),]))/dim(dataUrban[which(dataUrban$year=='2016'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2016'),]))/dim(dataRural[which(dataRural$year=='2016'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2017'),]))/dim(dataUrban[which(dataUrban$year=='2017'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2017'),]))/dim(dataRural[which(dataRural$year=='2017'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2018'),]))/dim(dataUrban[which(dataUrban$year=='2018'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2018'),]))/dim(dataRural[which(dataRural$year=='2018'),])[1]))
+deltaNA <- c(deltaNA,(sum(is.na(dataUrban[which(dataUrban$year=='2019'),]))/dim(dataUrban[which(dataUrban$year=='2019'),])[1])-(sum(is.na(dataRural[which(dataRural$year=='2019'),]))/dim(dataRural[which(dataRural$year=='2019'),])[1]))
+
+plot(deltaNA)
 
 
