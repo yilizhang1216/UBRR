@@ -1,4 +1,4 @@
-mytypes <- c('character','factor',rep('character',2),'factor',rep('character',2),rep('factor',7),'character',rep('numeric',18),rep('factor',3),rep('numeric',4))
+mytypes <- c('character','factor',rep('character',2),'factor',rep('character',2),rep('factor',7),'character',rep('numeric',18),rep('factor',2),rep('numeric',5))
 mynames <- c('CCN','state','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','rating','timely','taughtdrugs','checkfall','checkdepression','flushot','pnumococcal','taughtfootcare','betterwalking','betterbed','betterbathing','lesspain','betterbreathing','betterheal','betterdrug','admitted','ER','episode','year','season','timeindex','median','mean','pop','ruca')
 df <- read.csv("input/HHA2010-2019.csv",sep=',',colClasses=mytypes)
 dim(df)
@@ -10,20 +10,22 @@ names(df)
 #dim(df[which(df$year==2018),])  ###46297
 # 96.3%
 
-data <- data.frame(df[,c(7:14)],df[,c(16:20)],df[,c(23:36)],df[,40]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
-names(data)[24] <- 'ruca'
+data <- data.frame(df[,c(8:14)],df[,c(16:20)],df[,c(23:36)],df[,40]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
+names(data)[27] <- 'ruca'
 data[data==199|data==201]<-NA
-fulldata <- na.omit(data)
+names(data)
+#fulldata <- na.omit(data)
+fulldata <- data
 dim(fulldata)
 table(fulldata$year)
 
 
 lm.model <- lm(rating ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare
-               + type + off.physical + off.occupational + off.speech + off.medical + off.hha 
+               #+ type + off.physical + off.occupational + off.speech + off.medical + off.hha 
                + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
                + admitted + ER 
-               #+ episode
-               #+ year + season + timeindex
+               + episode
+               + timeindex
                #+ median + pop
                + ruca
                #+ flushot + pnumococcal
