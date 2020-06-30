@@ -60,8 +60,13 @@ model1 <- rpart(formula= admitted ~ timely + taughtdrugs + checkfall + checkdepr
                 model=TRUE,
                 data =fulldata,cp=0.002
                 )
+#0.002
+#0.00019852
 summary(model1)
 rpart.plot(model1,digits=4,fallen.leaves=TRUE,type=4,extra=1)
+printcp(model1)
+rsq.rpart(model1)
+
 
 model2 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare 
                 #+ betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
@@ -75,7 +80,11 @@ model2 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression
                 model=TRUE,
                 data =fulldata,cp=0.0018
 )
+# 0.0018
+# 1.6548e-04
 summary(model2)
+printcp(model2)
+rsq.rpart(model2)
 rpart.plot(model2,digits=4,fallen.leaves=TRUE,type=4,extra=1)
 
 

@@ -22,13 +22,21 @@ table(fulldata$year)
 
 lm.model <- lm(rating ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare
                #+ type + off.physical + off.occupational + off.speech + off.medical + off.hha 
-               + betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
-               + admitted + ER 
+               #+ betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
+               #+ admitted + ER 
                + episode
                + timeindex
-               #+ median + pop
+               #+ median 
+               #+ pop
                + ruca
                #+ flushot + pnumococcal
                ,
                data =fulldata)
 summary(lm.model)
+
+
+
+
+        
+        
+        
