@@ -1,3 +1,35 @@
+star20161 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20161.csv",sep=',',check.names = F)[,c(2,16)]
+star20162 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20162.csv",sep=',',check.names = F)[,c(2,16)]
+star20163 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20163.csv",sep=',',check.names = F)[,c(2,16)]
+star20164 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20164.csv",sep=',',check.names = F)[,c(2,16)]
+star20171 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20171.csv",sep=',',check.names = F)[,c(2,16)]
+star20172 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20172.csv",sep=',',check.names = F)[,c(2,16)]
+star20173 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20173.csv",sep=',',check.names = F)[,c(2,16)]
+star20174 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20174.csv",sep=',',check.names = F)[,c(2,16)]
+star20181 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20181.csv",sep=',',check.names = F)[,c(2,16)]
+star20182 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20182.csv",sep=',',check.names = F)[,c(2,16)]
+star20183 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20183.csv",sep=',',check.names = F)[,c(2,16)]
+star20184 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20184.csv",sep=',',check.names = F)[,c(2,16)]
+star20191 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20191.csv",sep=',',check.names = F)[,c(2,16)]
+star20192 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20192.csv",sep=',',check.names = F)[,c(2,16)]
+star20193 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20193.csv",sep=',',check.names = F)[,c(2,16)]
+star20194 <- read.csv("input/data/HHAALL/HHCAHPS/HHC_SOCRATA_HHCAHPS_PRVDR20194.csv",sep=',',check.names = F)[,c(2,16)]
+names(star20161) <- c('CCN','star')
+names(star20162) <- c('CCN','star')
+names(star20163) <- c('CCN','star')
+names(star20164) <- c('CCN','star')
+names(star20171) <- c('CCN','star')
+names(star20172) <- c('CCN','star')
+names(star20173) <- c('CCN','star')
+names(star20174) <- c('CCN','star')
+names(star20181) <- c('CCN','star')
+names(star20182) <- c('CCN','star')
+names(star20183) <- c('CCN','star')
+names(star20184) <- c('CCN','star')
+names(star20191) <- c('CCN','star')
+names(star20192) <- c('CCN','star')
+names(star20193) <- c('CCN','star')
+names(star20194) <- c('CCN','star')
 ep2010 <- read.csv("input/data/HHAALL/EpisodeData/Episode2010.csv",sep=',',colClasses=c('character','numeric'),check.names = F)
 ep2011 <- read.csv("input/data/HHAALL/EpisodeData/Episode2011.csv",sep=',',colClasses=c('character','numeric'),check.names = F)
 ep2012 <- read.csv("input/data/HHAALL/EpisodeData/Episode2012.csv",sep=',',colClasses=c('character','numeric'),check.names = F)
@@ -63,6 +95,8 @@ df20101_bf3 <- merge(x = df20101_bf2, y = ep2010, by = "CCN", all.x = TRUE)
 year20101 <- rep(2010,nrow(df20101))
 season20101 <- rep(1,nrow(df20101))
 timeindex20101 <- rep(1,nrow(df20101))
+star_rating20101 <- rep(NA,nrow(df20101))
+df20101_bf3$star <- star_rating20101
 df20101_bf3$year <- year20101
 df20101_bf3$season <- season20101
 df20101_bf3$timeindex <- timeindex20101
@@ -90,6 +124,8 @@ df20102_bf3 <- merge(x = df20102_bf2, y = ep2010, by = "CCN", all.x = TRUE)
 year20102 <- rep(2010,nrow(df20102))
 season20102 <- rep(2,nrow(df20102))
 timeindex20102 <- rep(2,nrow(df20102))
+star_rating20102 <- rep(NA,nrow(df20102))
+df20102_bf3$star <- star_rating20102
 df20102_bf3$year <- year20102
 df20102_bf3$season <- season20102
 df20102_bf3$timeindex <- timeindex20102
@@ -107,6 +143,8 @@ df20104_bf2 <- merge(x = df20104_bf1, y = ep2010, by = "CCN", all.x = TRUE)
 year20104 <- rep(2010,nrow(df20104))
 season20104 <- rep(4,nrow(df20104))
 timeindex20104 <- rep(4,nrow(df20104))
+star_rating20104 <- rep(NA,nrow(df20104))
+df20104_bf2$star <- star_rating20104
 df20104_bf2$year <- year20104
 df20104_bf2$season <- season20104
 df20104_bf2$timeindex <- timeindex20104
@@ -125,6 +163,8 @@ df20111_bf2 <- merge(x = df20111_bf1, y = ep2011, by = "CCN", all.x = TRUE)
 year20111 <- rep(2011,nrow(df20111))
 season20111 <- rep(1,nrow(df20111))
 timeindex20111 <- rep(5,nrow(df20111))
+star_rating20111 <- rep(NA,nrow(df20111))
+df20111_bf2$star <- star_rating20111
 df20111_bf2$year <- year20111
 df20111_bf2$season <- season20111
 df20111_bf2$timeindex <- timeindex20111
@@ -143,6 +183,8 @@ df20112_bf2 <- merge(x = df20112_bf1, y = ep2011, by = "CCN", all.x = TRUE)
 year20112 <- rep(2011,nrow(df20112))
 season20112 <- rep(2,nrow(df20112))
 timeindex20112 <- rep(6,nrow(df20112))
+star_rating20112 <- rep(NA,nrow(df20112))
+df20112_bf2$star <- star_rating20112
 df20112_bf2$year <- year20112
 df20112_bf2$season <- season20112
 df20112_bf2$timeindex <- timeindex20112
@@ -160,6 +202,8 @@ df20113_bf2 <- merge(x = df20113_bf1, y = ep2011, by = "CCN", all.x = TRUE)
 year20113 <- rep(2011,nrow(df20113))
 season20113 <- rep(3,nrow(df20113))
 timeindex20113 <- rep(7,nrow(df20113))
+star_rating20113 <- rep(NA,nrow(df20113))
+df20113_bf2$star <- star_rating20113
 df20113_bf2$year <- year20113
 df20113_bf2$season <- season20113
 df20113_bf2$timeindex <- timeindex20113
@@ -177,6 +221,8 @@ df20114_bf2 <- merge(x = df20114_bf1, y = ep2011, by = "CCN", all.x = TRUE)
 year20114 <- rep(2011,nrow(df20114))
 season20114 <- rep(4,nrow(df20114))
 timeindex20114 <- rep(8,nrow(df20114))
+star_rating20114 <- rep(NA,nrow(df20114))
+df20114_bf2$star <- star_rating20114
 df20114_bf2$year <- year20114
 df20114_bf2$season <- season20114
 df20114_bf2$timeindex <- timeindex20114
@@ -195,6 +241,8 @@ df20121_bf2 <- merge(x = df20121_bf1, y = ep2012, by = "CCN", all.x = TRUE)
 year20121 <- rep(2012,nrow(df20121))
 season20121 <- rep(1,nrow(df20121))
 timeindex20121 <- rep(9,nrow(df20121))
+star_rating20121 <- rep(NA,nrow(df20121))
+df20121_bf2$star <- star_rating20121
 df20121_bf2$year <- year20121
 df20121_bf2$season <- season20121
 df20121_bf2$timeindex <- timeindex20121
@@ -213,6 +261,8 @@ df20122_bf2 <- merge(x = df20122_bf1, y = ep2012, by = "CCN", all.x = TRUE)
 year20122 <- rep(2012,nrow(df20122))
 season20122 <- rep(2,nrow(df20122))
 timeindex20122 <- rep(10,nrow(df20122))
+star_rating20122 <- rep(NA,nrow(df20122))
+df20122_bf2$star <- star_rating20122
 df20122_bf2$year <- year20122
 df20122_bf2$season <- season20122
 df20122_bf2$timeindex <- timeindex20122
@@ -230,6 +280,8 @@ df20123_bf2 <- merge(x = df20123_bf1, y = ep2012, by = "CCN", all.x = TRUE)
 year20123 <- rep(2012,nrow(df20123))
 season20123 <- rep(3,nrow(df20123))
 timeindex20123 <- rep(11,nrow(df20123))
+star_rating20123 <- rep(NA,nrow(df20123))
+df20123_bf2$star <- star_rating20123
 df20123_bf2$year <- year20123
 df20123_bf2$season <- season20123
 df20123_bf2$timeindex <- timeindex20123
@@ -247,6 +299,8 @@ df20124_bf2 <- merge(x = df20124_bf1, y = ep2012, by = "CCN", all.x = TRUE)
 year20124 <- rep(2012,nrow(df20124))
 season20124 <- rep(4,nrow(df20124))
 timeindex20124 <- rep(12,nrow(df20124))
+star_rating20124 <- rep(NA,nrow(df20124))
+df20124_bf2$star <- star_rating20124
 df20124_bf2$year <- year20124
 df20124_bf2$season <- season20124
 df20124_bf2$timeindex <- timeindex20124
@@ -264,6 +318,8 @@ df20131_bf2 <- merge(x = df20131_bf1, y = ep2013, by = "CCN", all.x = TRUE)
 year20131 <- rep(2013,nrow(df20131))
 season20131 <- rep(1,nrow(df20131))
 timeindex20131 <- rep(13,nrow(df20131))
+star_rating20131 <- rep(NA,nrow(df20131))
+df20131_bf2$star <- star_rating20131
 df20131_bf2$year <- year20131
 df20131_bf2$season <- season20131
 df20131_bf2$timeindex <- timeindex20131
@@ -283,6 +339,8 @@ df20132_bf2 <- merge(x = df20132_bf1, y = ep2013, by = "CCN", all.x = TRUE)
 year20132 <- rep(2013,nrow(df20132))
 season20132 <- rep(2,nrow(df20132))
 timeindex20132 <- rep(14,nrow(df20132))
+star_rating20132 <- rep(NA,nrow(df20132))
+df20132_bf2$star <- star_rating20132
 df20132_bf2$year <- year20132
 df20132_bf2$season <- season20132
 df20132_bf2$timeindex <- timeindex20132
@@ -301,6 +359,8 @@ df20133_bf2 <- merge(x = df20133_bf1, y = ep2013, by = "CCN", all.x = TRUE)
 year20133 <- rep(2013,nrow(df20133))
 season20133 <- rep(3,nrow(df20133))
 timeindex20133 <- rep(15,nrow(df20133))
+star_rating20133 <- rep(NA,nrow(df20133))
+df20133_bf2$star <- star_rating20133
 df20133_bf2$year <- year20133
 df20133_bf2$season <- season20133
 df20133_bf2$timeindex <- timeindex20133
@@ -319,6 +379,8 @@ df20134_bf2 <- merge(x = df20134_bf1, y = ep2013, by = "CCN", all.x = TRUE)
 year20134 <- rep(2013,nrow(df20134))
 season20134 <- rep(4,nrow(df20134))
 timeindex20134 <- rep(16,nrow(df20134))
+star_rating20134 <- rep(NA,nrow(df20134))
+df20134_bf2$star <- star_rating20134
 df20134_bf2$year <- year20134
 df20134_bf2$season <- season20134
 df20134_bf2$timeindex <- timeindex20134
@@ -339,6 +401,8 @@ df20141_bf3 <- merge(x = df20141_bf2, y = ep2014, by = "CCN", all.x = TRUE)
 year20141 <- rep(2014,nrow(df20141))
 season20141 <- rep(1,nrow(df20141))
 timeindex20141 <- rep(17,nrow(df20141))
+star_rating20141 <- rep(NA,nrow(df20141))
+df20141_bf3$star <- star_rating20141
 df20141_bf3$year <- year20141
 df20141_bf3$season <- season20141
 df20141_bf3$timeindex <- timeindex20141
@@ -359,6 +423,8 @@ df20142_bf3 <- merge(x = df20142_bf2, y = ep2014, by = "CCN", all.x = TRUE)
 year20142 <- rep(2014,nrow(df20142))
 season20142 <- rep(2,nrow(df20142))
 timeindex20142 <- rep(18,nrow(df20142))
+star_rating20142 <- rep(NA,nrow(df20142))
+df20142_bf3$star <- star_rating20142
 df20142_bf3$year <- year20142
 df20142_bf3$season <- season20142
 df20142_bf3$timeindex <- timeindex20142
@@ -380,6 +446,8 @@ df20143_bf3 <- merge(x = df20143_bf2, y = ep2014, by = "CCN", all.x = TRUE)
 year20143 <- rep(2014,nrow(df20143))
 season20143 <- rep(3,nrow(df20143))
 timeindex20143 <- rep(19,nrow(df20143))
+star_rating20143 <- rep(NA,nrow(df20143))
+df20143_bf3$star <- star_rating20143
 df20143_bf3$year <- year20143
 df20143_bf3$season <- season20143
 df20143_bf3$timeindex <- timeindex20143
@@ -400,6 +468,8 @@ df20144_bf3 <- merge(x = df20144_bf2, y = ep2014, by = "CCN", all.x = TRUE)
 year20144 <- rep(2014,nrow(df20144))
 season20144 <- rep(4,nrow(df20144))
 timeindex20144 <- rep(20,nrow(df20144))
+star_rating20144 <- rep(NA,nrow(df20144))
+df20144_bf3$star <- star_rating20144
 df20144_bf3$year <- year20144
 df20144_bf3$season <- season20144
 df20144_bf3$timeindex <- timeindex20144
@@ -420,6 +490,8 @@ df20151_bf3 <- merge(x = df20151_bf2, y = ep2015, by = "CCN", all.x = TRUE)
 year20151 <- rep(2015,nrow(df20151))
 season20151 <- rep(1,nrow(df20151))
 timeindex20151 <- rep(21,nrow(df20151))
+star_rating20151 <- rep(NA,nrow(df20151))
+df20151_bf3$star <- star_rating20151
 df20151_bf3$year <- year20151
 df20151_bf3$season <- season20151
 df20151_bf3$timeindex <- timeindex20151
@@ -440,6 +512,8 @@ df20152_bf3 <- merge(x = df20152_bf2, y = ep2015, by = "CCN", all.x = TRUE)
 year20152 <- rep(2015,nrow(df20152))
 season20152 <- rep(2,nrow(df20152))
 timeindex20152 <- rep(22,nrow(df20152))
+star_rating20152 <- rep(NA,nrow(df20152))
+df20152_bf3$star <- star_rating20152
 df20152_bf3$year <- year20152
 df20152_bf3$season <- season20152
 df20152_bf3$timeindex <- timeindex20152
@@ -457,6 +531,8 @@ df20153_bf2 <- merge(x = df20153_bf1, y = ep2015, by = "CCN", all.x = TRUE)
 year20153 <- rep(2015,nrow(df20153))
 season20153 <- rep(3,nrow(df20153))
 timeindex20153 <- rep(23,nrow(df20153))
+star_rating20153 <- rep(NA,nrow(df20153))
+df20153_bf2$star <- star_rating20153
 df20153_bf2$year <- year20153
 df20153_bf2$season <- season20153
 df20153_bf2$timeindex <- timeindex20153
@@ -475,6 +551,8 @@ df20154_bf2 <- merge(x = df20154_bf1, y = ep2015, by = "CCN", all.x = TRUE)
 year20154 <- rep(2015,nrow(df20154))
 season20154 <- rep(4,nrow(df20154))
 timeindex20154 <- rep(24,nrow(df20154))
+star_rating20154 <- rep(NA,nrow(df20154))
+df20154_bf2$star <- star_rating20154
 df20154_bf2$year <- year20154
 df20154_bf2$season <- season20154
 df20154_bf2$timeindex <- timeindex20154
@@ -488,13 +566,14 @@ df20161_bf <- data.frame(df20161[,-c(seq(17,by=2,len=25),66)])
 df20161_bf1 <- data.frame(df20161_bf[,c(2:1)],df20161_bf[,c(3:23)],df20161_bf[,c(27:32)],df20161_bf[,c(36:38)])
 names(df20161_bf1) <- INTG_names
 df20161_bf2 <- merge(x = df20161_bf1, y = ep2016, by = "CCN", all.x = TRUE)
+df20161_bf3 <- merge(x = df20161_bf2, y = star20161, by = "CCN", all.x = TRUE)
 year20161 <- rep(2016,nrow(df20161))
 season20161 <- rep(1,nrow(df20161))
 timeindex20161 <- rep(25,nrow(df20161))
-df20161_bf2$year <- year20161
-df20161_bf2$season <- season20161
-df20161_bf2$timeindex <- timeindex20161
-data20161 <- df20161_bf2
+df20161_bf3$year <- year20161
+df20161_bf3$season <- season20161
+df20161_bf3$timeindex <- timeindex20161
+data20161 <- df20161_bf3
 
 
 
@@ -505,13 +584,14 @@ df20162_bf <- data.frame(df20162[,-c(seq(17,by=2,len=25),66)])
 df20162_bf1 <- data.frame(df20162_bf[,c(2:1)],df20162_bf[,c(3:23)],df20162_bf[,c(27:32)],df20162_bf[,c(36:38)])
 names(df20162_bf1) <- INTG_names
 df20162_bf2 <- merge(x = df20162_bf1, y = ep2016, by = "CCN", all.x = TRUE)
+df20162_bf3 <- merge(x = df20162_bf2, y = star20162, by = "CCN", all.x = TRUE)
 year20162 <- rep(2016,nrow(df20162))
 season20162 <- rep(2,nrow(df20162))
 timeindex20162 <- rep(26,nrow(df20162))
-df20162_bf2$year <- year20162
-df20162_bf2$season <- season20162
-df20162_bf2$timeindex <- timeindex20162
-data20162 <- df20162_bf2
+df20162_bf3$year <- year20162
+df20162_bf3$season <- season20162
+df20162_bf3$timeindex <- timeindex20162
+data20162 <- df20162_bf3
 
 
 
@@ -522,13 +602,14 @@ df20163_bf <- data.frame(df20163[,-c(seq(17,by=2,len=25),66)])
 df20163_bf1 <- data.frame(df20163_bf[,c(2:1)],df20163_bf[,c(3:23)],df20163_bf[,c(27:32)],df20163_bf[,c(36:38)])
 names(df20163_bf1) <- INTG_names
 df20163_bf2 <- merge(x = df20163_bf1, y = ep2016, by = "CCN", all.x = TRUE)
+df20163_bf3 <- merge(x = df20163_bf2, y = star20163, by = "CCN", all.x = TRUE)
 year20163 <- rep(2016,nrow(df20163))
 season20163 <- rep(3,nrow(df20163))
 timeindex20163 <- rep(27,nrow(df20163))
-df20163_bf2$year <- year20163
-df20163_bf2$season <- season20163
-df20163_bf2$timeindex <- timeindex20163
-data20163 <- df20163_bf2
+df20163_bf3$year <- year20163
+df20163_bf3$season <- season20163
+df20163_bf3$timeindex <- timeindex20163
+data20163 <- df20163_bf3
 
 
 
@@ -539,13 +620,14 @@ df20164_bf <- data.frame(df20164[,-c(seq(17,by=2,len=25),66)])
 df20164_bf1 <- data.frame(df20164_bf[,c(2:1)],df20164_bf[,c(3:23)],df20164_bf[,c(27:32)],df20164_bf[,c(36:38)])
 names(df20164_bf1) <- INTG_names
 df20164_bf2 <- merge(x = df20164_bf1, y = ep2016, by = "CCN", all.x = TRUE)
+df20164_bf3 <- merge(x = df20164_bf2, y = star20164, by = "CCN", all.x = TRUE)
 year20164 <- rep(2016,nrow(df20164))
 season20164 <- rep(4,nrow(df20164))
 timeindex20164 <- rep(28,nrow(df20164))
-df20164_bf2$year <- year20164
-df20164_bf2$season <- season20164
-df20164_bf2$timeindex <- timeindex20164
-data20164 <- df20164_bf2
+df20164_bf3$year <- year20164
+df20164_bf3$season <- season20164
+df20164_bf3$timeindex <- timeindex20164
+data20164 <- df20164_bf3
 
 
 
@@ -556,13 +638,14 @@ df20171_bf <- data.frame(df20171[,-c(seq(17,by=2,len=19),54)])
 df20171_bf1 <- data.frame(df20171_bf[,c(2:1)],df20171_bf[,c(3:32)])
 names(df20171_bf1) <- INTG_names
 df20171_bf2 <- merge(x = df20171_bf1, y = ep2017, by = "CCN", all.x = TRUE)
+df20171_bf3 <- merge(x = df20171_bf2, y = star20171, by = "CCN", all.x = TRUE)
 year20171 <- rep(2017,nrow(df20171))
 season20171 <- rep(1,nrow(df20171))
 timeindex20171 <- rep(29,nrow(df20171))
-df20171_bf2$year <- year20171
-df20171_bf2$season <- season20171
-df20171_bf2$timeindex <- timeindex20171
-data20171 <- df20171_bf2
+df20171_bf3$year <- year20171
+df20171_bf3$season <- season20171
+df20171_bf3$timeindex <- timeindex20171
+data20171 <- df20171_bf3
 
 
 
@@ -573,13 +656,14 @@ df20172_bf <- data.frame(df20172[,-c(seq(17,by=2,len=19),54)])
 df20172_bf1 <- data.frame(df20172_bf[,c(2:1)],df20172_bf[,c(3:32)])
 names(df20172_bf1) <- INTG_names
 df20172_bf2 <- merge(x = df20172_bf1, y = ep2017, by = "CCN", all.x = TRUE)
+df20172_bf3 <- merge(x = df20172_bf2, y = star20172, by = "CCN", all.x = TRUE)
 year20172 <- rep(2017,nrow(df20172))
 season20172 <- rep(2,nrow(df20172))
 timeindex20172 <- rep(30,nrow(df20172))
-df20172_bf2$year <- year20172
-df20172_bf2$season <- season20172
-df20172_bf2$timeindex <- timeindex20172
-data20172 <- df20172_bf2
+df20172_bf3$year <- year20172
+df20172_bf3$season <- season20172
+df20172_bf3$timeindex <- timeindex20172
+data20172 <- df20172_bf3
 
 
 
@@ -590,13 +674,14 @@ df20173_bf <- data.frame(df20173[,-c(seq(17,by=2,len=19),54)])
 df20173_bf1 <- data.frame(df20173_bf[,c(2:1)],df20173_bf[,c(3:32)])
 names(df20173_bf1) <- INTG_names
 df20173_bf2 <- merge(x = df20173_bf1, y = ep2017, by = "CCN", all.x = TRUE)
+df20173_bf3 <- merge(x = df20173_bf2, y = star20173, by = "CCN", all.x = TRUE)
 year20173 <- rep(2017,nrow(df20173))
 season20173 <- rep(3,nrow(df20173))
 timeindex20173 <- rep(31,nrow(df20173))
-df20173_bf2$year <- year20173
-df20173_bf2$season <- season20173
-df20173_bf2$timeindex <- timeindex20173
-data20173 <- df20173_bf2
+df20173_bf3$year <- year20173
+df20173_bf3$season <- season20173
+df20173_bf3$timeindex <- timeindex20173
+data20173 <- df20173_bf3
 
 
 
@@ -607,13 +692,14 @@ df20174_bf <- data.frame(df20174[,-c(seq(17,by=2,len=19),54)])
 df20174_bf1 <- data.frame(df20174_bf[,c(2:1)],df20174_bf[,c(3:32)])
 names(df20174_bf1) <- INTG_names
 df20174_bf2 <- merge(x = df20174_bf1, y = ep2017, by = "CCN", all.x = TRUE)
+df20174_bf3 <- merge(x = df20174_bf2, y = star20174, by = "CCN", all.x = TRUE)
 year20174 <- rep(2017,nrow(df20174))
 season20174 <- rep(4,nrow(df20174))
 timeindex20174 <- rep(32,nrow(df20174))
-df20174_bf2$year <- year20174
-df20174_bf2$season <- season20174
-df20174_bf2$timeindex <- timeindex20174
-data20174 <- df20174_bf2
+df20174_bf3$year <- year20174
+df20174_bf3$season <- season20174
+df20174_bf3$timeindex <- timeindex20174
+data20174 <- df20174_bf3
 
 
 
@@ -624,13 +710,14 @@ df20181_bf <- data.frame(df20181[,-c(seq(17,by=2,len=19),54)])
 df20181_bf1 <- data.frame(df20181_bf[,c(2:1)],df20181_bf[,c(3:32)])
 names(df20181_bf1) <- INTG_names
 df20181_bf2 <- merge(x = df20181_bf1, y = ep2018, by = "CCN", all.x = TRUE)
+df20181_bf3 <- merge(x = df20181_bf2, y = star20181, by = "CCN", all.x = TRUE)
 year20181 <- rep(2018,nrow(df20181))
 season20181 <- rep(1,nrow(df20181))
 timeindex20181 <- rep(33,nrow(df20181))
-df20181_bf2$year <- year20181
-df20181_bf2$season <- season20181
-df20181_bf2$timeindex <- timeindex20181
-data20181 <- df20181_bf2
+df20181_bf3$year <- year20181
+df20181_bf3$season <- season20181
+df20181_bf3$timeindex <- timeindex20181
+data20181 <- df20181_bf3
 
 
 df20182 <- read.csv("input/data/HHAALL/ProviderData/HHC_SOCRATA_PRVDR20182.csv",sep=',',colClasses=mytypes54,check.names = F)
@@ -640,23 +727,14 @@ df20182_bf <- data.frame(df20182[,-c(seq(17,by=2,len=19),54)])
 df20182_bf1 <- data.frame(df20182_bf[,c(2:1)],df20182_bf[,c(3:32)])
 names(df20182_bf1) <- INTG_names
 df20182_bf2 <- merge(x = df20182_bf1, y = ep2018, by = "CCN", all.x = TRUE)
+df20182_bf3 <- merge(x = df20182_bf2, y = star20182, by = "CCN", all.x = TRUE)
 year20182 <- rep(2018,nrow(df20182))
 season20182 <- rep(2,nrow(df20182))
 timeindex20182 <- rep(34,nrow(df20182))
-df20182_bf2$year <- year20182
-df20182_bf2$season <- season20182
-df20182_bf2$timeindex <- timeindex20182
-data20182 <- df20182_bf2
-
-test.df <- rbind(data20101,data20102,data20104,
-                 data20111,data20112,data20113,data20114,
-                 data20121,data20122,data20123,data20124,
-                 data20131,data20132,data20133,data20134,
-                 data20141,data20142,data20143,data20144,
-                 data20151,data20152,data20153,data20154,
-                 data20161,data20162,data20163,data20164,
-                 data20171,data20172,data20173,data20174,
-                 data20181,data20182)
+df20182_bf3$year <- year20182
+df20182_bf3$season <- season20182
+df20182_bf3$timeindex <- timeindex20182
+data20182 <- df20182_bf3
 
 
 df20183 <- read.csv("input/data/HHAALL/ProviderData/HHC_SOCRATA_PRVDR20183.csv",sep=',',colClasses=mytypes54,check.names = F)
@@ -666,13 +744,14 @@ df20183_bf <- data.frame(df20183[,-c(seq(17,by=2,len=19),54)])
 df20183_bf1 <- data.frame(df20183_bf[,c(2:1)],df20183_bf[,c(3:32)])
 names(df20183_bf1) <- INTG_names
 df20183_bf2 <- merge(x = df20183_bf1, y = ep2018, by = "CCN", all.x = TRUE)
+df20183_bf3 <- merge(x = df20183_bf2, y = star20183, by = "CCN", all.x = TRUE)
 year20183 <- rep(2018,nrow(df20183))
 season20183 <- rep(3,nrow(df20183))
 timeindex20183 <- rep(35,nrow(df20183))
-df20183_bf2$year <- year20183
-df20183_bf2$season <- season20183
-df20183_bf2$timeindex <- timeindex20183
-data20183 <- df20183_bf2
+df20183_bf3$year <- year20183
+df20183_bf3$season <- season20183
+df20183_bf3$timeindex <- timeindex20183
+data20183 <- df20183_bf3
 
 
 
@@ -683,13 +762,14 @@ df20184_bf <- data.frame(df20184[,-c(seq(17,by=2,len=19),54)])
 df20184_bf1 <- data.frame(df20184_bf[,c(2:1)],df20184_bf[,c(3:32)])
 names(df20184_bf1) <- INTG_names
 df20184_bf2 <- merge(x = df20184_bf1, y = ep2018, by = "CCN", all.x = TRUE)
+df20184_bf3 <- merge(x = df20184_bf2, y = star20184, by = "CCN", all.x = TRUE)
 year20184 <- rep(2018,nrow(df20184))
 season20184 <- rep(4,nrow(df20184))
 timeindex20184 <- rep(36,nrow(df20184))
-df20184_bf2$year <- year20184
-df20184_bf2$season <- season20184
-df20184_bf2$timeindex <- timeindex20184
-data20184 <- df20184_bf2
+df20184_bf3$year <- year20184
+df20184_bf3$season <- season20184
+df20184_bf3$timeindex <- timeindex20184
+data20184 <- df20184_bf3
 
 
 df20191 <- read.csv("input/data/HHAALL/ProviderData/HHC_SOCRATA_PRVDR20191.csv",sep=',',colClasses=mytypes63,check.names = F)
@@ -698,13 +778,14 @@ setdiff(INTG_names,names63)
 df20191_bf <- data.frame(df20191[,-c(seq(17,by=2,len=19),54,seq(56,by=2,len=4))])
 df20191_bf1 <- data.frame(df20191_bf[,c(2:1)],df20191_bf[,c(3:32)],df20191_bf[,c(39)])
 names(df20191_bf1) <- c(INTG_names,'episode')
+df20191_bf2 <- merge(x = df20191_bf1, y = star20191, by = "CCN", all.x = TRUE)
 year20191 <- rep(2019,nrow(df20191))
 season20191 <- rep(1,nrow(df20191))
 timeindex20191 <- rep(37,nrow(df20191))
-df20191_bf1$year <- year20191
-df20191_bf1$season <- season20191
-df20191_bf1$timeindex <- timeindex20191
-data20191 <- df20191_bf1
+df20191_bf2$year <- year20191
+df20191_bf2$season <- season20191
+df20191_bf2$timeindex <- timeindex20191
+data20191 <- df20191_bf2
 sum(is.na(data20191$episode))
 
 
@@ -714,13 +795,14 @@ setdiff(INTG_names,names63)
 df20192_bf <- data.frame(df20192[,-c(seq(17,by=2,len=19),54,seq(56,by=2,len=4))])
 df20192_bf1 <- data.frame(df20192_bf[,c(2:1)],df20192_bf[,c(3:32)],df20192_bf[,c(39)])
 names(df20192_bf1) <- c(INTG_names,'episode')
+df20192_bf2 <- merge(x = df20192_bf1, y = star20192, by = "CCN", all.x = TRUE)
 year20192 <- rep(2019,nrow(df20192))
 season20192 <- rep(2,nrow(df20192))
 timeindex20192 <- rep(38,nrow(df20192))
-df20192_bf1$year <- year20192
-df20192_bf1$season <- season20192
-df20192_bf1$timeindex <- timeindex20192
-data20192 <- df20192_bf1
+df20192_bf2$year <- year20192
+df20192_bf2$season <- season20192
+df20192_bf2$timeindex <- timeindex20192
+data20192 <- df20192_bf2
 sum(is.na(data20192$episode))
 
 
@@ -731,13 +813,14 @@ setdiff(INTG_names,names63)
 df20193_bf <- data.frame(df20193[,-c(seq(17,by=2,len=19),54,seq(56,by=2,len=4))])
 df20193_bf1 <- data.frame(df20193_bf[,c(2:1)],df20193_bf[,c(3:32)],df20193_bf[,c(39)])
 names(df20193_bf1) <- c(INTG_names,'episode')
+df20193_bf2 <- merge(x = df20193_bf1, y = star20193, by = "CCN", all.x = TRUE)
 year20193 <- rep(2019,nrow(df20193))
 season20193 <- rep(3,nrow(df20193))
 timeindex20193 <- rep(39,nrow(df20193))
-df20193_bf1$year <- year20193
-df20193_bf1$season <- season20193
-df20193_bf1$timeindex <- timeindex20193
-data20193 <- df20193_bf1
+df20193_bf2$year <- year20193
+df20193_bf2$season <- season20193
+df20193_bf2$timeindex <- timeindex20193
+data20193 <- df20193_bf2
 sum(is.na(data20193$episode))
 
 
@@ -747,13 +830,14 @@ setdiff(INTG_names,names79)
 df20194_bf <- data.frame(df20194[,-c(seq(17,by=2,len=19),54,seq(56,by=2,len=3))])
 df20194_bf1 <- data.frame(df20194_bf[,c(2:1)],df20194_bf[,c(3:32)],df20194_bf[,56])
 names(df20194_bf1) <- c(INTG_names,'episode')
+df20194_bf2 <- merge(x = df20194_bf1, y = star20194, by = "CCN", all.x = TRUE)
 year20194 <- rep(2019,nrow(df20194))
 season20194 <- rep(4,nrow(df20194))
 timeindex20194 <- rep(40,nrow(df20194))
-df20194_bf1$year <- year20194
-df20194_bf1$season <- season20194
-df20194_bf1$timeindex <- timeindex20194
-data20194 <- df20194_bf1
+df20194_bf2$year <- year20194
+df20194_bf2$season <- season20194
+df20194_bf2$timeindex <- timeindex20194
+data20194 <- df20194_bf2
 sum(is.na(data20194$episode))
 
 alldata <- rbind(data20101,data20102,data20104,

@@ -5,8 +5,8 @@ library(tree)
 library(dplyr)
 
 
-mytypes <- c('character','factor',rep('character',2),'factor',rep('character',2),rep('factor',7),'character',rep('numeric',18),rep('factor',2),rep('numeric',5))
-mynames <- c('CCN','state','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','rating','timely','taughtdrugs','checkfall','checkdepression','flushot','pnumococcal','taughtfootcare','betterwalking','betterbed','betterbathing','lesspain','betterbreathing','betterheal','betterdrug','admitted','ER','episode','year','season','timeindex','median','mean','pop','ruca')
+mytypes <- c('character','factor',rep('character',2),'factor',rep('character',2),rep('factor',7),'character',rep('numeric',18),rep('factor',2),rep('numeric',6))
+mynames <- c('CCN','state','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','rating','timely','taughtdrugs','checkfall','checkdepression','flushot','pnumococcal','taughtfootcare','betterwalking','betterbed','betterbathing','lesspain','betterbreathing','betterheal','betterdrug','admitted','ER','episode','star','year','season','timeindex','median','mean','pop','ruca')
 df <- read.csv("input/HHA2010-2019.csv",sep=',',colClasses=mytypes)
 dim(df)
 names(df)
@@ -16,7 +16,7 @@ data <- filter(df, df$timeindex %in% c(1:40))
 names(data) 
 
 #data_bf <- data.frame(data[,c(8:14)],data[,c(17:23)],data[,c(31:40)])
-data_bf <- data.frame(data[,c(17:20)],data[,c(23:23)],data[,c(31:40)])
+data_bf <- data.frame(data[,c(17:20)],data[,c(23:23)],data[,c(31:33)],data[,c(35:41)])
 names(data_bf)[5] <- 'taughtfootcare'
 names(data_bf)
 dim(data_bf)
@@ -30,7 +30,6 @@ sum(is.na(data_bf))
 table(data_bf$timeindex)
 table(data_bf$year)
 
-#fulldata <- na.omit(data_bf$admitted)
 fulldata <- na.omit(data_bf)
 dim(fulldata)
 
