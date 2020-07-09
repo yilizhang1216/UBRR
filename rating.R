@@ -18,8 +18,10 @@ names(df)
 # 96.3%
 
 
-data <- data.frame(df[,c(8:14)],df[,c(17:20)],df[,c(23:37)],df[,41]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
-names(data)[27] <- 'ruca'
+#data <- data.frame(df[,c(8:14)],df[,c(17:20)],df[,c(23:37)],df[,41]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
+data <- data.frame(df[,c(8:14)],df[,c(17:20)],df[,c(23:41)])
+#names(data)[27] <- 'ruca'
+names(data)[30] <- 'ruca'
 data[data==199|data==201]<-NA
 data[data==5030353|data==16665138]<-NA
 names(data)
@@ -33,7 +35,7 @@ table(data_1$star)
 data_1 <- data[which(data$year %in% c(2016,2017,2018,2019)),]
 data_2 <- data_1[which(data_1$star %in% c(1,2,3,4,5)),]
 data_3 <- na.omit(data_2)
-fulldata <- data_3
+fulldata <- data_2
 dim(fulldata)
 table(fulldata$year)
 table(fulldata$star)
@@ -45,7 +47,7 @@ olr.model<- polr(star ~ timely + taughtdrugs + checkfall + checkdepression + tau
          #+ betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
          #+ admitted + ER 
          + log1p(episode)
-         #+ timeindex
+         + timeindex
          #+ median 
          #+ pop
          + ruca

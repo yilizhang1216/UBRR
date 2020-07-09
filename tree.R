@@ -3,10 +3,11 @@ library(rpart.plot)
 library('scales')
 library(tree)
 library(dplyr)
+library(Rmisc)
 
 
 mytypes <- c('character','factor',rep('character',2),'factor',rep('character',2),rep('factor',7),'character',rep('numeric',18),rep('factor',2),rep('numeric',6))
-mynames <- c('CCN','state','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','rating','timely','taughtdrugs','checkfall','checkdepression','flushot','pnumococcal','taughtfootcare','betterwalking','betterbed','betterbathing','lesspain','betterbreathing','betterheal','betterdrug','admitted','ER','episode','star','year','season','timeindex','median','mean','pop','ruca')
+mynames <- c('CCN','state','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','rating','ER','taughtdrugs','checkfall','checkdepression','flushot','pnumococcal','taughtfootcare','betterwalking','betterbed','betterbathing','lesspain','betterbreathing','betterheal','betterdrug','admitted','ER','episode','star','year','season','timeindex','median','mean','pop','ruca')
 df <- read.csv("input/HHA2010-2019.csv",sep=',',colClasses=mytypes)
 dim(df)
 names(df)
@@ -63,6 +64,8 @@ printcp(model1)
 rsq.rpart(model1)
 
 
+
+
 model2 <- rpart(formula= ER ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare 
                 #+ betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
                 + median 
@@ -88,5 +91,137 @@ table(fulldata$year)
 table(fulldata$timeindex)
 
 
+data <- data.frame(df[,c(17:20)],df[,c(23,31,32,33)],df[,c(35:41)])
+ruca.num <- c()
+ruca.num[data$ruca=="Urban"] <- 1
+ruca.num[data$ruca=='Rural'] <- 0
+table(ruca.num)
+data$ruca.num <- ruca.num
+
+calc.names <- c(1,2,3,4,5,6,7,8,12,16)
+years <- c(2010:2019)
+for (i in calc.names) {
+buff.mean <- c()
+buff.upper <- c()
+buff.lower <- c()
+#buff.std <- c()
+for (j in years) {
+  buff.mean <- c(buff.mean,CI(na.omit(data[data$year==j,][,i]),0.95)[2])
+  buff.upper <- c(buff.upper,CI(na.omit(data[data$year==j,][,i]),0.95)[1])
+  buff.lower <- c(buff.lower,CI(na.omit(data[data$year==j,][,i]),0.95)[3])
+  #buff.std <- c(buff.std,sqrt(var(na.omit(data[data$year==j,][,i]))))
+}
+plot(years,buff.mean,type='l',xlab='year',ylab=names(data)[i])
+lines(years,buff.upper,lty=2)
+lines(years,buff.lower,lty=2)
+}
 
 
+
+
+
+
+buff.mean <- c()
+buff.upper <- c()
+buff.lower <- c()
+for (j in c(2010:2019)) {
+  buff.mean <- c(buff.mean,CI(na.omit(data[data$year==j,]$taughtdrugs))[2])
+  buff.upper <- c(buff.upper,CI(na.omit(data[data$year==j,]$taughtdrugs))[1])
+  buff.lower <- c(buff.lower,CI(na.omit(data[data$year==j,]$taughtdrugs))[3])
+  assign(paste("taughtdrugs","mean", sep = "."), buff.mean)
+  assign(paste("taughtdrugs","upper", sep = "."), buff.upper)
+  assign(paste("taughtdrugs","lower",  sep = "."), buff.lower)
+}
+plot(taughtdrugs.mean,type="l")
+lines(taughtdrugs.upper,lty=2)
+lines(taughtdrugs.lower,lty=2)
+
+buff.mean <- c()
+buff.upper <- c()
+buff.lower <- c()
+for (j in c(2010:2019)) {
+  buff.mean <- c(buff.mean,CI(na.omit(data[data$year==j,]$checkfall))[2])
+  buff.upper <- c(buff.upper,CI(na.omit(data[data$year==j,]$checkfall))[1])
+  buff.lower <- c(buff.lower,CI(na.omit(data[data$year==j,]$checkfall))[3])
+  assign(paste("checkfall","mean", sep = "."), buff.mean)
+  assign(paste("checkfall","upper", sep = "."), buff.upper)
+  assign(paste("checkfall","lower",  sep = "."), buff.lower)
+}
+plot(checkfall.mean,type="l")
+lines(checkfall.upper,lty=2)
+lines(checkfall.lower,lty=2)
+
+buff.mean <- c()
+buff.upper <- c()
+buff.lower <- c()
+for (j in c(2010:2019)) {
+  buff.mean <- c(buff.mean,CI(na.omit(data[data$year==j,]$checkdepression))[2])
+  buff.upper <- c(buff.upper,CI(na.omit(data[data$year==j,]$checkdepression))[1])
+  buff.lower <- c(buff.lower,CI(na.omit(data[data$year==j,]$checkdepression))[3])
+  assign(paste("checkdepression","mean", sep = "."), buff.mean)
+  assign(paste("checkdepression","upper", sep = "."), buff.upper)
+  assign(paste("checkdepression","lower",  sep = "."), buff.lower)
+}
+plot(checkdepression.mean,type="l")
+lines(checkdepression.upper,lty=2)
+lines(checkdepression.lower,lty=2)
+
+buff.mean <- c()
+buff.upper <- c()
+buff.lower <- c()
+for (j in c(2010:2019)) {
+  buff.mean <- c(buff.mean,CI(na.omit(data[data$year==j,]$taughtfootcare))[2])
+  buff.upper <- c(buff.upper,CI(na.omit(data[data$year==j,]$taughtfootcare))[1])
+  buff.lower <- c(buff.lower,CI(na.omit(data[data$year==j,]$taughtfootcare))[3])
+  assign(paste("taughtfootcare","mean", sep = "."), buff.mean)
+  assign(paste("taughtfootcare","upper", sep = "."), buff.upper)
+  assign(paste("taughtfootcare","lower",  sep = "."), buff.lower)
+}
+plot(taughtfootcare.mean,type="l")
+lines(taughtfootcare.upper,lty=2)
+lines(taughtfootcare.lower,lty=2)
+
+buff.mean <- c()
+buff.upper <- c()
+buff.lower <- c()
+for (j in c(2010:2019)) {
+  buff.mean <- c(buff.mean,CI(na.omit(data[data$year==j,]$admitted))[2])
+  buff.upper <- c(buff.upper,CI(na.omit(data[data$year==j,]$admitted))[1])
+  buff.lower <- c(buff.lower,CI(na.omit(data[data$year==j,]$admitted))[3])
+  assign(paste("admitted","mean", sep = "."), buff.mean)
+  assign(paste("admitted","upper", sep = "."), buff.upper)
+  assign(paste("admitted","lower",  sep = "."), buff.lower)
+}
+plot(admitted.mean,type="l")
+lines(admitted.upper,lty=2)
+lines(admitted.lower,lty=2)
+
+buff.mean <- c()
+buff.upper <- c()
+buff.lower <- c()
+for (j in c(2010:2019)) {
+  buff.mean <- c(buff.mean,CI(na.omit(data[data$year==j,]$ER))[2])
+  buff.upper <- c(buff.upper,CI(na.omit(data[data$year==j,]$ER))[1])
+  buff.lower <- c(buff.lower,CI(na.omit(data[data$year==j,]$ER))[3])
+  assign(paste("ER","mean", sep = "."), buff.mean)
+  assign(paste("ER","upper", sep = "."), buff.upper)
+  assign(paste("ER","lower",  sep = "."), buff.lower)
+}
+plot(ER.mean,type="l")
+lines(ER.upper,lty=2)
+lines(ER.lower,lty=2)
+
+buff.mean <- c()
+buff.upper <- c()
+buff.lower <- c()
+for (j in c(2010:2019)) {
+  buff.mean <- c(buff.mean,CI(na.omit(data[data$year==j,]$median))[2])
+  buff.upper <- c(buff.upper,CI(na.omit(data[data$year==j,]$median))[1])
+  buff.lower <- c(buff.lower,CI(na.omit(data[data$year==j,]$median))[3])
+  assign(paste("median","mean", sep = "."), buff.mean)
+  assign(paste("median","upper", sep = "."), buff.upper)
+  assign(paste("median","lower",  sep = "."), buff.lower)
+}
+plot(median.mean,type="l")
+lines(median.upper,lty=2)
+lines(median.lower,lty=2)
