@@ -19,9 +19,10 @@ names(df)
 
 
 #data <- data.frame(df[,c(8:14)],df[,c(17:20)],df[,c(23:37)],df[,41]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
-data <- data.frame(df[,c(8:14)],df[,c(17:20)],df[,c(23:41)])
+#data <- data.frame(df[,c(8:14)],df[,c(17:20)],df[,c(23:41)])
 #names(data)[27] <- 'ruca'
-names(data)[30] <- 'ruca'
+data <- data.frame(df[,c(17:20,23,33:37,41)])
+#names(data)[30] <- 'ruca'
 data[data==199|data==201]<-NA
 data[data==5030353|data==16665138]<-NA
 names(data)
@@ -65,6 +66,11 @@ ci <- confint(olr.model)
 ci
 exp(coef(olr.model))
 exp(cbind(OR = coef(olr.model), ci))
+OR <- as.data.frame(exp(cbind(OR = coef(olr.model), ci)))
+OR$CI <- OR$OR-OR$'2.5 %'
+new_ctable <- cbind(ctable[c(1:8),c(1,2,4)],OR[,c(1,4)])
+new_ctable
+round(new_ctable,2)
 
 fulldata$star <- as.numeric(fulldata$star)
 
