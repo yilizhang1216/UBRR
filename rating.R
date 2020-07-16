@@ -20,9 +20,8 @@ names(df)
 
 #data <- data.frame(df[,c(8:14)],df[,c(17:20)],df[,c(23:37)],df[,41]) ## no episode, no mean, no median, no pop, no time, no flutshot& pnumo
 #data <- data.frame(df[,c(8:14)],df[,c(17:20)],df[,c(23:41)])
-#names(data)[27] <- 'ruca'
 data <- data.frame(df[,c(17:20,23,33:37,41)])
-#names(data)[30] <- 'ruca'
+#data <- data.frame(df[,c(8:14,17:20,23,24:32,33:37,41)])
 data[data==199|data==201]<-NA
 data[data==5030353|data==16665138]<-NA
 names(data)
@@ -43,15 +42,19 @@ table(fulldata$star)
 fulldata$star <- factor(fulldata$star, levels = c("1", "2", "3", "4", "5"))
 table(fulldata$star)
 
-olr.model<- polr(star ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare
+olr.model<- polr(star ~ timely 
+                 + taughtdrugs 
+                 + checkfall 
+                 + checkdepression 
+                 + taughtfootcare
+                 + log1p(episode)
+                 + timeindex
+                 + ruca
          #+ type + off.physical + off.occupational + off.speech + off.medical + off.hha 
          #+ betterwalking + betterbed + betterbathing + lesspain + betterbreathing + betterheal + betterdrug 
          #+ admitted + ER 
-         + log1p(episode)
-         + timeindex
          #+ median 
          #+ pop
-         + ruca
          #+ flushot + pnumococcal
          ,
          data =fulldata,
