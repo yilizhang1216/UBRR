@@ -4,6 +4,10 @@ library(ggplot2)
 library(MASS)
 library(Hmisc)
 library(reshape2)
+library(ordinal)
+library(rms)
+
+#source("plot.xmean.R")
 
 mytypes <- c('character','factor',rep('character',2),'factor',rep('character',2),rep('factor',7),'character',rep('numeric',18),rep('factor',2),rep('numeric',6))
 mynames <- c('CCN','state','name','address','city','Zip','phone','type','off.nursing','off.physical','off.occupational','off.speech','off.medical','off.hha','date','rating','timely','taughtdrugs','checkfall','checkdepression','flushot','pnumococcal','taughtfootcare','betterwalking','betterbed','betterbathing','lesspain','betterbreathing','betterheal','betterdrug','admitted','ER','episode','star','year','season','timeindex','median','mean','pop','ruca')
@@ -75,7 +79,27 @@ new_ctable <- cbind(ctable[c(1:8),c(1,2,4)],OR[,c(1,4)])
 new_ctable
 round(new_ctable,2)
 
+
+par(mfrow=c(2,4))
+plot.xmean.ordinaly(star ~ timely 
+                    + taughtdrugs 
+                    + checkfall 
+                    + checkdepression 
+                    + taughtfootcare
+                    + log1p(episode)
+                    + timeindex
+                    + ruca,
+                    data=fulldata,
+                    cr=TRUE
+                    #subn=FALSE,
+                    #cex.points=.65
+                    )
+
+
+
 fulldata$star <- as.numeric(fulldata$star)
+
+
 
 lm.model <- lm(star ~ timely + taughtdrugs + checkfall + checkdepression + taughtfootcare
                #+ type + off.physical + off.occupational + off.speech + off.medical + off.hha 
